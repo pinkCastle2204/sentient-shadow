@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://lbheupvftsju"]
+
+[ext_resource type="Texture2D" uid="uid://msi1jq5o88wd" path="res://slime_green.png" id="1_uwnm8"]
+[ext_resource type="Script" uid="uid://bag85tx8ajwg3" path="res://scripts/monster.gd" id="2_1cbnp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwnm8"]
+atlas = ExtResource("1_uwnm8")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cbnp"]
+atlas = ExtResource("1_uwnm8")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c47ug"]
+atlas = ExtResource("1_uwnm8")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlss8"]
+atlas = ExtResource("1_uwnm8")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp4s5"]
+atlas = ExtResource("1_uwnm8")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdl1p"]
+atlas = ExtResource("1_uwnm8")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8ewj"]
+atlas = ExtResource("1_uwnm8")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yce20"]
+atlas = ExtResource("1_uwnm8")
+region = Rect2(72, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mpwed"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwnm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cbnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c47ug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlss8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp4s5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdl1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8ewj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yce20")
+}],
+"loop": 1,
+"name": &"hit",
+"speed": 12.5
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpwed"]
+size = Vector2(16, 14)
+
+[node name="Monster" type="CharacterBody2D" unique_id=122207989]
+script = ExtResource("2_1cbnp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2134716116]
+position = Vector2(9.536743e-07, 2)
+scale = Vector2(1.9583333, 1.9166667)
+sprite_frames = SubResource("SpriteFrames_mpwed")
+animation = &"hit"
+autoplay = "default"
+frame_progress = 0.23049928
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1412832504]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_mpwed")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=539378683]
+position = Vector2(0, 11)
+target_position = Vector2(-16, 0)
+
+[node name="RayCast2D2" type="RayCast2D" parent="." unique_id=1759769419]
+position = Vector2(0, 11)
+target_position = Vector2(16, 0)

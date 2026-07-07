@@ -6,14 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://ci5dh867phkbn" path="res://assets/player_samurai/IDLE.png" id="4_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://cl2m6y0nklehx" path="res://assets/player_samurai/RUN.png" id="6_tuyoq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
-atlas = ExtResource("2_qlg0r")
-region = Rect2(0, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
-atlas = ExtResource("2_qlg0r")
-region = Rect2(96, 0, 96, 96)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
 atlas = ExtResource("2_qlg0r")
 region = Rect2(192, 0, 96, 96)
@@ -158,12 +150,6 @@ region = Rect2(1440, 0, 96, 96)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fjrip")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_smehm")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_ur7pv")
 }, {
 "duration": 1.0,
@@ -232,7 +218,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
-"speed": 13.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -294,13 +280,15 @@ height = 28.000004
 
 [node name="Player" type="CharacterBody2D" unique_id=1595256849]
 z_index = 2
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=888006420]
-position = Vector2(0, -42.034)
-scale = Vector2(1.2247384, 1.2492886)
+position = Vector2(4.7683716e-07, -24.000002)
+scale = Vector2(0.74493927, 0.7851731)
 sprite_frames = SubResource("SpriteFrames_a8ls1")
-animation = &"attack"
+animation = &"attack 2"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=94393710]

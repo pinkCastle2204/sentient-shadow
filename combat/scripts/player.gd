@@ -4,6 +4,7 @@ extends CharacterBody2D
 var SPEED = 500.0
 const JUMP_VELOCITY = -500.0
 
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var attacking = false
 var jumpeda = false
