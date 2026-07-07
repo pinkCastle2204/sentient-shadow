@@ -4,13 +4,15 @@
 
 ## Current Progress
 
-- Storyline: A set of were experimenting on humans where they by mistakely ended up in monsters. Hero will kill all those monster (Or maybe cure them)(This is shorter version of story)
+- Storyline: A pharmaceutical company releases a drug to prolong human life. However, they were experimenting on humans which caused the humans to mutate into monsters. The hero is on a search to find his/her family member. The hero will interact with NPCs, complete quests and fight different categories of monsters. The hero's choices will unlock different endings. 
 - Game model: Hybrid model of both top down and side-scroller(Like zelda) or Complete side-scroller
-- Working on character design and world building
-- Currently testing and exploring few things
+- Working on character design, world building and utility ai
+- Currently testing, experimenting and exploring few things
 
 ## Immediate Future plans
 
 - Create first overworld with different quests and a mini boss for that overworld
+- Showcase the Utility AI in action
 - Add combat in game
+- Add NPC dialogues and choices for the hero
 - Add parkour also to make game thrilling (Maybe)
