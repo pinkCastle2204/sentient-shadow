@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://msi1jq5o88wd" path="res://slime_green.png" id="1_uwnm8"]
 [ext_resource type="Script" uid="uid://bag85tx8ajwg3" path="res://scripts/monster.gd" id="2_1cbnp"]
+[ext_resource type="Script" uid="uid://cfonlsc54g8he" path="res://scripts/utility_brain.gd" id="3_c47ug"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uwnm8"]
 atlas = ExtResource("1_uwnm8")
@@ -82,9 +83,7 @@ script = ExtResource("2_1cbnp")
 position = Vector2(9.536743e-07, 2)
 scale = Vector2(1.9583333, 1.9166667)
 sprite_frames = SubResource("SpriteFrames_mpwed")
-animation = &"hit"
 autoplay = "default"
-frame_progress = 0.23049928
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1412832504]
 position = Vector2(0, 11)
@@ -97,3 +96,6 @@ target_position = Vector2(-16, 0)
 [node name="RayCast2D2" type="RayCast2D" parent="." unique_id=1759769419]
 position = Vector2(0, 11)
 target_position = Vector2(16, 0)
+
+[node name="UtilityBrain" type="Node" parent="." unique_id=398082466]
+script = ExtResource("3_c47ug")
