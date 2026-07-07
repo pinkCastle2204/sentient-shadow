@@ -12,7 +12,7 @@ config_version=5
 
 config/name="utility_ai_demo"
 run/main_scene="uid://ds7qv3jc168ti"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]

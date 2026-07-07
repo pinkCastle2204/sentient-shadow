@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dkdan1p00jaem"]
 
-[ext_resource type="Texture2D" uid="uid://c3pkuytbnplp5" path="res://assets/Separate/Idle.png" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://cvhukq5vxx4d5" path="res://assets/Separate/Walk.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://c3pkuytbnplp5" path="res://assets/hero/Idle.png" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://cvhukq5vxx4d5" path="res://assets/hero/Walk.png" id="2_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
 atlas = ExtResource("1_g2els")
@@ -146,7 +146,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fjrip")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle_down",
 "speed": 5.0
 }, {
@@ -163,7 +163,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d2wvv")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle_left",
 "speed": 5.0
 }, {
@@ -180,7 +180,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oprun")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle_right",
 "speed": 5.0
 }, {
@@ -197,7 +197,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4r5pv")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle_up",
 "speed": 5.0
 }, {
@@ -214,7 +214,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4ni07")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk_down",
 "speed": 5.0
 }, {
@@ -231,7 +231,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_31cv2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk_left",
 "speed": 5.0
 }, {
@@ -248,7 +248,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wnwbv")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk_right",
 "speed": 5.0
 }, {
@@ -265,7 +265,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bj30b")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk_up",
 "speed": 5.0
 }]
@@ -287,3 +287,43 @@ shape = SubResource("CircleShape2D_g2els")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=97114888]
 zoom = Vector2(4, 4)
+
+[node name="PanelContainer" type="PanelContainer" parent="Camera2D" unique_id=2083717368]
+visible = false
+offset_left = -152.0
+offset_top = -88.0
+offset_right = 155.0
+offset_bottom = 90.0
+
+[node name="Panel" type="Panel" parent="Camera2D/PanelContainer" unique_id=621433728]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Camera2D/PanelContainer/Panel" unique_id=1068682471]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 10.0
+offset_right = 265.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 33
+
+[node name="Button" type="Button" parent="Camera2D/PanelContainer/Panel" unique_id=1743822568]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 98.0
+offset_right = 211.0
+offset_bottom = 153.0
+text = "Restart"
+
+[node name="Panel2" type="Panel" parent="." unique_id=1237701730]
+offset_left = -72.0
+offset_top = -39.0
+offset_right = -3.0
+offset_bottom = -12.0
+
+[node name="Label" type="Label" parent="Panel2" unique_id=1186711470]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 67.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 8

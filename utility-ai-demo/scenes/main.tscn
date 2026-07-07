@@ -948,27 +948,21 @@ position = Vector2(315, 174)
 script = ExtResource("4_jyhfs")
 
 [node name="enemy" parent="." unique_id=688529733 instance=ExtResource("5_tefeu")]
-position = Vector2(610, 322)
+position = Vector2(985, 482)
 script = ExtResource("6_o6xl0")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1533570305]
+[node name="enemy2" parent="." unique_id=1295881541 instance=ExtResource("5_tefeu")]
+position = Vector2(152, 492)
+script = ExtResource("6_o6xl0")
 
-[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1562680967]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -300.0
-offset_bottom = 200.0
-grow_horizontal = 0
+[node name="enemy3" parent="." unique_id=80050460 instance=ExtResource("5_tefeu")]
+position = Vector2(943, 295)
+script = ExtResource("6_o6xl0")
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel" unique_id=1540948886]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -3.0
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="enemy4" parent="." unique_id=783840849 instance=ExtResource("5_tefeu")]
+position = Vector2(806, 176)
+script = ExtResource("6_o6xl0")
+
+[node name="enemy5" parent="." unique_id=1265768943 instance=ExtResource("5_tefeu")]
+position = Vector2(606, 572)
+script = ExtResource("6_o6xl0")

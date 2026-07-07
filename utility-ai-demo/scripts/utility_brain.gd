@@ -12,9 +12,13 @@ var timer = 0.0
 @export var detect_range=350.0
 
 @onready var enemy=$".."
-@onready var player=$"../../player"
+@onready var player: CharacterBody2D = $"../../player"
 
-@onready var label =$"../../CanvasLayer/Panel/Label"
+
+@onready var label: Label = $"../Panel/Label"
+
+
+
 
 func _physics_process(delta):
 	timer+=delta
@@ -67,14 +71,14 @@ func think():
 		Action.Flee:
 			curr="flee"
 			
-	
-	label.text="Health: %.2f\n" %enemy.health
-	label.text+=" Distance: %.2f\n" %distance
-	label.text+=" Patrol Score: %.2f\n" %patrol_score
-	label.text+=" Chase Score: %.2f\n" %chase_score
-	label.text+=" Attack Score: %.2f\n" %attack_score
-	label.text+=" Flee Score: %.2f\n" %flee_score
-	label.text+="ACTIVE:" + curr.to_upper() 
+	if enemy.health != 0:
+		#label.text="Health: %.2f\n" %enemy.health
+		#label.text+=" Distance: %.2f\n" %distance
+		#label.text+=" Patrol Score: %.2f\n" %patrol_score
+		#label.text+=" Chase Score: %.2f\n" %chase_score
+		#label.text+=" Attack Score: %.2f\n" %attack_score
+		#label.text+=" Flee Score: %.2f\n" %flee_score
+		label.text ="ACTIVE:" + curr.to_upper() 
 	
 	#print("Distance:",distance)
 	#print("Patrol score:",patrol_score)
