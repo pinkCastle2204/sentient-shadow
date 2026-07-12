@@ -5,7 +5,7 @@
 ## Current Progress
 
 - **Storyline (short version):** A group of scientists were experimenting on humans, and the experiments accidentally turned the subjects into monsters. The hero must kill the monsters — or perhaps find a way to cure them instead.
-- **Game model:** Hybrid of top-down and side-scroller (Zelda-style), or a complete side-scroller — still being decided
+- **Game model:**Complete Side scroller
 - **Level design for first overworld:**
   ![Level design image](Images/image.png)
 - Working on character design and world-building
@@ -14,7 +14,5 @@
 ## Immediate Future Plans
 
 - Create the first overworld with multiple quests and a mini boss
-- Add combat to the game
 - Learn combat design and implementation patterns
-- Add parkour to make the game more thrilling (maybe)
-- Prototype companion NPC reactivity (utility-based behavior states)
+- Prototype AI Rival (utility-based behavior states)
