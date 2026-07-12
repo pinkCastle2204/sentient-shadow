@@ -1,16 +1,16 @@
 # Sentient Shadow
 
-> Featuring AI/ML powered dynamic NPC engine
+> Featuring an AI/ML-powered dynamic NPC engine
 
 ## Current Progress
 
-- Storyline: A set of were experimenting on humans where they by mistakely ended up in monsters. Hero will kill all those monster (Or maybe cure them)(This is shorter version of story)
-- Game model: Hybrid model of both top down and side-scroller(Like zelda) or Complete side-scroller
-- Working on character design and world building
-- Currently testing and exploring few things
+- **Storyline (short version):** A group of scientists were experimenting on humans, and the experiments accidentally turned the subjects into monsters. The hero must kill the monsters — or perhaps find a way to cure them instead.
+- **Game model:** 2D side-scroller *(flagging this — earlier we discussed it as a top-down RPG; worth double-checking which one is current before this goes further)*
+- **Level design for first overworld:**
+  ![Level design image](Images/image.png)
 
-## Immediate Future plans
+## Immediate Future Plans
 
-- Create first overworld with different quests and a mini boss for that overworld
-- Add combat in game
-- Add parkour also to make game thrilling (Maybe)
+- Learn combat design and implementation patterns
+- Implement the first overworld level design
+- Prototype AI Rival (utility-based behavior states)
