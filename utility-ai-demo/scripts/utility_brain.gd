@@ -11,10 +11,14 @@ var timer = 0.0
 @export var attack_range=50.0
 @export var detect_range=350.0
 
+@export var aggression=1.0
+@export var cowardice=1.0
+@export var enemy_name="name"
+
 @onready var enemy=$".."
 @onready var player=$"../../player"
 
-@onready var label =$"../../CanvasLayer/Panel/Label"
+@onready var label =$"../Panel/Label"
 
 func _physics_process(delta):
 	timer+=delta
@@ -30,15 +34,21 @@ func think():
 	
 	patrol_score=distance_normalised
 
-	chase_score=health_ratio*(1.0 - distance_normalised)
+	chase_score=health_ratio*(1.0 - distance_normalised)*aggression
 
 	attack_score=0.0
 	if distance<=attack_range:
-		attack_score=health_ratio
+		attack_score=health_ratio*aggression*1.5
 
-	flee_score=(1.0-health_ratio)*(1.0-distance_normalised)
+	flee_score=(1.0-health_ratio)*(1.0-distance_normalised)*cowardice
 	
-	var highest = -1
+	if curr=="flee":
+		if distance_normalised<0.9:
+			flee_score+=1.5
+		if distance_normalised>=0.9:
+			enemy.queue_free()
+	
+	var highest = patrol_score
 	var current_action = Action.Patrol
 	
 	if chase_score>highest:
@@ -48,10 +58,6 @@ func think():
 	if attack_score>highest:
 		highest=attack_score
 		current_action=Action.Attack
-		
-	if patrol_score>highest:
-		highest=patrol_score
-		current_action=Action.Patrol
 	
 	if flee_score>highest:
 		highest=flee_score
@@ -69,19 +75,9 @@ func think():
 			
 	
 	label.text="Health: %.2f\n" %enemy.health
-	label.text+=" Distance: %.2f\n" %distance
-	label.text+=" Patrol Score: %.2f\n" %patrol_score
-	label.text+=" Chase Score: %.2f\n" %chase_score
-	label.text+=" Attack Score: %.2f\n" %attack_score
-	label.text+=" Flee Score: %.2f\n" %flee_score
-	label.text+="ACTIVE:" + curr.to_upper() 
+	label.text+="Distance: %.2f\n" %distance
+	label.text+="Name: " + enemy_name +"\n"
+	label.text+="ACTIVE: " + curr.to_upper() 
 	
-	#print("Distance:",distance)
-	#print("Patrol score:",patrol_score)
-	#print("Chase score:",chase_score)
-	#print("Attack score:",attack_score)
-	#print("Flee score:",flee_score)
-	#print("Action:",curr)	
-	#print("Health:",enemy.health)
-	#print("\n")
+	
 	

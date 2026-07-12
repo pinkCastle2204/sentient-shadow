@@ -947,28 +947,33 @@ tile_set = SubResource("TileSet_85g3d")
 position = Vector2(315, 174)
 script = ExtResource("4_jyhfs")
 
-[node name="enemy" parent="." unique_id=688529733 instance=ExtResource("5_tefeu")]
-position = Vector2(610, 322)
+[node name="enemy1" parent="." unique_id=688529733 instance=ExtResource("5_tefeu")]
+position = Vector2(594, 268)
 script = ExtResource("6_o6xl0")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1533570305]
+[node name="UtilityBrain" parent="enemy1" index="2" unique_id=2010330746]
+aggression = 2.5
+cowardice = 0.3
+enemy_name = "Aggressive"
 
-[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1562680967]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -300.0
-offset_bottom = 200.0
-grow_horizontal = 0
+[node name="enemy2" parent="." unique_id=722893995 instance=ExtResource("5_tefeu")]
+position = Vector2(197, 264)
+script = ExtResource("6_o6xl0")
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel" unique_id=1540948886]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -3.0
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="UtilityBrain" parent="enemy2" index="2" unique_id=2010330746]
+aggression = 0.5
+cowardice = 4.0
+enemy_name = "Coward"
+
+[node name="enemy3" parent="." unique_id=1740944799 instance=ExtResource("5_tefeu")]
+position = Vector2(933, 154)
+script = ExtResource("6_o6xl0")
+
+[node name="UtilityBrain" parent="enemy3" index="2" unique_id=2010330746]
+aggression = 1.2
+cowardice = 1.2
+enemy_name = "Balance"
+
+[editable path="enemy1"]
+[editable path="enemy2"]
+[editable path="enemy3"]
