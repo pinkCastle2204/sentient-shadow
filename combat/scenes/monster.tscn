@@ -76,11 +76,17 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpwed"]
 size = Vector2(16, 14)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abqhh"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rv78h"]
+bg_color = Color(1, 0, 0, 1)
+
 [node name="Monster" type="CharacterBody2D" unique_id=122207989]
 script = ExtResource("2_1cbnp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2134716116]
-position = Vector2(9.536743e-07, 2)
+position = Vector2(5.684342e-14, 3)
 scale = Vector2(1.9583333, 1.9166667)
 sprite_frames = SubResource("SpriteFrames_mpwed")
 autoplay = "default"
@@ -99,3 +105,13 @@ target_position = Vector2(16, 0)
 
 [node name="UtilityBrain" type="Node" parent="." unique_id=398082466]
 script = ExtResource("3_c47ug")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1578830745]
+offset_left = -14.0
+offset_top = -1.0
+offset_right = 15.0
+offset_bottom = 1.0
+theme_override_styles/background = SubResource("StyleBoxFlat_abqhh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rv78h")
+value = 50.0
+show_percentage = false

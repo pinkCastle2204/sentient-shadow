@@ -6,6 +6,7 @@ var chase_score=0.0
 var flee_score=0.0
 var curr="patrol"
 
+
 var timer = 0.0
 
 @export var attack_range=50.0
@@ -33,9 +34,9 @@ func think():
 
 	attack_score=0.0
 	if distance<=attack_range:
-		attack_score=health_ratio
+		attack_score=health_ratio*monster.attackMul
 
-	flee_score=(1.0-health_ratio)*(1.0-distance_normalised)
+	flee_score=(1.0-health_ratio)*(1.0-distance_normalised)*monster.fleeMul
 	
 	var highest = -1
 	var current_action = Action.Patrol

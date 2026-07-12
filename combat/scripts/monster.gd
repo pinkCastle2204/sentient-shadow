@@ -1,7 +1,11 @@
 extends CharacterBody2D
 
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+@onready var progress_bar: ProgressBar = $ProgressBar
+@export var fleeMul: float = 1.0
+@export var attackMul: float = 1.0
 
 @export var MAX_HEALTH = 100.0
 @export var player: CharacterBody2D
@@ -30,15 +34,22 @@ func near(b:float,c: float) -> bool:
 func _physics_process(delta: float) -> void:
 	if is_despawned:
 		return
-		
+	progress_bar.value = health
+	
+	
 	if health>0:
-			health-=3*delta
-			health=clamp(health,0.0,MAX_HEALTH) 
 			
+			health=clamp(health,0.0,MAX_HEALTH) 
+	if health <=0:
+		
+		queue_free()
+		
 	if (player.attacking == true) and near(global_position.x,player.global_position.x):
 		animated_sprite_2d.play("hit")
 		velocity.x = 0
+		health -= 10*delta
 		move_and_slide()
+		
 		return
 	#else:
 		#animated_sprite_2d.play("default")
@@ -53,7 +64,11 @@ func _physics_process(delta: float) -> void:
 		"chase":
 			chase()
 		"attack":
-			attack()
+			if near(global_position.x,player.global_position.x):
+				attack()
+			else :
+				chase()
+			player.player_health -= delta*20
 		"flee":
 			flee()
 	move_and_slide()
@@ -104,7 +119,7 @@ func attack():
 	animated_sprite_2d.play("default")
 	velocity.x = 0
 	print("attack")
-	pass
+	
 	
 func despawn():
 	is_despawned=true
