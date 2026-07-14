@@ -292,6 +292,15 @@ animations = [{
 radius = 5.0000005
 height = 28.000004
 
+[sub_resource type="Gradient" id="Gradient_qlg0r"]
+offsets = PackedFloat32Array(0, 0.7752809)
+colors = PackedColorArray(0.9066667, 0.9066667, 0.9066667, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qshva"]
+gradient = SubResource("Gradient_qlg0r")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Player" type="CharacterBody2D" unique_id=1595256849]
 z_index = 2
 script = ExtResource("1_g2els")
@@ -308,3 +317,11 @@ autoplay = "default"
 position = Vector2(0, -13)
 scale = Vector2(0.99999994, 1)
 shape = SubResource("CapsuleShape2D_yqjtg")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1575159881]
+position = Vector2(8, -17)
+scale = Vector2(0.921875, 0.9218751)
+color = Color(0.92156863, 0.73333335, 0, 1)
+energy = 0.8
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_qshva")
