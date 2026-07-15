@@ -142,6 +142,7 @@ animations = [{
 radius = 9.0
 
 [sub_resource type="SystemFont" id="SystemFont_md0e3"]
+subpixel_positioning = 0
 multichannel_signed_distance_field = true
 
 [node name="enemy" type="CharacterBody2D" unique_id=688529733]
@@ -162,13 +163,13 @@ script = ExtResource("2_md0e3")
 offset_left = 25.0
 offset_top = 67.0
 offset_right = 100.0
-offset_bottom = 124.0
+offset_bottom = 189.0
 
 [node name="Label" type="Label" parent="Panel" unique_id=1449617777]
 texture_filter = 2
 layout_mode = 0
 offset_right = 75.0
-offset_bottom = 54.0
+offset_bottom = 120.0
 theme_override_fonts/font = SubResource("SystemFont_md0e3")
 theme_override_font_sizes/font_size = 8
 horizontal_alignment = 1

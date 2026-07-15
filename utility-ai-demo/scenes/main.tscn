@@ -947,6 +947,13 @@ tile_set = SubResource("TileSet_85g3d")
 position = Vector2(315, 174)
 script = ExtResource("4_jyhfs")
 
+[node name="Camera2D" parent="player" index="2" unique_id=97114888]
+limit_left = 0
+limit_top = 0
+limit_right = 1153
+limit_bottom = 655
+editor_draw_limits = true
+
 [node name="enemy1" parent="." unique_id=688529733 instance=ExtResource("5_tefeu")]
 position = Vector2(594, 268)
 script = ExtResource("6_o6xl0")
@@ -974,6 +981,7 @@ aggression = 1.2
 cowardice = 1.2
 enemy_name = "Balance"
 
+[editable path="player"]
 [editable path="enemy1"]
 [editable path="enemy2"]
 [editable path="enemy3"]

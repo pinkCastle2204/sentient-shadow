@@ -77,6 +77,10 @@ func think():
 	label.text="Health: %.2f\n" %enemy.health
 	label.text+="Distance: %.2f\n" %distance
 	label.text+="Name: " + enemy_name +"\n"
+	label.text+="Patrol Score: %.2f\n" %patrol_score
+	label.text+="Chase Score: %.2f\n" %chase_score
+	label.text+="Attack Score: %.2f\n" %attack_score
+	label.text+="Flee Score: %.2f\n" %flee_score
 	label.text+="ACTIVE: " + curr.to_upper() 
 	
 	

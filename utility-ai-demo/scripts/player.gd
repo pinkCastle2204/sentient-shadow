@@ -8,6 +8,8 @@ func _physics_process(delta: float):
 	velocity=direction*speed
 	animate(direction)
 	move_and_slide()
+	var screensize=get_viewport_rect().size
+	global_position=global_position.clamp(Vector2.ZERO,screensize)
 	
 func animate(direction):
 	if direction==Vector2.ZERO:
