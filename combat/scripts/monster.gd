@@ -16,6 +16,10 @@ const JUMP_VELOCITY = -400.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var utility_brain = $UtilityBrain
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var hitbox: HitBox = $AttackArea
+@onready var hurtbox: HurtBox = $HurtBox
+@onready var collision_shape_2d1: CollisionShape2D = $AttackArea/CollisionShape2D
+@onready var collision_shape_2d_2: CollisionShape2D = $AttackArea/CollisionShape2D2
 
 var health = 100.0
 var current_action = "patrol"
@@ -29,8 +33,15 @@ func near(b:float,c: float) -> bool:
 			else:
 				return false
 		return false
-	
-		
+func near2(b:float,c: float) -> bool:
+		var a = abs(c-b);
+		if(a < 250):
+			if((c < b and player.animated_sprite_2d.flip_h == false) or (c > b and player.animated_sprite_2d.flip_h == true)):
+				return true
+			else:
+				return false
+		return false
+
 func _physics_process(delta: float) -> void:
 	if is_despawned:
 		return
@@ -41,14 +52,11 @@ func _physics_process(delta: float) -> void:
 			
 			health=clamp(health,0.0,MAX_HEALTH) 
 	if health <=0:
-		
+		animated_sprite_2d.play("death")
+		await animated_sprite_2d.animation_finished
 		queue_free()
 		
-	if (player.attacking == true) and near(global_position.x,player.global_position.x):
-		animated_sprite_2d.play("hit")
-		velocity.x = 0
-		health -= 10*delta
-		move_and_slide()
+	
 		
 		return
 	#else:
@@ -64,11 +72,8 @@ func _physics_process(delta: float) -> void:
 		"chase":
 			chase()
 		"attack":
-			if near(global_position.x,player.global_position.x):
-				attack()
-			else :
-				chase()
-			player.player_health -= delta*20
+			attack()
+				
 		"flee":
 			flee()
 	move_and_slide()
@@ -90,7 +95,7 @@ func _physics_process(delta: float) -> void:
 		#velocity.x = move_toward(velocity.x, 0, SPEED)
 
 func patrol():
-	animated_sprite_2d.play("default")
+	animated_sprite_2d.play("chase")
 	if ray_cast_2d_2.is_colliding():
 		direction = -1
 	if ray_cast_2d.is_colliding():
@@ -100,14 +105,14 @@ func patrol():
 	print("patrol")
 
 func chase():
-	animated_sprite_2d.play("default")
+	animated_sprite_2d.play("chase")
 	direction = 1 if player.global_position.x > global_position.x else -1
 	velocity.x = direction * SPEED
 	animated_sprite_2d.flip_h = (direction == -1)
 	print("chase")
 	
 func flee():
-	animated_sprite_2d.play("default")
+	animated_sprite_2d.play("chase")
 	direction = -1 if player.global_position.x > global_position.x else 1
 	velocity.x = direction * (SPEED * 1.2) 
 	animated_sprite_2d.flip_h = (direction == -1)
@@ -116,9 +121,17 @@ func flee():
 		despawn()
 
 func attack():
-	animated_sprite_2d.play("default")
 	velocity.x = 0
+	animated_sprite_2d.play("attack")
+	if(animated_sprite_2d.flip_h == true):
+		collision_shape_2d_2.disabled = false
+	elif(animated_sprite_2d.flip_h == false):
+		collision_shape_2d1.disabled = false
+	
 	print("attack")
+	await animated_sprite_2d.animation_finished
+	collision_shape_2d1.disabled = true
+	collision_shape_2d_2.disabled = true
 	
 	
 func despawn():
@@ -133,3 +146,8 @@ func despawn():
 	health=MAX_HEALTH
 	collision_shape_2d.call_deferred("set_disabled", false)
 	is_despawned=false
+
+
+func _on_hurt_box_damaged(hitbox: Variant) -> void:
+	
+	health -= hitbox.damage

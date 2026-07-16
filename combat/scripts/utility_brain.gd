@@ -9,7 +9,7 @@ var curr="patrol"
 
 var timer = 0.0
 
-@export var attack_range=50.0
+@export var attack_range=100.0
 @export var detect_range=700.0
 
 @onready var monster=$".."
