@@ -7,7 +7,7 @@ var maxhealth=100.0
 var health=100.0
 
 func _physics_process(delta):	
-	if Time.get_ticks_msec() > 3000:
+	if Time.get_ticks_msec() > 10000:
 		if health>0:
 			health-=3*delta
 			health=clamp(health,0.0,maxhealth) 

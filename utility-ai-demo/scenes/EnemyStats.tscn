@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c5qsu4bg7id2p"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=311413578]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1719677087]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 150.0
+grow_horizontal = 2
+
+[node name="Label1" type="Label" parent="HBoxContainer" unique_id=1950468499]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="HBoxContainer" unique_id=583328384]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="HBoxContainer" unique_id=980772400]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1

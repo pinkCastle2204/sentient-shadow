@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cgfomecsmqaep" path="res://assets/TilesetNature.png" id="3_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://dkdan1p00jaem" path="res://scenes/player.tscn" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://dxaov1o43orxb" path="res://scripts/player.gd" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://c5qsu4bg7id2p" path="res://scenes/EnemyStats.tscn" id="4_tipki"]
 [ext_resource type="PackedScene" uid="uid://ctvvivu7fuumq" path="res://scenes/enemy.tscn" id="5_tefeu"]
 [ext_resource type="Script" uid="uid://c1o7pqe32m61o" path="res://scripts/enemy.gd" id="6_o6xl0"]
 
@@ -943,11 +944,21 @@ tile_set = SubResource("TileSet_tefeu")
 tile_map_data = PackedByteArray("AAAMAAgAAAAPAAkAAAAZAAcAAAAPAAkAAAApAA0AAAAPAAkAAAAVABIAAAAPAAkAAAAHABQAAAAPAAkAAAA1ABQAAAAPAAkAAABBABEAAAAPAAkAAAA9ACAAAAAPAAkAAAApAB0AAAAPAAkAAAAfAA8AAAAPAAkAAAAZAB8AAAAPAAkAAAANABoAAAAPAAkAAAAOACMAAAAPAAkAAAAfABcAAAAPAAkAAAAwAAkAAAAPAAkAAAAkAAYAAAAPAAkAAAAzACEAAAAPAAkAAAAuABUAAAAPAAkAAAAlACQAAAAPAAkAAAA7ABkAAAAPAAkAAAA=")
 tile_set = SubResource("TileSet_85g3d")
 
+[node name="EnemyStats" parent="." unique_id=311413578 instance=ExtResource("4_tipki")]
+
 [node name="player" parent="." unique_id=1447468321 instance=ExtResource("3_sugp2")]
-position = Vector2(315, 174)
+position = Vector2(532, 279)
 script = ExtResource("4_jyhfs")
 
+[node name="AnimatedSprite2D" parent="player" index="0" unique_id=232447766]
+position = Vector2(15, 3)
+
+[node name="CollisionShape2D" parent="player" index="1" unique_id=1519901378]
+position = Vector2(15, 3)
+
 [node name="Camera2D" parent="player" index="2" unique_id=97114888]
+position = Vector2(15, 3)
+zoom = Vector2(3, 3)
 limit_left = 0
 limit_top = 0
 limit_right = 1153
@@ -955,7 +966,7 @@ limit_bottom = 655
 editor_draw_limits = true
 
 [node name="enemy1" parent="." unique_id=688529733 instance=ExtResource("5_tefeu")]
-position = Vector2(594, 268)
+position = Vector2(267, 396)
 script = ExtResource("6_o6xl0")
 
 [node name="UtilityBrain" parent="enemy1" index="2" unique_id=2010330746]
@@ -964,22 +975,24 @@ cowardice = 0.3
 enemy_name = "Aggressive"
 
 [node name="enemy2" parent="." unique_id=722893995 instance=ExtResource("5_tefeu")]
-position = Vector2(197, 264)
+position = Vector2(75, 27)
 script = ExtResource("6_o6xl0")
 
 [node name="UtilityBrain" parent="enemy2" index="2" unique_id=2010330746]
 aggression = 0.5
 cowardice = 4.0
 enemy_name = "Coward"
+id = 2
 
 [node name="enemy3" parent="." unique_id=1740944799 instance=ExtResource("5_tefeu")]
-position = Vector2(933, 154)
+position = Vector2(901, 79)
 script = ExtResource("6_o6xl0")
 
 [node name="UtilityBrain" parent="enemy3" index="2" unique_id=2010330746]
 aggression = 1.2
 cowardice = 1.2
 enemy_name = "Balance"
+id = 3
 
 [editable path="player"]
 [editable path="enemy1"]

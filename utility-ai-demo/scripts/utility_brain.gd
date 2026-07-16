@@ -14,11 +14,13 @@ var timer = 0.0
 @export var aggression=1.0
 @export var cowardice=1.0
 @export var enemy_name="name"
+@export var id=1
 
 @onready var enemy=$".."
 @onready var player=$"../../player"
 
 @onready var label =$"../Panel/Label"
+@onready var stats=get_node_or_null("/root/main/EnemyStats")
 
 func _physics_process(delta):
 	timer+=delta
@@ -73,15 +75,22 @@ func think():
 		Action.Flee:
 			curr="flee"
 			
+			
+	label.text="Name: "+ enemy_name
+	var info="Name: " + enemy_name +"\n"
+	info+="ACTIVE: " + curr.to_upper() +"\n"
+	info+="Health: %.2f\n" %enemy.health
+	info+="Distance: %.2f\n" %distance
+	info+="Patrol Score: %.2f\n" %patrol_score
+	info+="Chase Score: %.2f\n" %chase_score
+	info+="Attack Score: %.2f\n" %attack_score
+	info+="Flee Score: %.2f\n" %flee_score
 	
-	label.text="Health: %.2f\n" %enemy.health
-	label.text+="Distance: %.2f\n" %distance
-	label.text+="Name: " + enemy_name +"\n"
-	label.text+="Patrol Score: %.2f\n" %patrol_score
-	label.text+="Chase Score: %.2f\n" %chase_score
-	label.text+="Attack Score: %.2f\n" %attack_score
-	label.text+="Flee Score: %.2f\n" %flee_score
-	label.text+="ACTIVE: " + curr.to_upper() 
+	update_stats(info)
 	
 	
-	
+func update_stats(text):
+	if stats:
+		var target_label=stats.get_node_or_null("HBoxContainer/Label" + str(id))
+		if target_label:
+			target_label.text=text;
