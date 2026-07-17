@@ -1,18 +1,13 @@
 [gd_scene format=3 uid="uid://b0rtsvmt7nqvb"]
 
-[ext_resource type="Script" uid="uid://60jebjfbrdq" path="res://scripts/player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://dx2f2s8ojraui" path="res://assets/player_samurai/ATTACK 1.png" id="2_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://12fdb4v0s1lo" path="res://assets/SHADOW Series - The Shadowed Wetlands Boss v1.1/Sprite Sheet/new/mid-Attack 3.png" id="3_qlg0r"]
-[ext_resource type="Texture2D" uid="uid://ci5dh867phkbn" path="res://assets/player_samurai/IDLE.png" id="4_tuyoq"]
-[ext_resource type="Texture2D" uid="uid://cl2m6y0nklehx" path="res://assets/player_samurai/RUN.png" id="6_tuyoq"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
-atlas = ExtResource("2_qlg0r")
-region = Rect2(0, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
-atlas = ExtResource("2_qlg0r")
-region = Rect2(96, 0, 96, 96)
+[ext_resource type="Script" uid="uid://60jebjfbrdq" path="res://CombatFiles/scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://dx2f2s8ojraui" path="res://CombatFiles/assets/player_samurai/ATTACK 1.png" id="2_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://12fdb4v0s1lo" path="res://CombatFiles/assets/SHADOW Series - The Shadowed Wetlands Boss v1.1/Sprite Sheet/new/mid-Attack 3.png" id="3_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://ci5dh867phkbn" path="res://CombatFiles/assets/player_samurai/IDLE.png" id="4_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://gye85jd7tt7" path="res://CombatFiles/assets/player_samurai/HURT.png" id="5_fjrip"]
+[ext_resource type="Script" uid="uid://cp2gmhx8lwlm3" path="res://CombatFiles/scripts/hurt_area.gd" id="6_fjrip"]
+[ext_resource type="Texture2D" uid="uid://cl2m6y0nklehx" path="res://CombatFiles/assets/player_samurai/RUN.png" id="6_tuyoq"]
+[ext_resource type="Script" uid="uid://dtgtrq2pttj3n" path="res://CombatFiles/scripts/attack_area.gd" id="7_smehm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
 atlas = ExtResource("2_qlg0r")
@@ -90,6 +85,26 @@ region = Rect2(768, 0, 96, 96)
 atlas = ExtResource("4_tuyoq")
 region = Rect2(864, 0, 96, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("5_fjrip")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4otl"]
+atlas = ExtResource("5_fjrip")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2b1d"]
+atlas = ExtResource("5_fjrip")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhpqf"]
+atlas = ExtResource("5_fjrip")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("6_tuyoq")
+region = Rect2(288, 0, 96, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
 atlas = ExtResource("6_tuyoq")
 region = Rect2(0, 0, 96, 96)
@@ -158,12 +173,6 @@ region = Rect2(1440, 0, 96, 96)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fjrip")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_smehm")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_ur7pv")
 }, {
 "duration": 1.0,
@@ -180,7 +189,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"attack",
-"speed": 10.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -232,7 +241,32 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
-"speed": 13.0
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smehm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4otl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2b1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhpqf")
+}],
+"loop": 1,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -289,39 +323,55 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yqjtg"]
-radius = 5.0000005
+radius = 8.000001
 height = 28.000004
 
-[sub_resource type="Gradient" id="Gradient_qlg0r"]
-offsets = PackedFloat32Array(0, 0.7752809)
-colors = PackedColorArray(0.9066667, 0.9066667, 0.9066667, 1, 0, 0, 0, 1)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpwed"]
+size = Vector2(15, 27)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_qshva"]
-gradient = SubResource("Gradient_qlg0r")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2xip"]
+size = Vector2(15, 27)
 
-[node name="Player" type="CharacterBody2D" unique_id=1595256849]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2uyvy"]
+size = Vector2(10, 26)
+
+[node name="Player" type="CharacterBody2D" unique_id=1595256849 groups=["Player"]]
 z_index = 2
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=888006420]
-texture_filter = 1
-position = Vector2(0, -42.034)
-scale = Vector2(1.2247384, 1.2492886)
+position = Vector2(0.1214555, -24.000002)
+scale = Vector2(0.74746954, 0.7851731)
 sprite_frames = SubResource("SpriteFrames_a8ls1")
 animation = &"attack"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=94393710]
-position = Vector2(0, -13)
+position = Vector2(0, -12)
 scale = Vector2(0.99999994, 1)
 shape = SubResource("CapsuleShape2D_yqjtg")
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1575159881]
-position = Vector2(1, -17)
-scale = Vector2(0.921875, 0.9218751)
-color = Color(0.92156863, 0.73333335, 0, 1)
-energy = 0.8
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_qshva")
+[node name="AttackArea" type="Area2D" parent="." unique_id=808218307]
+script = ExtResource("7_smehm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=2008112540]
+position = Vector2(26.5, -11.5)
+shape = SubResource("RectangleShape2D_mpwed")
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AttackArea" unique_id=75480350]
+position = Vector2(-26, -11)
+shape = SubResource("RectangleShape2D_b2xip")
+disabled = true
+
+[node name="HurtArea" type="Area2D" parent="." unique_id=792313240]
+script = ExtResource("6_fjrip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea" unique_id=1047929449]
+position = Vector2(1, -10)
+shape = SubResource("RectangleShape2D_2uyvy")
+debug_color = Color(0.24499993, 0.7, 0, 0.41960785)
+
+[connection signal="damaged" from="HurtArea" to="." method="_on_hurt_area_damaged"]
