@@ -9,7 +9,7 @@ var curr="patrol"
 
 var timer = 0.0
 
-@export var attack_range=100.0
+@export var attack_range=125.0
 @export var detect_range=700.0
 
 @onready var monster=$".."
@@ -40,21 +40,27 @@ func think():
 	
 	var highest = -1
 	var current_action = Action.Patrol
+	var prev_action = Action.Patrol
 	
 	if chase_score>highest:
 		highest=chase_score
+		prev_action = current_action
 		current_action=Action.Chase
 		
 	if attack_score>highest:
 		highest=attack_score
+		prev_action = current_action
+
 		current_action=Action.Attack
 		
 	if patrol_score>highest:
 		highest=patrol_score
+		prev_action = current_action
 		current_action=Action.Patrol
 	
 	if flee_score>highest:
 		highest=flee_score
+		prev_action = current_action
 		current_action=Action.Flee
 		
 	match current_action:
@@ -66,3 +72,4 @@ func think():
 			curr="attack"
 		Action.Flee:
 			curr="flee"
+	

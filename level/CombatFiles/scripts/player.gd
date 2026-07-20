@@ -20,10 +20,7 @@ func _physics_process(delta: float) -> void:
 		get_tree().change_scene_to_file("res://CombatFiles/scenes/AfterDeath.tscn")
 	if Input.is_action_just_pressed("attack") and !attacking and is_on_floor():
 		animated_sprite_2d.play("attack")
-		if(animated_sprite_2d.flip_h == true):
-			collision_shape_2d_2.disabled = false
-		elif(animated_sprite_2d.flip_h == false):
-			collision_shape_2d.disabled = false
+		
 		attacking = true
 		SPEED = 000.0
 	if Input.is_action_just_pressed("attack") and !attacking and !is_on_floor():
@@ -72,3 +69,21 @@ func _physics_process(delta: float) -> void:
 
 func _on_hurt_area_damaged(hitbox: Variant) -> void:
 	health -= hitbox.damage
+
+
+func _on_animated_sprite_2d_frame_changed() -> void:
+	if animated_sprite_2d.animation != "attack":
+		collision_shape_2d.disabled = true
+		collision_shape_2d_2.disabled = true
+		return
+
+	if animated_sprite_2d.frame == 2:
+		if animated_sprite_2d.flip_h:
+			collision_shape_2d.disabled = true
+			collision_shape_2d_2.disabled = false
+		else:
+			collision_shape_2d.disabled = false
+			collision_shape_2d_2.disabled = true
+	else:
+		collision_shape_2d.disabled = true
+		collision_shape_2d_2.disabled = true

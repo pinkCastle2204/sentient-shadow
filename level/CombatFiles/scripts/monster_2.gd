@@ -77,25 +77,10 @@ func _physics_process(delta: float) -> void:
 		"flee":
 			flee()
 	move_and_slide()
-	## Handle jump.
-	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		#velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	#if ray_cast_2d_2.is_colliding():
-		#direction = -1
-		#animated_sprite_2d.flip_h = true
-	#if ray_cast_2d.is_colliding():
-		#direction = 1
-		#animated_sprite_2d.flip_h = false
-	#if direction:
-		#velocity.x = direction * SPEED
-	#else:
-		#velocity.x = move_toward(velocity.x, 0, SPEED)
+	
 
 func patrol():
-	animated_sprite_2d.play("chase")
+	animated_sprite_2d.play("run")
 	if ray_cast_2d_2.is_colliding():
 		direction = -1
 	if ray_cast_2d.is_colliding():
@@ -123,19 +108,13 @@ func flee():
 func attack():
 	velocity.x = 0
 	animated_sprite_2d.play("attack")
-	if(animated_sprite_2d.flip_h == true and animated_sprite_2d.frame == 9 and animated_sprite_2d.animation == "attack"):
-		collision_shape_2d1.disabled = true
-		collision_shape_2d_2.disabled = false
-		
-	elif(animated_sprite_2d.flip_h == false and animated_sprite_2d.frame == 9 and animated_sprite_2d.animation == "attack"):
-		collision_shape_2d1.disabled = false
-		collision_shape_2d_2.disabled = true
+	if(player.global_position.x - global_position.x > 0):
+		animated_sprite_2d.flip_h = false
+	else:
+		animated_sprite_2d.flip_h = true
 		
 	
 	print("attack")
-	await animated_sprite_2d.animation_finished
-	collision_shape_2d1.disabled = true
-	collision_shape_2d_2.disabled = true
 	
 	
 func despawn():
@@ -152,6 +131,25 @@ func despawn():
 	is_despawned=false
 
 
+
+
+func _on_animated_sprite_2d_frame_changed() -> void:
+	if animated_sprite_2d.animation != "attack":
+		collision_shape_2d1.disabled = true
+		collision_shape_2d_2.disabled = true
+		return
+
+	if animated_sprite_2d.frame == 9:
+		if animated_sprite_2d.flip_h:
+			collision_shape_2d1.disabled = true
+			collision_shape_2d_2.disabled = false
+		else:
+			collision_shape_2d1.disabled = false
+			collision_shape_2d_2.disabled = true
+	else:
+		collision_shape_2d1.disabled = true
+		collision_shape_2d_2.disabled = true
+
+
 func _on_hurt_box_damaged(hitbox: Variant) -> void:
-	
-	health -= hitbox.damage
+	health -= 10

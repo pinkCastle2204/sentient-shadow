@@ -189,7 +189,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"attack",
-"speed": 30.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -335,6 +335,15 @@ size = Vector2(15, 27)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2uyvy"]
 size = Vector2(10, 26)
 
+[sub_resource type="Gradient" id="Gradient_gfa54"]
+offsets = PackedFloat32Array(0, 0.7668269)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mpwed"]
+gradient = SubResource("Gradient_gfa54")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Player" type="CharacterBody2D" unique_id=1595256849 groups=["Player"]]
 z_index = 2
 collision_layer = 2
@@ -374,4 +383,9 @@ position = Vector2(1, -10)
 shape = SubResource("RectangleShape2D_2uyvy")
 debug_color = Color(0.24499993, 0.7, 0, 0.41960785)
 
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1934048381]
+color = Color(0.92156863, 0.73333335, 0, 1)
+texture = SubResource("GradientTexture2D_mpwed")
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="damaged" from="HurtArea" to="." method="_on_hurt_area_damaged"]

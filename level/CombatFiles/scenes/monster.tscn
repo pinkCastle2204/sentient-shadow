@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://lbheupvftsju"]
 
-[ext_resource type="Script" uid="uid://bag85tx8ajwg3" path="res://scripts/monster.gd" id="2_1cbnp"]
-[ext_resource type="Texture2D" uid="uid://nof22blf228e" path="res://assets/NightBorne/NightBorne.png" id="2_jlss8"]
-[ext_resource type="Script" uid="uid://cfonlsc54g8he" path="res://scripts/utility_brain.gd" id="3_c47ug"]
-[ext_resource type="Script" uid="uid://dtgtrq2pttj3n" path="res://scripts/attack_area.gd" id="4_gp4s5"]
-[ext_resource type="Script" uid="uid://cp2gmhx8lwlm3" path="res://scripts/hurt_area.gd" id="4_jlss8"]
+[ext_resource type="Script" uid="uid://bag85tx8ajwg3" path="res://CombatFiles/scripts/monster.gd" id="2_1cbnp"]
+[ext_resource type="Texture2D" uid="uid://nof22blf228e" path="res://CombatFiles/assets/NightBorne/NightBorne.png" id="2_jlss8"]
+[ext_resource type="Script" uid="uid://cfonlsc54g8he" path="res://CombatFiles/scripts/utility_brain.gd" id="3_c47ug"]
+[ext_resource type="Script" uid="uid://dtgtrq2pttj3n" path="res://CombatFiles/scripts/attack_area.gd" id="4_gp4s5"]
+[ext_resource type="Script" uid="uid://cp2gmhx8lwlm3" path="res://CombatFiles/scripts/hurt_area.gd" id="4_jlss8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jlss8"]
 atlas = ExtResource("2_jlss8")
@@ -378,6 +378,15 @@ size = Vector2(46, 43)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2uyvy"]
 size = Vector2(40, 55)
 
+[sub_resource type="Gradient" id="Gradient_xnjy1"]
+offsets = PackedFloat32Array(0.0024038462, 0.7235577)
+colors = PackedColorArray(0.5411765, 0.47843137, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mpwed"]
+gradient = SubResource("Gradient_xnjy1")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Monster" type="CharacterBody2D" unique_id=122207989 groups=["Enemy"]]
 script = ExtResource("2_1cbnp")
 
@@ -385,9 +394,7 @@ script = ExtResource("2_1cbnp")
 position = Vector2(-1.9999999, 3)
 scale = Vector2(1.9583333, 1.9166667)
 sprite_frames = SubResource("SpriteFrames_mpwed")
-animation = &"attack"
 autoplay = "default"
-frame_progress = 0.16377395
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1412832504]
 position = Vector2(0, 23)
@@ -435,6 +442,9 @@ metadata/_custom_type_script = "uid://cp2gmhx8lwlm3"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=2132689530]
 position = Vector2(1, 21.5)
 shape = SubResource("RectangleShape2D_2uyvy")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1279938072]
+texture = SubResource("GradientTexture2D_mpwed")
 
 [connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]
 [connection signal="damaged" from="HurtBox" to="." method="_on_hurt_box_damaged"]
