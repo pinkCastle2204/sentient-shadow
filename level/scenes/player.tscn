@@ -319,7 +319,7 @@ scale = Vector2(0.99999994, 1)
 shape = SubResource("CapsuleShape2D_yqjtg")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1575159881]
-position = Vector2(1, -17)
+position = Vector2(8, -17)
 scale = Vector2(0.921875, 0.9218751)
 color = Color(0.92156863, 0.73333335, 0, 1)
 energy = 0.8
