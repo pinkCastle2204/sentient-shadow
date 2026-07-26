@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bc8naftp5f01p"]
+
+[ext_resource type="Texture2D" uid="uid://dfoedslkd4tgi" path="res://Inventory/inventory-slot.png" id="1_s06lr"]
+[ext_resource type="Script" uid="uid://fmn32kjypyqr" path="res://Inventory/inv_ui_slot.gd" id="1_x8d8c"]
+
+[node name="inv_UI_slot" type="Panel" unique_id=1413713098]
+self_modulate = Color(1, 1, 1, 0.007843138)
+custom_minimum_size = Vector2(32, 32)
+offset_right = 33.0
+offset_bottom = 26.0
+script = ExtResource("1_x8d8c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1268954855]
+scale = Vector2(2, 2)
+texture = ExtResource("1_s06lr")
+centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1805217574]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="Panel" type="Panel" parent="CenterContainer" unique_id=62883703]
+layout_mode = 2
+
+[node name="item_display" type="Sprite2D" parent="CenterContainer/Panel" unique_id=1016679467]
+position = Vector2(-4.7683716e-07, -2.3841858e-07)
+scale = Vector2(0.05, 0.05)
+
+[node name="Label" type="Label" parent="CenterContainer/Panel" unique_id=1099105075]
+custom_minimum_size = Vector2(12, 9)
+layout_mode = 0
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 14.0
+offset_bottom = 17.0
+theme_override_font_sizes/font_size = 13
+text = "0"
+horizontal_alignment = 2
