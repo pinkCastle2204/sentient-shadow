@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://8ux4c7bpxnsi" path="res://assets/light.png" id="5_i2t4f"]
 [ext_resource type="Texture2D" uid="uid://dulk5haciwpi4" path="res://assets/ciel.png" id="5_km5ld"]
 [ext_resource type="Texture2D" uid="uid://b72blj7eh7ot7" path="res://assets/arrow.png" id="10_8cye3"]
+[ext_resource type="PackedScene" uid="uid://baplcf8jxiid0" path="res://scenes/medicine.tscn" id="11_2orkt"]
+[ext_resource type="PackedScene" uid="uid://twcd4c45up6f" path="res://scenes/medic.tscn" id="11_aicyk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_km5ld"]
 texture = ExtResource("2_f2txt")
@@ -315,3 +317,15 @@ color = Color(0.44035307, 0.5240423, 0.76968414, 1)
 energy = 2.7
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_qshva")
+
+[node name="Area2D" parent="." unique_id=1464228568 instance=ExtResource("11_aicyk")]
+position = Vector2(583, 425)
+
+[node name="Area2D2" parent="." unique_id=77183165 instance=ExtResource("11_2orkt")]
+position = Vector2(399, 454)
+
+[node name="Area2D3" parent="." unique_id=1273610538 instance=ExtResource("11_2orkt")]
+position = Vector2(754, 565)
+
+[node name="Area2D4" parent="." unique_id=273609804 instance=ExtResource("11_2orkt")]
+position = Vector2(545, 503)

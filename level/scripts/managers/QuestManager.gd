@@ -49,13 +49,14 @@ func add_progress(id:String, amt:=1):
 	if quests[id]["completed"]:
 		return
 		
-	quests[id]["current"] +=amt
+	quests[id]["collected"] +=amt
 	
-	if quests[id]["current"]>=quests[id]["required"]:	#if requirements are satisfied, complete quest
+	if quests[id]["collected"]>=quests[id]["required"]:	#if requirements are satisfied, complete quest
 		quests[id]["completed"]=true
 		quest_completed.emit(id)		#emit signal that quest is completed
-	
+		print("Quest completed")
+		
 	else:
 		quest_updated.emit(id)		#emit signal that quest has been updated
-
+		print(quests[id]["collected"], "/", quests[id]["required"])
 #Need to add helper functions in future (if necessary)

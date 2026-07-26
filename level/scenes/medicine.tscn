@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://baplcf8jxiid0"]
+
+[ext_resource type="Script" uid="uid://cy51djl3gxfbp" path="res://scripts/medicine.gd" id="1_r8o0g"]
+[ext_resource type="Texture2D" uid="uid://cy32pi2c2ec6p" path="res://assets/Icon Pack - Potion Red Bottle.png" id="2_r8o0g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_17o6o"]
+radius = 9.0
+
+[node name="Area2D" type="Area2D" unique_id=77183165]
+script = ExtResource("1_r8o0g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=122635259]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_17o6o")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=677315683]
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_r8o0g")
