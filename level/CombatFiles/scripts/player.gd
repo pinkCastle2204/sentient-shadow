@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 var SPEED = 500.0
-const JUMP_VELOCITY = -500.0
+const JUMP_VELOCITY = -700.0
 @export var health = 100
 @onready var collision_shape_2d: CollisionShape2D = $AttackArea/CollisionShape2D
 @onready var collision_shape_2d_2: CollisionShape2D = $AttackArea/CollisionShape2D2

@@ -13,6 +13,8 @@
 [ext_resource type="Script" uid="uid://d0d0vmkjbqmpq" path="res://label.gd" id="12_3ies3"]
 [ext_resource type="Script" uid="uid://dn7memv451qxe" path="res://CombatFiles/scripts/progress_bar.gd" id="13_xy2fk"]
 [ext_resource type="PackedScene" uid="uid://bkitw6vy5v56c" path="res://scenes/monster_2.tscn" id="14_fpun6"]
+[ext_resource type="PackedScene" uid="uid://bal7g7om2ag5m" path="res://scenes/medic.tscn" id="14_wc255"]
+[ext_resource type="PackedScene" uid="uid://bvyogvv6dt43d" path="res://scenes/medicine.tscn" id="15_arp2o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_km5ld"]
 texture = ExtResource("2_wc255")
@@ -366,3 +368,15 @@ player = NodePath("../..")
 [node name="Monster2" parent="." unique_id=321805557 node_paths=PackedStringArray("player") groups=["Enemy"] instance=ExtResource("14_fpun6")]
 position = Vector2(992, 520)
 player = NodePath("../Player")
+
+[node name="Area2D" parent="." unique_id=634352241 instance=ExtResource("14_wc255")]
+position = Vector2(587, 419)
+
+[node name="Area2D2" parent="." unique_id=328850524 instance=ExtResource("15_arp2o")]
+position = Vector2(396, 448)
+
+[node name="Area2D3" parent="." unique_id=226324295 instance=ExtResource("15_arp2o")]
+position = Vector2(688, 579)
+
+[node name="Area2D4" parent="." unique_id=76186912 instance=ExtResource("15_arp2o")]
+position = Vector2(239, 448)

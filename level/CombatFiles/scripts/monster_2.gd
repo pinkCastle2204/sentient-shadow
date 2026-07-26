@@ -87,21 +87,21 @@ func patrol():
 		direction = 1
 	velocity.x = direction * SPEED
 	animated_sprite_2d.flip_h = (direction == -1)
-	print("patrol")
+	#print("patrol")
 
 func chase():
 	animated_sprite_2d.play("chase")
 	direction = 1 if player.global_position.x > global_position.x else -1
 	velocity.x = direction * SPEED
 	animated_sprite_2d.flip_h = (direction == -1)
-	print("chase")
+	#print("chase")
 	
 func flee():
 	animated_sprite_2d.play("chase")
 	direction = -1 if player.global_position.x > global_position.x else 1
 	velocity.x = direction * (SPEED * 1.2) 
 	animated_sprite_2d.flip_h = (direction == -1)
-	print("flee")
+	#print("flee")
 	if ray_cast_2d.is_colliding() or ray_cast_2d_2.is_colliding():
 		despawn()
 
@@ -114,7 +114,7 @@ func attack():
 		animated_sprite_2d.flip_h = true
 		
 	
-	print("attack")
+	#print("attack")
 	
 	
 func despawn():
