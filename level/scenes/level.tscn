@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://bffs0yqr2jdrx"]
 
+[ext_resource type="PackedScene" uid="uid://bo2om38ema7j5" path="res://scenes/QuestUI.tscn" id="1_5k0ak"]
 [ext_resource type="Texture2D" uid="uid://w0jtjfrf1du7" path="res://assets/environment/level-design-final.jpg" id="1_fpun6"]
 [ext_resource type="Texture2D" uid="uid://cy6wq3giul3lv" path="res://assets/environment/wall.png" id="2_wc255"]
 [ext_resource type="Texture2D" uid="uid://b72blj7eh7ot7" path="res://assets/environment/arrow.png" id="3_arp2o"]
@@ -567,6 +568,8 @@ bg_color = Color(0.015686275, 0, 0.007843138, 1)
 bg_color = Color(0.99215686, 0.003921569, 0.02745098, 1)
 
 [node name="level" type="Node2D" unique_id=585983385]
+
+[node name="CanvasLayer" parent="." unique_id=1969683578 instance=ExtResource("1_5k0ak")]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1871673772]
 offset_left = -715.0

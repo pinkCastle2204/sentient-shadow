@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bo2om38ema7j5"]
+
+[ext_resource type="Script" uid="uid://cf6icblqfjrtg" path="res://scripts/UI/quest_ui.gd" id="1_87l77"]
+
+[node name="QuestUI" type="CanvasLayer" unique_id=1969683578]
+script = ExtResource("1_87l77")
+
+[node name="ActiveQuest" type="Panel" parent="." unique_id=1021393710]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -324.0
+offset_top = -153.0
+offset_right = 326.0
+offset_bottom = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="ActiveQuest" unique_id=1921850179]
+layout_mode = 0
+offset_right = 650.0
+offset_bottom = 66.0
+text = "ACTIVE QUESTS"
+
+[node name="Progress" type="Label" parent="ActiveQuest" unique_id=444813869]
+layout_mode = 0
+offset_top = 89.0
+offset_right = 655.0
+offset_bottom = 299.0
+text = "No Active Quests"
+
+[node name="Popup" type="Panel" parent="." unique_id=1685537312]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 111.0
+grow_horizontal = 2
+
+[node name="Message" type="Label" parent="Popup" unique_id=1042838935]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 109.0
