@@ -2,7 +2,8 @@ extends ProgressBar
 
 
 
-@onready var player: CharacterBody2D = $"../.."
+@onready var player: CharacterBody2D = $"../../Player"
+
 
 
 func _ready()->void:

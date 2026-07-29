@@ -1,16 +1,43 @@
 extends Area2D
 
 var player_near =false
+@onready var player: CharacterBody2D = $"../Player"
+var talked = false
+var op1 = false
+var op2 = false
+var op3 = false
+var q1 = false
+@onready var potion: Area2D = $"."
 
+var item: InvItem
 func _ready():
 	body_entered.connect(on_body_entered)
 	body_exited.connect(on_body_exited)
+	Dialogic.signal_event.connect(dialogic_signal)
+	item = potion.item
+
 
 
 func _process(_delta):
 	if player_near and Input.is_action_just_pressed("interact"):
-		talk()
-
+		if !talked:
+			run_dialogue("FirstMedicMeet")
+			talked = true
+		elif op1:
+			player.removeitems(item)
+			run_dialogue("SecondMedicMeetFirstOption")
+		elif op2:
+			run_dialogue("SecondMedicSecondOption")
+		elif op3:
+			run_dialogue("SecondMedicThirdOption")
+		
+func run_dialogue(dia):
+	player.player_inte = true
+	Dialogic.start(dia)
+	await Dialogic.timeline_ended
+	player.player_inte = false
+	
+	
 func talk():
 	var quest = QuestManager.quests["medicine"]
 
@@ -26,12 +53,26 @@ func talk():
 			quest["collected"],
 			quest["required"]
 		])
-		return
+		
+	else:
+		q1 = true
+		print("Thank you! You saved many lives.")	#this dialogue as well
+		
 
 	# Quest completed
-	print("Thank you! You saved many lives.")	#this dialogue as well
-
-
+func dialogic_signal(arg: String):
+	if arg == "talk":
+		op1 = true
+		talk()
+	elif arg == "option2":
+		option2()
+	elif arg == "option3":
+		option3()
+	
+func option2():
+	op2 = true
+func option3():
+	op3 = true
 func on_body_entered(body):
 	if body.name == "Player":
 		player_near = true

@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -700.0
 @onready var collision_shape_2d_2: CollisionShape2D = $AttackArea/CollisionShape2D2
 @onready var hitbox: HitBox = $AttackArea
 @onready var hurtbox: HurtBox = $HurtArea
+@export var player_inte = false
 
 @export var inv : Inv
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -63,9 +64,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	
+	if player_inte:
+		velocity.x = 0
+		velocity.y = 0
 	move_and_slide()
-
+	
 
 func _on_hurt_area_damaged(hitbox: Variant) -> void:
 	health -= hitbox.damage
@@ -89,4 +93,6 @@ func _on_animated_sprite_2d_frame_changed() -> void:
 		collision_shape_2d_2.disabled = true
 func collect(item):
 	inv.insert(item)
+func removeitems(item):
+	inv.removeALL(item)
 	

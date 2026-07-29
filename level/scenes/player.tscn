@@ -320,7 +320,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yqjtg"]
-radius = 8.000001
+radius = 6.000001
 height = 28.000004
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3why"]
@@ -386,6 +386,7 @@ color = Color(0.92156863, 0.73333335, 0, 1)
 texture = SubResource("GradientTexture2D_mpwed")
 
 [node name="inv_UI" parent="." unique_id=895595950 instance=ExtResource("9_ur7pv")]
+visible = false
 offset_left = -95.0
 offset_top = -90.0
 offset_right = 113.0
