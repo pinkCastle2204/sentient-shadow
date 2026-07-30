@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://dtgtrq2pttj3n" path="res://scripts/meleeAttacks/attack_area.gd" id="18_xy2fk"]
 [ext_resource type="Script" uid="uid://cp2gmhx8lwlm3" path="res://scripts/meleeAttacks/hurt_area.gd" id="19_cmcjb"]
 [ext_resource type="PackedScene" uid="uid://b0rtsvmt7nqvb" path="res://scenes/player.tscn" id="21_h6wmr"]
+[ext_resource type="PackedScene" uid="uid://d23yu5sdbyxnx" path="res://scenes/mutant.tscn" id="22_wu01b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_km5ld"]
 texture = ExtResource("2_wc255")
@@ -785,6 +786,9 @@ position = Vector2(688, 579)
 
 [node name="Area2D4" parent="." unique_id=76186912 instance=ExtResource("15_arp2o")]
 position = Vector2(239, 448)
+
+[node name="Mutant" parent="." unique_id=890785200 instance=ExtResource("22_wu01b")]
+position = Vector2(811, 541)
 
 [node name="Player" parent="." unique_id=1595256849 instance=ExtResource("21_h6wmr")]
 position = Vector2(250, 610)

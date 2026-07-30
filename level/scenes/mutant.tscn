@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://d23yu5sdbyxnx"]
+
+[ext_resource type="Texture2D" uid="uid://cxjhvkwwsqrvr" path="res://assets/mutant_idle.png" id="1_7h4t7"]
+[ext_resource type="Script" uid="uid://bs1nv1y027d0p" path="res://scripts/mutant.gd" id="1_smdei"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smdei"]
+atlas = ExtResource("1_7h4t7")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3umk4"]
+atlas = ExtResource("1_7h4t7")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oepog"]
+atlas = ExtResource("1_7h4t7")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqu0h"]
+atlas = ExtResource("1_7h4t7")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yu1w"]
+atlas = ExtResource("1_7h4t7")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jykuk"]
+atlas = ExtResource("1_7h4t7")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_17o6o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smdei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3umk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oepog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqu0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yu1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jykuk")
+}],
+"loop": 1,
+"name": &"mutant_idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rtr88"]
+radius = 73.0
+
+[node name="Mutant" type="Area2D" unique_id=890785200]
+collision_mask = 3
+script = ExtResource("1_smdei")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1847447305]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_17o6o")
+animation = &"mutant_idle"
+autoplay = "mutant_idle"
+frame_progress = 0.197017
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=730017408]
+position = Vector2(1, 13)
+shape = SubResource("CircleShape2D_rtr88")

@@ -23,15 +23,20 @@ Dialogic="*uid://ds2q0uclmolvu"
 [dialogic]
 
 directories/dch_directory={
-"medic": "res://addons/dialogic/characters/medic.dch"
+"medic": "res://addons/dialogic/characters/medic.dch",
+"mutant": "res://addons/dialogic/characters/mutant.dch"
 }
 directories/dtl_directory={
 "FirstMedicMeet": "res://addons/dialogic/timeline/FirstMedicMeet.dtl",
+"MutantMeet": "res://addons/dialogic/timeline/mutant/MutantMeet.dtl",
 "SecondMedicMeetFirstOption": "res://addons/dialogic/timeline/SecondMedicMeetFirstOption.dtl",
 "SecondMedicSecondOption": "res://addons/dialogic/timeline/SecondMedicSecondOption.dtl",
 "SecondMedicThirdOption": "res://addons/dialogic/timeline/SecondMedicThirdOption.dtl"
 }
 layout/style_directory={}
+glossary/default_case_sensitive=true
+layout/style_list=[]
+layout/default_style="Default"
 
 [display]
 
