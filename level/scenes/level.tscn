@@ -23,8 +23,8 @@
 [ext_resource type="Script" uid="uid://dtgtrq2pttj3n" path="res://scripts/meleeAttacks/attack_area.gd" id="18_xy2fk"]
 [ext_resource type="Script" uid="uid://cp2gmhx8lwlm3" path="res://scripts/meleeAttacks/hurt_area.gd" id="19_cmcjb"]
 [ext_resource type="PackedScene" uid="uid://b0rtsvmt7nqvb" path="res://scenes/player.tscn" id="21_h6wmr"]
-[ext_resource type="PackedScene" uid="uid://d0dq1a3qmhj2j" path="res://scenes/bringer_of_death.tscn" id="24_wu01b"]
 [ext_resource type="PackedScene" uid="uid://d23yu5sdbyxnx" path="res://scenes/mutant.tscn" id="22_wu01b"]
+[ext_resource type="PackedScene" uid="uid://d0dq1a3qmhj2j" path="res://scenes/bringer_of_death.tscn" id="24_wu01b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_km5ld"]
 texture = ExtResource("2_wc255")
