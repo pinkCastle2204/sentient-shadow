@@ -28,6 +28,7 @@ func _process(_delta):
 			run_dialogue("SecondMedicMeetFirstOption")
 		elif op2:
 			run_dialogue("SecondMedicSecondOption")
+			
 		elif op3:
 			run_dialogue("SecondMedicThirdOption")
 		
@@ -71,6 +72,7 @@ func dialogic_signal(arg: String):
 	
 func option2():
 	op2 = true
+	talk()
 func option3():
 	op3 = true
 func on_body_entered(body):

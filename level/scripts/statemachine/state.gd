@@ -8,5 +8,7 @@ func enter():
 
 func update(delta: float):
 	pass
+func physics_update(_delta: float):
+	pass
 func exit():
 	pass

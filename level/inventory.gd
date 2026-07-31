@@ -2,6 +2,7 @@ extends Resource
 
 class_name Inv
 signal update
+signal updateRemoval
 @export var slots: Array[Invslot]
 
 func insert(item: InvItem):
@@ -20,10 +21,10 @@ func insert(item: InvItem):
 func removeALL(item: InvItem):
 	var itemslots = slots.filter(func(slot): return slot.item == item)
 	if !itemslots.is_empty():
-		itemslots[0].item = null
+		itemslots[0].item = item
 		itemslots[0].amount = 0
 		print("The Item is removed now")
 	else:	
 		
 		print("The item was not found")
-	update.emit()
+	updateRemoval.emit()

@@ -10,9 +10,14 @@ func update_slots():
 		slots[i].update(inv.slots[i])
 		
 var isOpen = false
+func update_slots_yeah():
+	print("Updateslot")
+	for i in range(min(inv.slots.size(),slots.size())):
+		slots[i].updateRemoval(inv.slots[i])
 func _ready() -> void:
 	print("read")
 	inv.update.connect(update_slots)
+	inv.updateRemoval.connect(update_slots_yeah)
 	update_slots()
 	close()
 

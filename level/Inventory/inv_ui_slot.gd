@@ -14,6 +14,16 @@ func update(slot: Invslot):
 		item_display.texture = slot.item.texture
 		label.visible = true
 		label.text = str(slot.amount)
+	
+func updateRemoval(slot: Invslot):
+	if !slot.item:
+		item_display.visible = false
+		label.visible = false
+	else:
+		item_display.visible = false
+		item_display.texture = null
+		label.visible = false
+		label.text = str(slot.amount)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
