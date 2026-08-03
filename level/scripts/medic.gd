@@ -26,11 +26,16 @@ func _process(_delta):
 		elif op1:
 			player.removeitems(item)
 			run_dialogue("SecondMedicMeetFirstOption")
+			personality.update_personality([50,-40,5,-10])
 		elif op2:
 			run_dialogue("SecondMedicSecondOption")
+			personality.update_personality([-50,40,30,+30])
+			
 			
 		elif op3:
 			run_dialogue("SecondMedicThirdOption")
+			personality.update_personality([0,0,-40,-20])
+			
 		
 func run_dialogue(dia):
 	player.player_inte = true

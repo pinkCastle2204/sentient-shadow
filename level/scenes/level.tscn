@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://b0rtsvmt7nqvb" path="res://scenes/player.tscn" id="21_h6wmr"]
 [ext_resource type="PackedScene" uid="uid://d23yu5sdbyxnx" path="res://scenes/mutant.tscn" id="22_wu01b"]
 [ext_resource type="PackedScene" uid="uid://d0dq1a3qmhj2j" path="res://scenes/bringer_of_death.tscn" id="24_wu01b"]
+[ext_resource type="Script" uid="uid://rom1tuqn0usd" path="res://scripts/UI/label.gd" id="25_xy2fk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_km5ld"]
 texture = ExtResource("2_wc255")
@@ -812,6 +813,13 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_5k0ak")
 value = 50.0
 show_percentage = false
 script = ExtResource("13_xy2fk")
+
+[node name="Label" type="Label" parent="CanvasLayer2" unique_id=1597031948]
+offset_left = 757.0
+offset_top = 22.0
+offset_right = 1128.0
+offset_bottom = 65.0
+script = ExtResource("25_xy2fk")
 
 [node name="BringerOfDeath" parent="." unique_id=1091127635 instance=ExtResource("24_wu01b")]
 position = Vector2(1099, 306)

@@ -8,7 +8,7 @@ extends state
 
 
 func enter():
-	animated_sprite_2d.play("run")
+	animated_sprite_2d.play("chase")
 
 func update(delta: float):
 	monster_2.chase()

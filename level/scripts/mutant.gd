@@ -15,6 +15,10 @@ func _process(_delta):
 
 func is_dead(argument):
 	if argument=="killed":
+		personality.update_personality([-30,0,70,40])
+		queue_free()
+	if argument=="ignored":
+		personality.update_personality([-10,0,-30,-30])
 		queue_free()
 		
 func run_dialogue(dialogue):

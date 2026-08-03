@@ -4,7 +4,7 @@ extends state
 @onready var monster_2: CharacterBody2D = $"../.."
 
 func enter():
-	animated_sprite_2d.play("run")
+	animated_sprite_2d.play("chase")
 	print("Patrol state entered")
 
 func update(delta: float):

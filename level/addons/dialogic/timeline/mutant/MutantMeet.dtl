@@ -4,8 +4,9 @@ mutant: I've seen my friends turn into monsters...seen them rip each other apart
 mutant: I don't want to turn into one of them
 mutant: Please end it...for me..
 - Kill him
-	mutant: Thank you..
 	[signal arg="killed"]
+	mutant: Thank you..
 - Ignore him
+	[signal arg="ignored"]
 	mutant: I understand...\
 	You shouldn't carry the burden of killing me

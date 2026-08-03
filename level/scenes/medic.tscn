@@ -82,7 +82,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_opg7x"]
-radius = 26.076809
+radius = 44.64303
 
 [node name="Area2D" type="Area2D" unique_id=634352241]
 collision_mask = 3

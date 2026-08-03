@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 QuestManager="*uid://cvgdrjrxomhpn"
 Dialogic="*uid://ds2q0uclmolvu"
+personality="*uid://kyp34pfq0is5"
 
 [dialogic]
 
