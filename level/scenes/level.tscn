@@ -103,9 +103,7 @@ sources/1 = SubResource("TileSetAtlasSource_n6hdu")
 texture = ExtResource("7_cmcjb")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/terrain = 0
 0:1/0 = 0
-0:1/0/terrain = 0
 
 [sub_resource type="TileSet" id="TileSet_kb02q"]
 tile_size = Vector2i(4, 4)

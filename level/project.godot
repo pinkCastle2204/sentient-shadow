@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 QuestManager="*uid://cvgdrjrxomhpn"
 Dialogic="*uid://ds2q0uclmolvu"
 personality="*uid://kyp34pfq0is5"
+GameState="*uid://bg46une044fpm"
+EndingManager="*uid://38n8bh0vy0ni"
 
 [dialogic]
 

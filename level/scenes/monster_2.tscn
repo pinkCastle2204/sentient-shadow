@@ -11,7 +11,6 @@
 [ext_resource type="Script" uid="uid://cfonlsc54g8he" path="res://scripts/Monster/utility_brain.gd" id="8_cg8ks"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lp0ya"]
-load_path = "res://.godot/imported/NightBorne.png-2c2cc7fcb23e3c43ae996c4fd2837461.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2lmjs"]
 atlas = SubResource("CompressedTexture2D_lp0ya")
