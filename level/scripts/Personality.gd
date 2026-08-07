@@ -65,6 +65,13 @@ func update_personality(arr: Array):
 	greed += arr[1]
 	violence += arr[2]
 	courage += arr[3]
+	
+	# Keep values between 0 and 100
+	compassion = clamp(compassion, 0, 100)
+	greed = clamp(greed, 0, 100)
+	violence = clamp(violence, 0, 100)
+	courage = clamp(courage, 0, 100)
+	
 	classify_personality()
 	
 func classify_personality():

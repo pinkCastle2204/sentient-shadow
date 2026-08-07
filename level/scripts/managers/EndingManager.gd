@@ -1,5 +1,4 @@
 extends Node
-
 enum Ending{
 
 	HOPE,
@@ -46,3 +45,53 @@ var ending_vectors = {
 	}
 
 }
+
+func calculate_distance(player, ending):
+	var dc = player["compassion"] - ending["compassion"]
+	var dg = player["greed"] - ending["greed"]
+	var dv = player["violence"] - ending["violence"]
+	var dco = player["courage"] - ending["courage"]
+
+	return sqrt(
+		dc * dc +
+		dg * dg +
+		dv * dv +
+		dco * dco
+	)
+	
+func determine_ending():
+	var player = personality.get_vector()
+	var best_ending = ""
+	var best_distance = INF
+
+	for ending_name in ending_vectors:
+
+		var distance = calculate_distance(
+			player,
+			ending_vectors[ending_name]
+		)
+
+		print(ending_name, " distance = ", distance)
+
+		if distance < best_distance:
+
+			best_distance = distance
+			best_ending = ending_name
+
+	print("FINAL ENDING: ", best_ending)
+
+	return best_ending
+	
+func play_ending():
+	var ending = determine_ending()
+	match ending:
+		"Hope":
+			pass
+		"Sacrifice":
+			pass
+		"Shadow":
+			pass
+		"True":
+			pass
+	#this will be updated once we create the endings
+	
