@@ -258,6 +258,7 @@ bg_color = Color(0, 0, 0, 1)
 
 [node name="BringerOfDeath" type="CharacterBody2D" unique_id=1091127635]
 script = ExtResource("1_sjg3w")
+attack_range = 40.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1465545351]
 scale = Vector2(2, 2)

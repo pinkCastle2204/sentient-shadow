@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var timer: Timer = $Timer
+@onready var collision_shape_2d_ofplayer: CollisionShape2D = $CollisionShape2D
 
 var SPEED = 500.0
 const JUMP_VELOCITY = -700.0
@@ -9,16 +11,28 @@ const JUMP_VELOCITY = -700.0
 @onready var hitbox: HitBox = $AttackArea
 @onready var hurtbox: HurtBox = $HurtArea
 @export var player_inte = false
+var dead = false
 
 @export var inv : Inv
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var attacking = false
 var jumpeda = false
 
+func die():
 	
+	animated_sprite_2d.play("death")
+	collision_shape_2d_ofplayer.disabled = true;
+	dead = true
+	timer.start()
+	
+
 func _physics_process(delta: float) -> void:
-	if health <= 0:
-		get_tree().change_scene_to_file("res://scenes/AfterDeath.tscn")
+	if dead:
+		return
+	if health <= 0 && !dead:
+		
+		die()
+		return
 	if Input.is_action_just_pressed("attack") and !attacking and is_on_floor():
 		animated_sprite_2d.play("attack")
 		
@@ -81,7 +95,7 @@ func _on_animated_sprite_2d_frame_changed() -> void:
 		collision_shape_2d_2.disabled = true
 		return
 
-	if animated_sprite_2d.frame == 2:
+	if animated_sprite_2d.frame == 3 or animated_sprite_2d.frame == 4 or animated_sprite_2d.frame == 7 or animated_sprite_2d.frame == 13:
 		if animated_sprite_2d.flip_h:
 			collision_shape_2d.disabled = true
 			collision_shape_2d_2.disabled = false
@@ -95,4 +109,10 @@ func collect(item):
 	inv.insert(item)
 func removeitems(item):
 	inv.removeALL(item)
+	
+
+
+func _on_timer_timeout() -> void:
+	get_tree().change_scene_to_file("res://scenes/AfterDeath.tscn")
+
 	

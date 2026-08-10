@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://d23yu5sdbyxnx" path="res://scenes/mutant.tscn" id="22_wu01b"]
 [ext_resource type="PackedScene" uid="uid://d0dq1a3qmhj2j" path="res://scenes/bringer_of_death.tscn" id="24_wu01b"]
 [ext_resource type="Script" uid="uid://rom1tuqn0usd" path="res://scripts/UI/label.gd" id="25_xy2fk"]
+[ext_resource type="Script" uid="uid://bdwrrbuu4hkx2" path="res://scripts/player/killzone.gd" id="29_7agi7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_km5ld"]
 texture = ExtResource("2_wc255")
@@ -598,6 +599,9 @@ bg_color = Color(0.015686275, 0, 0.007843138, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5k0ak"]
 bg_color = Color(0.99215686, 0.003921569, 0.02745098, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2xip"]
+size = Vector2(610, 11)
+
 [node name="level" type="Node2D" unique_id=585983385]
 
 [node name="CanvasLayer" parent="." unique_id=1969683578 instance=ExtResource("1_5k0ak")]
@@ -847,8 +851,16 @@ position = Vector2(250, 610)
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1807544775]
 position = Vector2(2, -9)
 zoom = Vector2(3.815, 3.815)
+limit_left = 136
+limit_top = 171
+limit_right = 1638
+limit_bottom = 948
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+
+[node name="Timer" type="Timer" parent="Player" unique_id=1588651615]
+wait_time = 2.0
+one_shot = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1713225821]
 
@@ -873,5 +885,16 @@ script = ExtResource("25_xy2fk")
 [node name="BringerOfDeath" parent="." unique_id=1091127635 instance=ExtResource("24_wu01b")]
 position = Vector2(1099, 306)
 
+[node name="Killzone" type="Area2D" parent="." unique_id=339805305]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("29_7agi7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1873194925]
+position = Vector2(1178, 912.5)
+shape = SubResource("RectangleShape2D_b2xip")
+
 [connection signal="frame_changed" from="Monster2/AnimatedSprite2D" to="Monster2" method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="damaged" from="Monster2/HurtBox" to="Monster2" method="_on_hurt_box_damaged"]
+[connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
+[connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
