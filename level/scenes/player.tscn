@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://60jebjfbrdq" path="res://scripts/player/player.gd" id="1_g2els"]
 [ext_resource type="Resource" uid="uid://cvs3hlar6lsud" path="res://Inventory/player_inv.tres" id="2_smehm"]
-[ext_resource type="Texture2D" uid="uid://gye85jd7tt7" path="res://CombatFiles/assets/player_samurai/HURT.png" id="5_fjrip"]
+[ext_resource type="Texture2D" uid="uid://gye85jd7tt7" path="res://assets/player_samurai/HURT.png" id="5_fjrip"]
 [ext_resource type="Script" uid="uid://cp2gmhx8lwlm3" path="res://scripts/meleeAttacks/hurt_area.gd" id="6_fjrip"]
 [ext_resource type="Script" uid="uid://dtgtrq2pttj3n" path="res://scripts/meleeAttacks/attack_area.gd" id="7_smehm"]
 [ext_resource type="Texture2D" uid="uid://bcbt8jbmtdkn1" path="res://assets/Characters Pack/Outline/WarriorWoman-Sheet.png" id="7_y4r1p"]
@@ -410,7 +410,6 @@ inv = ExtResource("2_smehm")
 position = Vector2(-1, -10)
 scale = Vector2(0.74746954, 0.7851731)
 sprite_frames = SubResource("SpriteFrames_a8ls1")
-animation = &"death"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=94393710]

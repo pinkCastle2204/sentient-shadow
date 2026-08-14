@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var can_move =true
 @onready var timer: Timer = $Timer
 @onready var collision_shape_2d_ofplayer: CollisionShape2D = $CollisionShape2D
 
@@ -27,6 +28,8 @@ func die():
 	
 
 func _physics_process(delta: float) -> void:
+	if not can_move:
+		return
 	if dead:
 		return
 	if health <= 0 && !dead:

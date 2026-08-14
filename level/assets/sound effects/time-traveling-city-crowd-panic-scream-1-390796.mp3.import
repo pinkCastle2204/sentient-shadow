@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bj7ug1qqg38h5"
+path="res://.godot/imported/time-traveling-city-crowd-panic-scream-1-390796.mp3-ede7debfd5a93a63618bec854db8bb40.mp3str"
+
+[deps]
+
+source_file="res://assets/sound effects/time-traveling-city-crowd-panic-scream-1-390796.mp3"
+dest_files=["res://.godot/imported/time-traveling-city-crowd-panic-scream-1-390796.mp3-ede7debfd5a93a63618bec854db8bb40.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
