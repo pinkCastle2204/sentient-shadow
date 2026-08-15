@@ -258,14 +258,14 @@ bg_color = Color(0, 0, 0, 1)
 
 [node name="BringerOfDeath" type="CharacterBody2D" unique_id=1091127635]
 script = ExtResource("1_sjg3w")
+move_speed = 50.0
+chase_speed = 120.0
 attack_range = 40.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1465545351]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_mpwed")
-animation = &"jump"
-frame = 5
-frame_progress = 1.0
+animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=516375565]
 position = Vector2(1, 13.5)

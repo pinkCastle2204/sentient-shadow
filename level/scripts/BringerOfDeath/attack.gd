@@ -42,7 +42,7 @@ func _on_animated_sprite_2d_frame_changed() -> void:
 		
 		return
 
-	if animated_sprite_2d.frame == 3:
+	if animated_sprite_2d.frame == 1:
 		collision_shape_2d.disabled = false
 	else:
 		collision_shape_2d.disabled = true

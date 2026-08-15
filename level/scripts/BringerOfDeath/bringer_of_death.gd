@@ -82,6 +82,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
+	
 
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -162,9 +163,11 @@ func _flash_damage() -> void:
 
 
 func die() -> void:
+	
 	if is_dead:
 		return
 	is_dead = true
+	progress_bar.visible = false
 	velocity = Vector2.ZERO
 	hurt_box.set_deferred("monitoring", false)   # stop US from detecting incoming hits
 	hit_box.set_deferred("monitorable", false)   # stop OTHERS from detecting our hitbox
