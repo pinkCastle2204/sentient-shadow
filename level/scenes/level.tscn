@@ -900,7 +900,9 @@ shape = SubResource("RectangleShape2D_b2xip")
 [node name="Timer" type="Timer" parent="Killzone" unique_id=572939922]
 
 [node name="Companion" parent="." unique_id=1098036455 node_paths=PackedStringArray("target") instance=ExtResource("32_2e2fo")]
-position = Vector2(967, 450)
+position = Vector2(968, 450)
+collision_layer = 2
+collision_mask = 2
 target = NodePath("../Player")
 
 [node name="checkpointManager" type="Node" parent="." unique_id=1617306416]
