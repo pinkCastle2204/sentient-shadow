@@ -1,0 +1,3 @@
+res://scenes/level.tscn
+res://Inventory/player_inv.tres
+res://scripts/player/player.gd

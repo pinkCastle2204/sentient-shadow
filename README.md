@@ -13,6 +13,12 @@ Every important decision affects the rival's behavior, relationships, quest outc
 
 >This project is currently under active development.
 
+## Architecture
+
+![architecture](./Images/architecture.png)
+
+
+
 
 ---
 
