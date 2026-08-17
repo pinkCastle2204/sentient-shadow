@@ -3,12 +3,15 @@
 [ext_resource type="Script" uid="uid://c4u381bc1y1mx" path="res://scripts/Final_bossLevel5/final_boss.gd" id="1_4qsog"]
 [ext_resource type="Texture2D" uid="uid://b2bsalt4ltfif" path="res://assets/Minotaur - Sprite Sheet.png" id="1_gagl1"]
 [ext_resource type="Script" uid="uid://dtgtrq2pttj3n" path="res://scripts/meleeAttacks/attack_area.gd" id="2_uc5mt"]
+[ext_resource type="Script" uid="uid://cp2gmhx8lwlm3" path="res://scripts/meleeAttacks/hurt_area.gd" id="4_4m4mn"]
 [ext_resource type="Script" uid="uid://bb0t2ovl7wifo" path="res://addons/beehave/nodes/beehave_tree.gd" id="4_mpvre"]
 [ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="5_7uoj5"]
 [ext_resource type="Script" uid="uid://8hn4kne15ac5" path="res://addons/beehave/nodes/composites/selector.gd" id="5_tkym2"]
 [ext_resource type="Script" uid="uid://c5iscie6b4sak" path="res://scripts/Final_bossLevel5/is_talking_done.gd" id="7_e0aib"]
 [ext_resource type="Script" uid="uid://dt3thaqpc816k" path="res://scripts/Final_bossLevel5/patrol.gd" id="8_4m4mn"]
 [ext_resource type="Script" uid="uid://bfd0aftd4yfme" path="res://scripts/Final_bossLevel5/talk.gd" id="8_7nq4e"]
+[ext_resource type="Script" uid="uid://b8m12ukfpkhlw" path="res://scripts/Final_bossLevel5/isdead.gd" id="8_711e6"]
+[ext_resource type="Script" uid="uid://3rh416ypjwh4" path="res://scripts/Final_bossLevel5/die.gd" id="9_711e6"]
 [ext_resource type="Script" uid="uid://dbyfavkr85s5u" path="res://scripts/Final_bossLevel5/is_near.gd" id="11_k88u8"]
 [ext_resource type="Script" uid="uid://crkkfmqfg0ni2" path="res://scripts/Final_bossLevel5/attack.gd" id="12_e0aib"]
 [ext_resource type="Script" uid="uid://dwx6s3bk2b88v" path="res://scripts/Final_bossLevel5/is_inrange.gd" id="13_4m4mn"]
@@ -105,6 +108,30 @@ region = Rect2(672, 576, 96, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_c4bb3"]
 atlas = ExtResource("1_gagl1")
 region = Rect2(768, 576, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suwc0"]
+atlas = ExtResource("1_gagl1")
+region = Rect2(0, 864, 102, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fxpc"]
+atlas = ExtResource("1_gagl1")
+region = Rect2(102, 864, 102, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jf0m"]
+atlas = ExtResource("1_gagl1")
+region = Rect2(204, 864, 102, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw136"]
+atlas = ExtResource("1_gagl1")
+region = Rect2(306, 864, 102, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3aqsq"]
+atlas = ExtResource("1_gagl1")
+region = Rect2(408, 864, 102, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gha8i"]
+atlas = ExtResource("1_gagl1")
+region = Rect2(510, 864, 102, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2haii"]
 atlas = ExtResource("1_gagl1")
@@ -242,6 +269,29 @@ animations = [{
 }],
 "loop": 0,
 "name": &"attack3",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suwc0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fxpc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jf0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw136")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3aqsq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gha8i")
+}],
+"loop": 0,
+"name": &"death",
 "speed": 5.0
 }, {
 "frames": [{
@@ -291,20 +341,23 @@ animations = [{
 }],
 "loop": 1,
 "name": &"run",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mpwed"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpwed"]
-size = Vector2(28, 44)
+size = Vector2(32, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2xip"]
+size = Vector2(20, 36)
 
 [node name="FinalBoss" type="CharacterBody2D" unique_id=1529573498]
 script = ExtResource("1_4qsog")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=995333606]
 sprite_frames = SubResource("SpriteFrames_mpwed")
-animation = &"attack3"
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=630573770]
 position = Vector2(0, 5)
@@ -315,20 +368,40 @@ script = ExtResource("2_uc5mt")
 metadata/_custom_type_script = "uid://dtgtrq2pttj3n"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1341826732]
-position = Vector2(24, -6)
+position = Vector2(27, -5.5)
 shape = SubResource("RectangleShape2D_mpwed")
 disabled = true
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1035923103]
+script = ExtResource("4_4m4mn")
+metadata/_custom_type_script = "uid://cp2gmhx8lwlm3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=468544815]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_b2xip")
 
 [node name="BeehaveTree" type="Node" parent="." unique_id=842202797 node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("4_mpvre")
 actor_node_path = NodePath("..")
-blackboard = NodePath("@Node@20922")
+blackboard = NodePath("@Node@27736")
 actor = NodePath("..")
 metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 
 [node name="SelectorComposite" type="Node" parent="BeehaveTree" unique_id=1246747808]
 script = ExtResource("5_tkym2")
 metadata/_custom_type_script = "uid://8hn4kne15ac5"
+
+[node name="SequenceComposite4" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=1663111238]
+script = ExtResource("5_7uoj5")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"
+
+[node name="isdead" type="Node" parent="BeehaveTree/SelectorComposite/SequenceComposite4" unique_id=2020448628]
+script = ExtResource("8_711e6")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"
+
+[node name="die" type="Node" parent="BeehaveTree/SelectorComposite/SequenceComposite4" unique_id=767244370]
+script = ExtResource("9_711e6")
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 
 [node name="SequenceComposite2" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=358173474]
 script = ExtResource("5_7uoj5")
@@ -372,6 +445,7 @@ metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 
 [node name="chase" type="Node" parent="BeehaveTree/SelectorComposite/SequenceComposite3" unique_id=1302571905]
 script = ExtResource("14_4m4mn")
+chase_speed = 300.0
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="Patrol" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=2099033365]
@@ -379,3 +453,4 @@ script = ExtResource("8_4m4mn")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="BeehaveTree/SelectorComposite/SequenceComposite/Attack" method="_on_animated_sprite_2d_frame_changed"]
+[connection signal="damaged" from="HurtBox" to="." method="_on_hurt_box_damaged"]

@@ -142,6 +142,12 @@ bg_color = Color(0.015686275, 0, 0.007843138, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqwqk"]
 bg_color = Color(0.99215686, 0.003921569, 0.02745098, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpwed"]
+bg_color = Color(0.04026879, 0.040268816, 0.04026875, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2xip"]
+bg_color = Color(1, 0, 0, 1)
+
 [node name="Level5" type="Node2D" unique_id=940024811]
 
 [node name="ref" type="TextureRect" parent="." unique_id=92052730]
@@ -203,6 +209,16 @@ value = 50.0
 show_percentage = false
 script = ExtResource("6_ak5vt")
 
+[node name="FinalBosshealth" type="ProgressBar" parent="CanvasLayer2" unique_id=1657553107]
+offset_left = 311.0
+offset_top = 119.0
+offset_right = 811.0
+offset_bottom = 164.0
+theme_override_styles/background = SubResource("StyleBoxFlat_mpwed")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b2xip")
+value = 50.0
+show_percentage = false
+
 [node name="Label" type="Label" parent="CanvasLayer2" unique_id=623283007]
 offset_left = 757.0
 offset_top = 22.0
@@ -212,6 +228,7 @@ script = ExtResource("7_ij176")
 
 [node name="Player" parent="." unique_id=1595256849 instance=ExtResource("6_cynta")]
 position = Vector2(2321, 754)
+attackDamage = 5
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=651109753]
 position = Vector2(2, -9)
@@ -228,7 +245,7 @@ position_smoothing_speed = 10.0
 wait_time = 2.0
 one_shot = true
 
-[node name="FinalBoss" parent="." unique_id=1529573498 instance=ExtResource("9_uva14")]
+[node name="FinalBoss" parent="." unique_id=1529573498 groups=["Enemy"] instance=ExtResource("9_uva14")]
 position = Vector2(2622, 804)
 
 [node name="checkpointManager" type="Node" parent="." unique_id=1272803775]

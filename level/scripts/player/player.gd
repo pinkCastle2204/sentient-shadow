@@ -18,7 +18,7 @@ var dead = false
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 var attacking = false
 var jumpeda = false
-
+@export var attackDamage: int
 func die():
 	
 	animated_sprite_2d.play("death")
@@ -99,10 +99,6 @@ func _on_hurt_area_damaged(hitbox: Variant) -> void:
 
 func _on_animated_sprite_2d_frame_changed() -> void:
 	if animated_sprite_2d.animation == "attack":
-		collision_shape_2d.disabled = true
-		collision_shape_2d_2.disabled = true
-		return
-	
 		if animated_sprite_2d.frame == 3 or animated_sprite_2d.frame == 4 or animated_sprite_2d.frame == 7 or animated_sprite_2d.frame == 13:
 			if animated_sprite_2d.flip_h:
 				collision_shape_2d.disabled = true
@@ -113,11 +109,8 @@ func _on_animated_sprite_2d_frame_changed() -> void:
 		else:
 			collision_shape_2d.disabled = true
 			collision_shape_2d_2.disabled = true
-	if animated_sprite_2d.animation == "attack2":
-		collision_shape_2d.disabled = true
-		collision_shape_2d_2.disabled = true
-		return
-	
+
+	elif animated_sprite_2d.animation == "attack 2":
 		if animated_sprite_2d.frame == 2:
 			if animated_sprite_2d.flip_h:
 				collision_shape_2d.disabled = true
@@ -128,6 +121,9 @@ func _on_animated_sprite_2d_frame_changed() -> void:
 		else:
 			collision_shape_2d.disabled = true
 			collision_shape_2d_2.disabled = true
+	else:
+		collision_shape_2d.disabled = true
+		collision_shape_2d_2.disabled = true
 		
 func collect(item):
 	inv.insert(item)
