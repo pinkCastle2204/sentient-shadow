@@ -28,17 +28,17 @@ Dialogic="*uid://ds2q0uclmolvu"
 [dialogic]
 
 directories/dch_directory={
-"Samyak": "res://addons/dialogic/characters/Samyak.dch",
 "MC": "res://addons/dialogic/characters/MC.dch",
 "Mira": "res://addons/dialogic/characters/Mira.dch",
+"Samyak": "res://addons/dialogic/characters/Samyak.dch",
 "medic": "res://addons/dialogic/characters/medic.dch",
 "mutant": "res://addons/dialogic/characters/mutant.dch",
 "unknown": "res://addons/dialogic/characters/unknown.dch"
 }
 directories/dtl_directory={
-"FinalWords": "res://addons/dialogic/timeline/FinalBoss/FinalWords.dtl",
 "AfterFlashback": "res://addons/dialogic/timeline/intro/AfterFlashback.dtl",
 "AfterWaking": "res://addons/dialogic/timeline/intro/AfterWaking.dtl",
+"FinalWords": "res://addons/dialogic/timeline/FinalBoss/FinalWords.dtl",
 "FirstMedicMeet": "res://addons/dialogic/timeline/FirstMedicMeet.dtl",
 "Flashback": "res://addons/dialogic/timeline/intro/Flashback.dtl",
 "Intro": "res://addons/dialogic/timeline/intro/Intro.dtl",
