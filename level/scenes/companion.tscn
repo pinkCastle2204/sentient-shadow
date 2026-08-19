@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://cjjy66vt7xxhy"]
 
 [ext_resource type="Texture2D" uid="uid://cwb703meoqom0" path="res://assets/Characters Pack/Outline/WarriorMan-Sheet.png" id="1_0ewvi"]
+[ext_resource type="Script" uid="uid://b32rtnsobknol" path="res://scripts/companion/companion.gd" id="1_rp0js"]
+[ext_resource type="Script" uid="uid://c4ia67rtmpqf5" path="res://scripts/statemachine/state_machine.gd" id="2_eol6h"]
+[ext_resource type="Script" uid="uid://dfnks15gh7sij" path="res://scripts/companion/state_machine.gd" id="3_gxvuv"]
+[ext_resource type="Script" uid="uid://br520l07svpwg" path="res://scripts/statemachine/state.gd" id="3_mqvd2"]
+[ext_resource type="Script" uid="uid://b31nyxd5qqvjv" path="res://scripts/companion/follow.gd" id="5_gxvuv"]
+[ext_resource type="Script" uid="uid://fg600q72c3dy" path="res://scripts/companion/chase.gd" id="7_p4qgt"]
+[ext_resource type="Script" uid="uid://bmcgpjjoty4a4" path="res://scripts/companion/idle.gd" id="8_jvj4j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6mwj"]
 atlas = ExtResource("1_0ewvi")
@@ -250,7 +257,7 @@ region = Rect2(480, 192, 80, 64)
 atlas = ExtResource("1_0ewvi")
 region = Rect2(560, 192, 80, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_mpwed"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ok3ci"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -286,7 +293,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lrun3")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack",
 "speed": 10.0
 }, {
@@ -470,16 +477,74 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mpwed"]
-radius = 5.0
-height = 10.0
+radius = 4.0
+height = 14.0
 
 [node name="Companion" type="CharacterBody2D" unique_id=668943125]
+script = ExtResource("1_rp0js")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=797111000]
-sprite_frames = SubResource("SpriteFrames_mpwed")
-animation = &"idle"
-frame_progress = 0.55121815
+position = Vector2(1, 5)
+sprite_frames = SubResource("SpriteFrames_ok3ci")
+animation = &"attack"
+frame = 10
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1997929387]
 position = Vector2(3, 10)
 shape = SubResource("CapsuleShape2D_mpwed")
+
+[node name="state_machine" type="Node" parent="." unique_id=1923589281]
+script = ExtResource("3_gxvuv")
+metadata/_custom_type_script = "uid://c4ia67rtmpqf5"
+
+[node name="Interact" type="Node" parent="state_machine" unique_id=856626837 node_paths=PackedStringArray("starting_state")]
+script = ExtResource("2_eol6h")
+starting_state = NodePath("follow")
+metadata/_custom_type_script = "uid://c4ia67rtmpqf5"
+
+[node name="follow" type="Node" parent="state_machine/Interact" unique_id=729829391]
+script = ExtResource("5_gxvuv")
+metadata/_custom_type_script = "uid://br520l07svpwg"
+
+[node name="talk" type="Node" parent="state_machine/Interact" unique_id=953162049]
+script = ExtResource("3_mqvd2")
+metadata/_custom_type_script = "uid://br520l07svpwg"
+
+[node name="Betray" type="Node" parent="state_machine" unique_id=1977046926 node_paths=PackedStringArray("starting_state")]
+script = ExtResource("2_eol6h")
+starting_state = NodePath("chase")
+metadata/_custom_type_script = "uid://c4ia67rtmpqf5"
+
+[node name="chase" type="Node" parent="state_machine/Betray" unique_id=1985025918]
+script = ExtResource("7_p4qgt")
+metadata/_custom_type_script = "uid://br520l07svpwg"
+
+[node name="attack" type="Node" parent="state_machine/Betray" unique_id=1736983155]
+script = ExtResource("3_mqvd2")
+metadata/_custom_type_script = "uid://br520l07svpwg"
+
+[node name="runAway" type="Node" parent="state_machine/Betray" unique_id=1768726091]
+script = ExtResource("3_mqvd2")
+metadata/_custom_type_script = "uid://br520l07svpwg"
+
+[node name="idle" type="Node" parent="state_machine/Betray" unique_id=339743223]
+script = ExtResource("8_jvj4j")
+metadata/_custom_type_script = "uid://br520l07svpwg"
+
+[node name="Assist" type="Node" parent="state_machine" unique_id=91703804 node_paths=PackedStringArray("starting_state")]
+script = ExtResource("2_eol6h")
+starting_state = NodePath("chase")
+metadata/_custom_type_script = "uid://c4ia67rtmpqf5"
+
+[node name="chase" type="Node" parent="state_machine/Assist" unique_id=1809192530]
+script = ExtResource("7_p4qgt")
+metadata/_custom_type_script = "uid://br520l07svpwg"
+
+[node name="attack" type="Node" parent="state_machine/Assist" unique_id=2022189559]
+script = ExtResource("3_mqvd2")
+metadata/_custom_type_script = "uid://br520l07svpwg"
+
+[node name="runAway" type="Node" parent="state_machine/Assist" unique_id=310371523]
+script = ExtResource("3_mqvd2")
+metadata/_custom_type_script = "uid://br520l07svpwg"
