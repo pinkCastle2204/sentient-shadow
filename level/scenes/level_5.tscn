@@ -227,12 +227,13 @@ offset_bottom = 65.0
 script = ExtResource("7_ij176")
 
 [node name="Player" parent="." unique_id=1595256849 instance=ExtResource("6_cynta")]
-position = Vector2(2321, 754)
+position = Vector2(1364, 1018)
+scale = Vector2(3.005, 3.005)
 attackDamage = 5
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=651109753]
 position = Vector2(2, -9)
-zoom = Vector2(3.815, 3.815)
+zoom = Vector2(1.505, 1.505)
 limit_enabled = false
 limit_left = 136
 limit_top = 171
