@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c8xquxqp4aqo3"]
 
+[ext_resource type="Script" uid="uid://4u7mvxxqah7d" path="res://scripts/bcompanion/bcompamion.gd" id="1_lxlj2"]
 [ext_resource type="Texture2D" uid="uid://cwb703meoqom0" path="res://assets/Characters Pack/Outline/WarriorMan-Sheet.png" id="1_m4176"]
 [ext_resource type="Script" uid="uid://dtgtrq2pttj3n" path="res://scripts/meleeAttacks/attack_area.gd" id="2_2clf7"]
 [ext_resource type="Script" uid="uid://bb0t2ovl7wifo" path="res://addons/beehave/nodes/beehave_tree.gd" id="3_52xs6"]
@@ -8,9 +9,9 @@
 [ext_resource type="Script" uid="uid://c5iscie6b4sak" path="res://scripts/Final_bossLevel5/is_talking_done.gd" id="6_whac2"]
 [ext_resource type="Script" uid="uid://dwx6s3bk2b88v" path="res://scripts/Final_bossLevel5/is_inrange.gd" id="7_7j6b5"]
 [ext_resource type="Script" uid="uid://b0nx232k13mv7" path="res://scripts/Final_bossLevel5/chase.gd" id="8_7q6ta"]
-[ext_resource type="Script" uid="uid://bfd0aftd4yfme" path="res://scripts/Final_bossLevel5/talk.gd" id="9_mxbrr"]
+[ext_resource type="Script" uid="uid://djt1o70mdsgub" path="res://scripts/bcompanion/talk.gd" id="9_52xs6"]
 [ext_resource type="Script" uid="uid://dbyfavkr85s5u" path="res://scripts/Final_bossLevel5/is_near.gd" id="10_moovs"]
-[ext_resource type="Script" uid="uid://crkkfmqfg0ni2" path="res://scripts/Final_bossLevel5/attack.gd" id="11_qynmw"]
+[ext_resource type="Script" uid="uid://dboiqq20cquo7" path="res://scripts/bcompanion/attack.gd" id="11_52xs6"]
 [ext_resource type="Script" uid="uid://dt3thaqpc816k" path="res://scripts/Final_bossLevel5/patrol.gd" id="12_wbfwf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cc8np"]
@@ -494,6 +495,9 @@ radius = 5.8309517
 size = Vector2(17.5, 23.5)
 
 [node name="Bcompamion" type="CharacterBody2D" unique_id=1958754732]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_lxlj2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1938265165]
 position = Vector2(-3, -3)
@@ -513,12 +517,13 @@ metadata/_custom_type_script = "uid://dtgtrq2pttj3n"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=542724993]
 position = Vector2(18.25, 0.25)
 shape = SubResource("RectangleShape2D_mpwed")
+disabled = true
 
 [node name="BeehaveTree" type="Node" parent="." unique_id=593264918 node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("3_52xs6")
 actor_node_path = NodePath("..")
-blackboard = NodePath("@Node@49248")
-actor = NodePath("")
+blackboard = NodePath("@Node@29889")
+actor = NodePath("..")
 metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 
 [node name="SelectorComposite" type="Node" parent="BeehaveTree" unique_id=513439552]
@@ -542,7 +547,7 @@ script = ExtResource("8_7q6ta")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="Talk" type="Node" parent="BeehaveTree/SelectorComposite/SequenceComposite2" unique_id=1068985041]
-script = ExtResource("9_mxbrr")
+script = ExtResource("9_52xs6")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="SequenceComposite" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=1643174632]
@@ -554,7 +559,7 @@ script = ExtResource("10_moovs")
 metadata/_custom_type_script = "uid://cbnbvj8prv63i"
 
 [node name="Attack" type="Node" parent="BeehaveTree/SelectorComposite/SequenceComposite" unique_id=869378008]
-script = ExtResource("11_qynmw")
+script = ExtResource("11_52xs6")
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="SequenceComposite3" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=1402089812]

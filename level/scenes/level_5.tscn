@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://rom1tuqn0usd" path="res://scripts/UI/label.gd" id="7_ij176"]
 [ext_resource type="PackedScene" uid="uid://dw6f3pxchtvua" path="res://scenes/final_boss.tscn" id="9_uva14"]
 [ext_resource type="Script" uid="uid://cc6wdnjrv5ptr" path="res://scripts/checkpoint_manager.gd" id="10_1q3ip"]
+[ext_resource type="PackedScene" uid="uid://c8xquxqp4aqo3" path="res://scenes/bcompamion.tscn" id="10_e4ab4"]
 [ext_resource type="PackedScene" uid="uid://dihji23xxltkc" path="res://scenes/checkpoint.tscn" id="11_e4ab4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_br4so"]
@@ -247,6 +248,11 @@ one_shot = true
 
 [node name="FinalBoss" parent="." unique_id=1529573498 groups=["Enemy"] instance=ExtResource("9_uva14")]
 position = Vector2(2622, 804)
+
+[node name="Bcompamion" parent="." unique_id=1958754732 instance=ExtResource("10_e4ab4")]
+position = Vector2(3247, 462)
+collision_layer = 1
+collision_mask = 1
 
 [node name="checkpointManager" type="Node" parent="." unique_id=1272803775]
 script = ExtResource("10_1q3ip")
