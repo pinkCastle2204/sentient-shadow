@@ -28,9 +28,11 @@ Dialogic="*uid://ds2q0uclmolvu"
 [dialogic]
 
 directories/dch_directory={
-"MC": "res://addons/dialogic/characters/MC.dch",
+"Eva": "res://addons/dialogic/characters/Eva.dch",
 "Mira": "res://addons/dialogic/characters/Mira.dch",
+"SYSTEM": "res://addons/dialogic/characters/SYSTEM.dch",
 "Samyak": "res://addons/dialogic/characters/Samyak.dch",
+"Unit-07": "res://addons/dialogic/characters/Unit-07.dch",
 "medic": "res://addons/dialogic/characters/medic.dch",
 "mutant": "res://addons/dialogic/characters/mutant.dch",
 "unknown": "res://addons/dialogic/characters/unknown.dch"
@@ -45,7 +47,15 @@ directories/dtl_directory={
 "MutantMeet": "res://addons/dialogic/timeline/mutant/MutantMeet.dtl",
 "SecondMedicMeetFirstOption": "res://addons/dialogic/timeline/SecondMedicMeetFirstOption.dtl",
 "SecondMedicSecondOption": "res://addons/dialogic/timeline/SecondMedicSecondOption.dtl",
-"SecondMedicThirdOption": "res://addons/dialogic/timeline/SecondMedicThirdOption.dtl"
+"SecondMedicThirdOption": "res://addons/dialogic/timeline/SecondMedicThirdOption.dtl",
+"hidden-aftermath": "res://addons/dialogic/timeline/endings/hidden-aftermath.dtl",
+"hidden-ending": "res://addons/dialogic/timeline/endings/hidden-ending.dtl",
+"hope-aftermath": "res://addons/dialogic/timeline/endings/hope-aftermath.dtl",
+"hope-ending": "res://addons/dialogic/timeline/endings/hope-ending.dtl",
+"sacrifice-aftermath": "res://addons/dialogic/timeline/endings/sacrifice-aftermath.dtl",
+"sacrifice-ending": "res://addons/dialogic/timeline/endings/sacrifice-ending.dtl",
+"sacrifice-process": "res://addons/dialogic/timeline/endings/sacrifice-process.dtl",
+"shadow-ending": "res://addons/dialogic/timeline/endings/shadow-ending.dtl"
 }
 layout/style_directory={}
 glossary/default_case_sensitive=true
