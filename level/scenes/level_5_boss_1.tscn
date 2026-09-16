@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://do235q2g2pikw"]
+
+[ext_resource type="PackedScene" uid="uid://d0dq1a3qmhj2j" path="res://scenes/bringer_of_death.tscn" id="1_ny1wy"]
+
+[node name="Level5boss1" unique_id=1091127635 instance=ExtResource("1_ny1wy")]

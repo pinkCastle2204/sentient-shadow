@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="New Game Project"
+config/name="LevelVersion10"
 run/main_scene="uid://bffs0yqr2jdrx"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -39,6 +39,7 @@ directories/dtl_directory={
 "AfterFlashback": "res://addons/dialogic/timeline/intro/AfterFlashback.dtl",
 "AfterWaking": "res://addons/dialogic/timeline/intro/AfterWaking.dtl",
 "FinalWords": "res://addons/dialogic/timeline/FinalBoss/FinalWords.dtl",
+"FinalWordsCompanion": "res://addons/dialogic/timeline/Companion/FinalWordsCompanion.dtl",
 "FirstMedicMeet": "res://addons/dialogic/timeline/FirstMedicMeet.dtl",
 "Flashback": "res://addons/dialogic/timeline/intro/Flashback.dtl",
 "Intro": "res://addons/dialogic/timeline/intro/Intro.dtl",

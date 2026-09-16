@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://cc6wdnjrv5ptr" path="res://scripts/checkpoint_manager.gd" id="10_1q3ip"]
 [ext_resource type="PackedScene" uid="uid://c8xquxqp4aqo3" path="res://scenes/bcompamion.tscn" id="10_e4ab4"]
 [ext_resource type="PackedScene" uid="uid://dihji23xxltkc" path="res://scenes/checkpoint.tscn" id="11_e4ab4"]
+[ext_resource type="PackedScene" uid="uid://d0dq1a3qmhj2j" path="res://scenes/bringer_of_death.tscn" id="13_xxvx7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_br4so"]
 texture = ExtResource("2_cp4ax")
@@ -130,8 +131,8 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_qshva"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 3
-physics_layer_0/collision_mask = 3
+physics_layer_0/collision_layer = 7
+physics_layer_0/collision_mask = 7
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
@@ -228,7 +229,7 @@ offset_bottom = 65.0
 script = ExtResource("7_ij176")
 
 [node name="Player" parent="." unique_id=1595256849 instance=ExtResource("6_cynta")]
-position = Vector2(2321, 754)
+position = Vector2(466, 1028)
 attackDamage = 5
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=651109753]
@@ -251,13 +252,19 @@ position = Vector2(2622, 804)
 
 [node name="Bcompamion" parent="." unique_id=1958754732 instance=ExtResource("10_e4ab4")]
 position = Vector2(3247, 462)
-collision_layer = 1
-collision_mask = 1
+collision_layer = 4
+collision_mask = 4
 
 [node name="checkpointManager" type="Node" parent="." unique_id=1272803775]
 script = ExtResource("10_1q3ip")
 
 [node name="checkpoint" parent="checkpointManager" unique_id=1595739344 instance=ExtResource("11_e4ab4")]
 position = Vector2(2321, 795)
+
+[node name="BringerOfDeath" parent="." unique_id=1091127635 groups=["Enemy"] instance=ExtResource("13_xxvx7")]
+position = Vector2(1077, 1177)
+
+[node name="BringerOfDeath2" parent="." unique_id=1660778303 groups=["Enemy"] instance=ExtResource("13_xxvx7")]
+position = Vector2(1254, 524)
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]

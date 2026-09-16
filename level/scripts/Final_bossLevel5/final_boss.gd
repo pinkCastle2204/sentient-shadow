@@ -39,12 +39,12 @@ func isNear() -> bool:
 
 	var distance_x = abs(target.global_position.x - global_position.x)
 
-	print(
-		"Boss X:", global_position.x,
-		" | Target X:", target.global_position.x,
-		" | Distance:", distance_x,
-		" | Detect Range:", detectrange
-	)
+	#print(
+		#"Boss X:", global_position.x,
+		#" | Target X:", target.global_position.x,
+		#" | Distance:", distance_x,
+		#" | Detect Range:", detectrange
+	#)
 
 	return distance_x <= detectrange
 
@@ -59,15 +59,19 @@ func isInAttackRange() -> bool:
 
 func _physics_process(delta: float) -> void:
 	if dead:
+		deadboy()
 		return
 	if health <=0:
 		dead = true
+		return
+		final_bosshealth.visible = false
+		deadboy()
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
 	move_and_slide()
 	final_bosshealth.value = health
-	if talked:
+	if talked && !dead:
 		final_bosshealth.visible = true
 	else:
 		final_bosshealth.visible = false
@@ -76,3 +80,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_hurt_box_damaged(hitbox: Variant) -> void:
 	health -= target.attackDamage
+func deadboy():
+	animated_sprite_2d.play("death")
+	animated_sprite_2d.animation_finished
+	queue_free()

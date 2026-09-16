@@ -14,7 +14,7 @@ func tick(actor: Node, _blackboard: Blackboard) -> int:
 		actor.animated_sprite_2d.play("idle")
 		actor.velocity.x = 0
 
-		Dialogic.start("FinalWords")
+		Dialogic.start("FinalWordsCompanion")
 		dialogue_started = true
 
 		return RUNNING
