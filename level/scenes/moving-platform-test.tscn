@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://cw4kvgbw84k5e"]
+
+[ext_resource type="Script" uid="uid://c87jc87b2bcv4" path="res://scripts/moving_platform_test.gd" id="1_fvj74"]
+[ext_resource type="Texture2D" uid="uid://bchetmngfwbkr" path="res://assets/environment/tile-senshad.png" id="1_wgic5"]
+
+[sub_resource type="Curve2D" id="Curve2D_qshva"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 486, 274, 0, 0, 0, 0, 484, 76)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qshva"]
+size = Vector2(14, 32)
+
+[sub_resource type="Animation" id="Animation_fvj74"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_wgic5"]
+resource_name = "move"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-1.56, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fvj74"]
+_data = {
+&"RESET": SubResource("Animation_fvj74"),
+&"move": SubResource("Animation_wgic5")
+}
+
+[node name="Path2D" type="Path2D" unique_id=1895314674]
+curve = SubResource("Curve2D_qshva")
+script = ExtResource("1_fvj74")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="." unique_id=1673516123]
+position = Vector2(486, 274)
+rotation = -1.580897
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D" unique_id=1281906776]
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=653518735]
+position = Vector2(486, 274)
+rotation = -1.580897
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=722966750]
+rotation = 1.5799716
+texture = ExtResource("1_wgic5")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=902796585]
+position = Vector2(0, -6.1035156e-05)
+rotation = 0.010173136
+shape = SubResource("RectangleShape2D_qshva")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=228907558]
+libraries/ = SubResource("AnimationLibrary_fvj74")
