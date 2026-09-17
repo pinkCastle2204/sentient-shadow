@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dihji23xxltkc" path="res://scenes/checkpoint.tscn" id="11_e4ab4"]
 [ext_resource type="Texture2D" uid="uid://r3hq2xj4n6s1" path="res://assets/Family-Member.png" id="12_e4ab4"]
 [ext_resource type="PackedScene" uid="uid://d0dq1a3qmhj2j" path="res://scenes/bringer_of_death.tscn" id="13_xxvx7"]
+[ext_resource type="PackedScene" uid="uid://do235q2g2pikw" path="res://scenes/level_5_boss_1.tscn" id="14_jwrea"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1q3ip"]
 texture = ExtResource("2_cp4ax")
@@ -295,9 +296,8 @@ offset_bottom = 65.0
 script = ExtResource("7_ij176")
 
 [node name="Player" parent="." unique_id=1595256849 instance=ExtResource("6_cynta")]
-position = Vector2(1364, 1018)
+position = Vector2(222, 1052)
 scale = Vector2(3.005, 3.005)
-position = Vector2(466, 1028)
 attackDamage = 5
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=651109753]
@@ -329,10 +329,10 @@ script = ExtResource("10_1q3ip")
 [node name="checkpoint" parent="checkpointManager" unique_id=1595739344 instance=ExtResource("11_e4ab4")]
 position = Vector2(2321, 795)
 
-[node name="BringerOfDeath" parent="." unique_id=1091127635 groups=["Enemy"] instance=ExtResource("13_xxvx7")]
-position = Vector2(1077, 1177)
+[node name="Level5boss1" parent="." unique_id=1091127635 instance=ExtResource("14_jwrea")]
+position = Vector2(543, 1043)
 
-[node name="BringerOfDeath2" parent="." unique_id=1660778303 groups=["Enemy"] instance=ExtResource("13_xxvx7")]
-position = Vector2(1254, 524)
+[node name="BringerOfDeath" parent="." unique_id=1033397475 groups=["Enemy"] instance=ExtResource("13_xxvx7")]
+position = Vector2(1077, 1177)
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]

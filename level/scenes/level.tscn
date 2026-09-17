@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://dihji23xxltkc" path="res://scenes/checkpoint.tscn" id="31_w3o6u"]
 [ext_resource type="PackedScene" uid="uid://0w3fkog32qhy" path="res://scenes/companion_new.tscn" id="32_2e2fo"]
 [ext_resource type="Script" uid="uid://x1xgkshuohxc" path="res://scripts/moving_platform_script1.gd" id="34_v3why"]
+[ext_resource type="PackedScene" uid="uid://b6may6dc18r7i" path="res://scenes/plato.tscn" id="35_asl66"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_km5ld"]
 texture = ExtResource("2_wc255")
@@ -687,6 +688,60 @@ _data = {
 &"move_platform1": SubResource("Animation_gur6y")
 }
 
+[sub_resource type="Animation" id="Animation_2jdvr"]
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1008, 797), Vector2(1004, 857)]
+}
+
+[sub_resource type="Animation" id="Animation_q4oe8"]
+resource_name = "new_animation"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1142, 754), Vector2(1141, 853)]
+}
+
+[sub_resource type="Animation" id="Animation_asl66"]
+resource_name = "new_animation_2"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1244, 788), Vector2(1247, 847)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_svjb4"]
+_data = {
+&"RESET": SubResource("Animation_2jdvr"),
+&"new_animation": SubResource("Animation_q4oe8"),
+&"new_animation_2": SubResource("Animation_asl66")
+}
+
 [node name="level" type="Node2D" unique_id=585983385]
 
 [node name="CanvasLayer" parent="." unique_id=1969683578 instance=ExtResource("1_5k0ak")]
@@ -1040,6 +1095,29 @@ shape = SubResource("RectangleShape2D_asl66")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="moving-platform1/Path1/AnimatableBody2D/CollisionShape2D" unique_id=1861003672]
 libraries/ = SubResource("AnimationLibrary_v3why")
+
+[node name="moveplat" type="Node" parent="." unique_id=1584586638]
+
+[node name="plato" parent="moveplat" unique_id=1030700600 instance=ExtResource("35_asl66")]
+position = Vector2(1008, 797)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="moveplat/plato" unique_id=1388638849]
+libraries/ = SubResource("AnimationLibrary_svjb4")
+autoplay = &"new_animation_2"
+
+[node name="plato2" parent="moveplat" unique_id=2070326835 instance=ExtResource("35_asl66")]
+position = Vector2(1008, 797)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="moveplat/plato2" unique_id=1716787906]
+libraries/ = SubResource("AnimationLibrary_svjb4")
+autoplay = &"new_animation"
+
+[node name="plato3" parent="moveplat" unique_id=1209096696 instance=ExtResource("35_asl66")]
+position = Vector2(1008, 797)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="moveplat/plato3" unique_id=1356073512]
+libraries/ = SubResource("AnimationLibrary_svjb4")
+autoplay = &"RESET"
 
 [connection signal="frame_changed" from="Monster2/AnimatedSprite2D" to="Monster2" method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="damaged" from="Monster2/HurtBox" to="Monster2" method="_on_hurt_box_damaged"]

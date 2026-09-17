@@ -10,7 +10,7 @@ const ANIM_DAMAGE  := "damage"
 const ANIM_DEATHS  := ["death1"]
 
 
-@export var move_speed: float = 40.0
+@export var move_speed: float = 70.0
 @export var chase_speed: float = 75.0
 @export var gravity: float = 980.0
 

@@ -1,4 +1,5 @@
 extends Node
+class_name CheckpointManager
 # checkpoint manager
 var last_location
 
