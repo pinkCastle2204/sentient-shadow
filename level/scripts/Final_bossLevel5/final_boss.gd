@@ -10,7 +10,10 @@ extends CharacterBody2D
 @export var attackrange: float = 30.0
 
 @onready var target: CharacterBody2D = $"../Player"
-
+const scene1 = preload("res://scenes/endings/hidden-ending.tscn")
+const scene2 = preload("res://scenes/endings/hope-ending.tscn")
+const scene3 = preload("res://scenes/endings/sacrifice-ending.tscn")
+const scene4 = preload("res://scenes/endings/shadow-ending.tscn")
 
 @export var gravity: float = 980.0
 @export var health: int
@@ -63,9 +66,9 @@ func _physics_process(delta: float) -> void:
 		return
 	if health <=0:
 		dead = true
-		return
 		final_bosshealth.visible = false
 		deadboy()
+		return          
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
@@ -84,3 +87,19 @@ func deadboy():
 	animated_sprite_2d.play("death")
 	animated_sprite_2d.animation_finished
 	queue_free()
+	triggerEnding(personality.classify_personality())
+	
+func triggerEnding(p : String):
+	print(p)
+	if p == "Empathy":
+		get_tree().change_scene_to_packed(scene2)
+		print("compa")
+	elif p == "Brave":
+		get_tree().change_scene_to_packed(scene3)
+		print("bra")
+	elif p == "Selfish":
+		get_tree().change_scene_to_packed(scene4)
+		print("greeda")
+	else:
+		get_tree().change_scene_to_packed(scene4)
+		print("What the fuck")

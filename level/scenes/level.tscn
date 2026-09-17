@@ -990,7 +990,7 @@ value = 50.0
 show_percentage = false
 
 [node name="Player" parent="." unique_id=1595256849 instance=ExtResource("21_h6wmr")]
-position = Vector2(1563, 840)
+position = Vector2(323, 591)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1807544775]
 position = Vector2(2, -9)
