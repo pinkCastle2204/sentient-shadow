@@ -62,7 +62,7 @@ func isInAttackRange() -> bool:
 
 func _physics_process(delta: float) -> void:
 	if dead:
-		deadboy()
+		
 		return
 	if health <=0:
 		dead = true
@@ -83,23 +83,18 @@ func _physics_process(delta: float) -> void:
 
 func _on_hurt_box_damaged(hitbox: Variant) -> void:
 	health -= target.attackDamage
+	
+	
 func deadboy():
 	animated_sprite_2d.play("death")
-	animated_sprite_2d.animation_finished
+	await animated_sprite_2d.animation_finished
+	Engine.time_scale = 0.2 
+
+# Wait for 3 real-world seconds (affected by time_scale if default, or use unscaled timer)
+	await get_tree().create_timer(1.0, true, false, true).timeout
+
+# Restore normal speed
+	Engine.time_scale = 1.0
 	queue_free()
-	triggerEnding(personality.classify_personality())
+	EndingManager.go_to_ending()
 	
-func triggerEnding(p : String):
-	print(p)
-	if p == "Empathy":
-		get_tree().change_scene_to_packed(scene2)
-		print("compa")
-	elif p == "Brave":
-		get_tree().change_scene_to_packed(scene3)
-		print("bra")
-	elif p == "Selfish":
-		get_tree().change_scene_to_packed(scene4)
-		print("greeda")
-	else:
-		get_tree().change_scene_to_packed(scene4)
-		print("What the fuck")

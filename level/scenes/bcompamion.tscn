@@ -8,8 +8,6 @@
 [ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="5_oyh3d"]
 [ext_resource type="Script" uid="uid://c5iscie6b4sak" path="res://scripts/Final_bossLevel5/is_talking_done.gd" id="6_whac2"]
 [ext_resource type="Script" uid="uid://dwx6s3bk2b88v" path="res://scripts/Final_bossLevel5/is_inrange.gd" id="7_7j6b5"]
-[ext_resource type="Script" uid="uid://bb0x8l7hrken0" path="res://scripts/bcompanion/dead.gd" id="7_whac2"]
-[ext_resource type="Script" uid="uid://dwua1sitfgsw5" path="res://scripts/bcompanion/death.gd" id="8_7j6b5"]
 [ext_resource type="Script" uid="uid://b0nx232k13mv7" path="res://scripts/Final_bossLevel5/chase.gd" id="8_7q6ta"]
 [ext_resource type="Script" uid="uid://djt1o70mdsgub" path="res://scripts/bcompanion/talk.gd" id="9_52xs6"]
 [ext_resource type="Script" uid="uid://dbyfavkr85s5u" path="res://scripts/Final_bossLevel5/is_near.gd" id="10_moovs"]
@@ -524,25 +522,13 @@ disabled = true
 [node name="BeehaveTree" type="Node" parent="." unique_id=593264918 node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("3_52xs6")
 actor_node_path = NodePath("..")
-blackboard = NodePath("@Node@20833")
+blackboard = NodePath("@Node@29605")
 actor = NodePath("..")
 metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 
 [node name="SelectorComposite" type="Node" parent="BeehaveTree" unique_id=513439552]
 script = ExtResource("4_lxlj2")
 metadata/_custom_type_script = "uid://8hn4kne15ac5"
-
-[node name="SequenceComposite4" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=1647691830]
-script = ExtResource("5_oyh3d")
-metadata/_custom_type_script = "uid://cg016dbe7gs1x"
-
-[node name="dead" type="Node" parent="BeehaveTree/SelectorComposite/SequenceComposite4" unique_id=1433291207]
-script = ExtResource("7_whac2")
-metadata/_custom_type_script = "uid://cbnbvj8prv63i"
-
-[node name="death" type="Node" parent="BeehaveTree/SelectorComposite/SequenceComposite4" unique_id=2090844902]
-script = ExtResource("8_7j6b5")
-metadata/_custom_type_script = "uid://cv74jjdrwevpr"
 
 [node name="SequenceComposite2" type="Node" parent="BeehaveTree/SelectorComposite" unique_id=2009605747]
 script = ExtResource("5_oyh3d")

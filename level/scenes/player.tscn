@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://60jebjfbrdq" path="res://scripts/player/player.gd" id="1_g2els"]
 [ext_resource type="Resource" uid="uid://cvs3hlar6lsud" path="res://Inventory/player_inv.tres" id="2_smehm"]
-[ext_resource type="Texture2D" uid="uid://gye85jd7tt7" path="res://assets/player_samurai/HURT.png" id="5_fjrip"]
+[ext_resource type="Texture2D" uid="uid://gye85jd7tt7" path="res://CombatFiles/assets/player_samurai/HURT.png" id="5_fjrip"]
 [ext_resource type="Script" uid="uid://cp2gmhx8lwlm3" path="res://scripts/meleeAttacks/hurt_area.gd" id="6_fjrip"]
 [ext_resource type="Script" uid="uid://dtgtrq2pttj3n" path="res://scripts/meleeAttacks/attack_area.gd" id="7_smehm"]
 [ext_resource type="Texture2D" uid="uid://bcbt8jbmtdkn1" path="res://assets/Characters Pack/Outline/WarriorWoman-Sheet.png" id="7_y4r1p"]
@@ -325,7 +325,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_apa73")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack",
 "speed": 12.0
 }, {
@@ -345,7 +345,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_51ujp")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack 2",
 "speed": 10.0
 }, {
@@ -371,7 +371,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vdulj")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"attack3",
 "speed": 5.0
 }, {
@@ -536,9 +536,8 @@ inv = ExtResource("2_smehm")
 position = Vector2(-1, -10)
 scale = Vector2(0.74746954, 0.7851731)
 sprite_frames = SubResource("SpriteFrames_a8ls1")
-animation = &"attack3"
+animation = &"attack"
 autoplay = "default"
-frame_progress = 0.07974871
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=94393710]
 position = Vector2(0, -12)
@@ -577,5 +576,6 @@ offset_top = -90.0
 offset_right = 113.0
 offset_bottom = 58.0
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="damaged" from="HurtArea" to="." method="_on_hurt_area_damaged"]

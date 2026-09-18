@@ -21,10 +21,11 @@ var attacking = false
 var jumpeda = false
 @export var attackDamage: int
 func die():
-	
 	animated_sprite_2d.play("death")
-	
 	dead = true
+	attacking = false
+	collision_shape_2d.disabled = true
+	collision_shape_2d_2.disabled = true
 	timer.start()
 	
 
@@ -46,11 +47,7 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.play("attack 2")
 		attacking = true
 		SPEED = 000.0
-	if Input.is_action_just_released("attack"):
-		collision_shape_2d.disabled = true
-		collision_shape_2d_2.disabled = true
-		attacking = false
-		SPEED = 500.0
+	
 		
 			
 	
@@ -66,7 +63,7 @@ func _physics_process(delta: float) -> void:
 			
 
 	# Handle jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
+	if Input.is_action_just_pressed("Jump") and is_on_floor() and !attacking:
 		velocity.y = JUMP_VELOCITY
 	
 
@@ -139,6 +136,18 @@ func _on_timer_timeout() -> void:
 	global_position = checkpoint_manager.last_location
 	health = 100
 	dead = false
+	attacking = false
+	SPEED = 500.0
+	jumpeda = false
+	velocity = Vector2.ZERO
+	collision_shape_2d.disabled = true
+	collision_shape_2d_2.disabled = true
 	
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if animated_sprite_2d.animation in ["attack", "attack 2"]:
+		attacking = false
+		SPEED = 500.0
+		collision_shape_2d.disabled = true
+		collision_shape_2d_2.disabled = true
 
 	
