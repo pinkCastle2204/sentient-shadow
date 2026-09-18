@@ -19,11 +19,13 @@ func _ready():
 
 
 func _process(_delta):
+		
 	if player_near and Input.is_action_just_pressed("interact"):
 		if !talked:
 			run_dialogue("FirstMedicMeet")
 			talked = true
 		elif op1:
+			QuestManager.finish_quest("medicine")
 			player.removeitems(item)
 			run_dialogue("SecondMedicMeetFirstOption")
 			personality.update_personality([50,-40,5,-10])
@@ -50,7 +52,7 @@ func talk():
 	#if quest not started
 	if !quest["started"]:
 		QuestManager.start_quest("medicine")
-		print("Please collect 3 medicines for me.")	#this dialogue will be added in dialogue manager later on
+		print("Please collect 3 medicines for me.")	
 		return
 
 	# Quest in progress
