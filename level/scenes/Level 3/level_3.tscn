@@ -13,8 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://diw4fyumekhey" path="res://assets/Sidescroller Shooter - Central City/Background/Mid Fog.png" id="7_8qlw6"]
 [ext_resource type="PackedScene" uid="uid://beytksuyc1ji0" path="res://scenes/Level 3/computer.tscn" id="7_abxun"]
 [ext_resource type="Script" uid="uid://8nx6v1myoejy" path="res://scripts/Level3/computer.gd" id="8_fwqec"]
+[ext_resource type="PackedScene" uid="uid://bvxqtjrajvkxv" path="res://scenes/Level 3/level_3_boss.tscn" id="14_6go1b"]
 [ext_resource type="PackedScene" uid="uid://cs0cp3mj6joxh" path="res://scenes/Level 3/refugee.tscn" id="14_8qlw6"]
+[ext_resource type="Resource" uid="uid://dfdqye7vxp6pw" path="res://Inventory/items/cassete.tres" id="14_m54hf"]
 [ext_resource type="Script" uid="uid://cpstqnurgte84" path="res://scripts/Level3/refugee.gd" id="15_1vbeq"]
+[ext_resource type="Script" uid="uid://cc6wdnjrv5ptr" path="res://scripts/checkpoint_manager.gd" id="17_nf05y"]
+[ext_resource type="PackedScene" uid="uid://dihji23xxltkc" path="res://scenes/checkpoint.tscn" id="18_m54hf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cmkor"]
 texture = ExtResource("4_cmkor")
@@ -1653,6 +1657,43 @@ physics_layer_0/collision_mask = 7
 sources/0 = SubResource("TileSetAtlasSource_du6uu")
 sources/1 = SubResource("TileSetAtlasSource_vltyf")
 
+[sub_resource type="GDScript" id="GDScript_mpwed"]
+resource_name = "res://scripts/player/killzone.gd"
+script/source = "extends Area2D
+
+@onready var checkpoint_manager: Node = $\"../checkpointManager\"
+@onready var player: CharacterBody2D = $\"../Player\"
+
+var is_killing := false
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if not body.is_in_group(\"Player\"):
+		return
+	
+	if is_killing:
+		return
+	
+	killplayer()
+
+
+func killplayer() -> void:
+	is_killing = true
+	
+	player.dead = true
+	player.animated_sprite_2d.play(\"death\")
+	
+	await get_tree().create_timer(1.0).timeout
+	
+	player.global_position = checkpoint_manager.last_location
+	
+	player.dead = false
+	is_killing = false
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpwed"]
+size = Vector2(365, 14)
+
 [node name="Level 3" type="Node2D" unique_id=176756541]
 script = ExtResource("1_vltyf")
 
@@ -1719,13 +1760,39 @@ vertical_alignment = 1
 
 [node name="Record 1" parent="." unique_id=1758747974 instance=ExtResource("7_5jcue")]
 position = Vector2(634, 605)
+item = ExtResource("14_m54hf")
+
+[node name="Level3boss" parent="." unique_id=1091127635 instance=ExtResource("14_6go1b")]
+position = Vector2(594, 553)
 
 [node name="Record 2" parent="." unique_id=888369693 instance=ExtResource("7_5jcue")]
 position = Vector2(1366, 317)
+item = ExtResource("14_m54hf")
 
 [node name="Record 3" parent="." unique_id=1504122421 instance=ExtResource("7_5jcue")]
 position = Vector2(951, 460)
+item = ExtResource("14_m54hf")
 
 [node name="Refugee" parent="." unique_id=1868179147 instance=ExtResource("14_8qlw6")]
 position = Vector2(153, 360)
 script = ExtResource("15_1vbeq")
+
+[node name="killzone" type="Area2D" parent="." unique_id=1918623766]
+collision_layer = 3
+collision_mask = 3
+script = SubResource("GDScript_mpwed")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=633425029]
+position = Vector2(977.5, 769)
+shape = SubResource("RectangleShape2D_mpwed")
+
+[node name="checkpointManager" type="Node" parent="." unique_id=1419383617]
+script = ExtResource("17_nf05y")
+
+[node name="checkpoint" parent="checkpointManager" unique_id=1595739344 instance=ExtResource("18_m54hf")]
+position = Vector2(78, 541)
+
+[node name="checkpoint2" parent="checkpointManager" unique_id=105694070 instance=ExtResource("18_m54hf")]
+position = Vector2(776, 543)
+
+[connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]

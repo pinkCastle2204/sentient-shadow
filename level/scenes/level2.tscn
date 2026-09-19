@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://dhpeipqg30ttn" path="res://assets/Sidescroller Shooter - Central City/Background/Frontal Fog.png" id="7_6ep0u"]
 [ext_resource type="Texture2D" uid="uid://diw4fyumekhey" path="res://assets/Sidescroller Shooter - Central City/Background/Mid Fog.png" id="8_hrcei"]
 [ext_resource type="PackedScene" uid="uid://b0rtsvmt7nqvb" path="res://scenes/player.tscn" id="9_xa7n4"]
+[ext_resource type="PackedScene" uid="uid://bkhd8qu7m3byw" path="res://scenes/level_2_boss.tscn" id="10_bo4dx"]
+[ext_resource type="Script" uid="uid://cc6wdnjrv5ptr" path="res://scripts/checkpoint_manager.gd" id="11_8g4ke"]
+[ext_resource type="PackedScene" uid="uid://dihji23xxltkc" path="res://scenes/checkpoint.tscn" id="12_56gwk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bo4dx"]
 texture = ExtResource("4_alqfr")
@@ -1231,3 +1234,15 @@ position_smoothing_speed = 10.0
 [node name="l2-prop2" type="TileMapLayer" parent="." unique_id=696214208]
 tile_map_data = PackedByteArray("AAAnAAcAAAAFAAsAAAAnAAgAAAAFAAwAAAAoAAcAAAAGAAsAAAAoAAgAAAAGAAwAAAAtAAcAAAAGAAsAAAAtAAgAAAAGAAwAAAAuAAcAAAAHAAsAAAAuAAgAAAAHAAwAAAApAAcAAAAGAAsAAAApAAgAAAAGAAwAAAAqAAcAAAAGAAsAAAAqAAgAAAAGAAwAAAArAAcAAAAGAAsAAAArAAgAAAAGAAwAAAAsAAcAAAAGAAsAAAAsAAgAAAAGAAwAAAAoAAEAAAAFAAsAAAAoAAIAAAAFAAwAAAApAAEAAAAGAAsAAAApAAIAAAAGAAwAAAAsAAEAAAAGAAsAAAAsAAIAAAAGAAwAAAAtAAEAAAAHAAsAAAAtAAIAAAAHAAwAAAAqAAEAAAAGAAsAAAAqAAIAAAAGAAwAAAArAAEAAAAGAAsAAAArAAIAAAAGAAwAAAArAPr/AAAGAAsAAAArAPv/AAAGAAwAAAAsAPr/AAAHAAsAAAAsAPv/AAAHAAwAAAApAPr/AAAFAAsAAAApAPv/AAAFAAwAAAAqAPr/AAAGAAsAAAAqAPv/AAAGAAwAAAAnAAkAAAAAAAEAAAAuAAkAAAACAAEAAAAsAPz/AAACAAEAAAApAPz/AAAAAAEAAABRAPz/AAAFAAAAAABRAP3/AAAFAAEAAABSAP3/AAAFAAEAAABTAP3/AAAFAAEAAABUAP3/AAAFAAEAAABVAP3/AAAHAAIAABBVAP7/AAAHAAIAABBQAP3/AAAHAAIAAABQAP7/AAAHAAQAAAA=")
 tile_set = SubResource("TileSet_63og4")
+
+[node name="Level2boss" parent="." unique_id=1091127635 instance=ExtResource("10_bo4dx")]
+position = Vector2(598, 215)
+
+[node name="checkpointManager" type="Node" parent="." unique_id=147927174]
+script = ExtResource("11_8g4ke")
+
+[node name="checkpoint" parent="checkpointManager" unique_id=1595739344 instance=ExtResource("12_56gwk")]
+position = Vector2(70, 243)
+
+[node name="checkpoint2" parent="checkpointManager" unique_id=1609388237 instance=ExtResource("12_56gwk")]
+position = Vector2(596, 87)
