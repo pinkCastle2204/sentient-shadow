@@ -1,0 +1,11 @@
+Refugee: Please... you have to help me.
+Refugee: My child was taken by one of those creatures.\
+She's still alive. I know she is.
+Refugee: Please, bring my child back.
+- I'll save your child.
+	Refugee: Thank you! She is near the monster at the bottom right.
+	set {save_child} = true
+	[end_timeline]
+- I can't help you.
+	Refugee: I... understand. I hope someone else can save them.
+	[end_timeline]

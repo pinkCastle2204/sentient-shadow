@@ -30,6 +30,7 @@ Dialogic="*uid://ds2q0uclmolvu"
 directories/dch_directory={
 "Eva": "res://addons/dialogic/characters/Eva.dch",
 "Mira": "res://addons/dialogic/characters/Mira.dch",
+"Refugee": "res://addons/dialogic/characters/Refugee.dch",
 "SYSTEM": "res://addons/dialogic/characters/SYSTEM.dch",
 "Samyak": "res://addons/dialogic/characters/Samyak.dch",
 "Unit-07": "res://addons/dialogic/characters/Unit-07.dch",
@@ -53,6 +54,7 @@ directories/dtl_directory={
 "hidden-ending": "res://addons/dialogic/timeline/endings/hidden-ending.dtl",
 "hope-aftermath": "res://addons/dialogic/timeline/endings/hope-aftermath.dtl",
 "hope-ending": "res://addons/dialogic/timeline/endings/hope-ending.dtl",
+"refugee-child": "res://addons/dialogic/timeline/Level3/refugee-child.dtl",
 "sacrifice-aftermath": "res://addons/dialogic/timeline/endings/sacrifice-aftermath.dtl",
 "sacrifice-ending": "res://addons/dialogic/timeline/endings/sacrifice-ending.dtl",
 "sacrifice-process": "res://addons/dialogic/timeline/endings/sacrifice-process.dtl",
@@ -94,6 +96,9 @@ audio/channel_defaults={
 "loop": true,
 "volume": 0.0
 }
+}
+variables={
+"save_child": false
 }
 
 [display]
