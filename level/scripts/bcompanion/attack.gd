@@ -5,6 +5,8 @@ extends ActionLeaf
 var attackstr: String = ""
 
 func tick(actor: Node, blackboard: Blackboard) -> int:
+	
+	
 	if attackstr == "":
 		attackstr = "attack"
 		actor.animated_sprite_2d.play(attackstr)
@@ -19,6 +21,7 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 
 
 func _on_animated_sprite_2d_frame_changed() -> void:
+	
 	if final_boss.animated_sprite_2d.animation != "attack":
 		final_boss.hitbox.disabled = true
 		return

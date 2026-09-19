@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export var detectrange: float = 300.0
 @export var attackrange: float = 30.0
 
-@onready var target: CharacterBody2D = $"../FinalBoss"
+@export var target: CharacterBody2D
 
 
 

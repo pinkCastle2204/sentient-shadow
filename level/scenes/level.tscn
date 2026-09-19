@@ -35,6 +35,8 @@
 [ext_resource type="PackedScene" uid="uid://0w3fkog32qhy" path="res://scenes/companion_new.tscn" id="32_2e2fo"]
 [ext_resource type="Script" uid="uid://x1xgkshuohxc" path="res://scripts/moving_platform_script1.gd" id="34_v3why"]
 [ext_resource type="PackedScene" uid="uid://b6may6dc18r7i" path="res://scenes/plato.tscn" id="35_asl66"]
+[ext_resource type="PackedScene" uid="uid://b6ijsqmv6yscu" path="res://summon_zone.tscn" id="36_2jdvr"]
+[ext_resource type="PackedScene" uid="uid://c8xquxqp4aqo3" path="res://scenes/bcompamion.tscn" id="37_q4oe8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_km5ld"]
 texture = ExtResource("2_wc255")
@@ -990,7 +992,7 @@ value = 50.0
 show_percentage = false
 
 [node name="Player" parent="." unique_id=1595256849 instance=ExtResource("21_h6wmr")]
-position = Vector2(323, 591)
+position = Vector2(664, 717)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1807544775]
 position = Vector2(2, -9)
@@ -1118,6 +1120,17 @@ position = Vector2(1008, 797)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="moveplat/plato3" unique_id=1356073512]
 libraries/ = SubResource("AnimationLibrary_svjb4")
 autoplay = &"RESET"
+
+[node name="summonZone" parent="." unique_id=90388722 node_paths=PackedStringArray("target", "targetMonster", "targetPlayer", "companion") instance=ExtResource("36_2jdvr")]
+position = Vector2(629, 875)
+target = NodePath("../BringerOfDeath")
+targetMonster = NodePath("../BringerOfDeath")
+targetPlayer = NodePath("../Player")
+companion = NodePath("../Bcompamion")
+
+[node name="Bcompamion" parent="." unique_id=1958754732 node_paths=PackedStringArray("target") instance=ExtResource("37_q4oe8")]
+position = Vector2(455, 253)
+target = NodePath("../Player")
 
 [connection signal="frame_changed" from="Monster2/AnimatedSprite2D" to="Monster2" method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="damaged" from="Monster2/HurtBox" to="Monster2" method="_on_hurt_box_damaged"]

@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://b6ijsqmv6yscu"]
 
+[ext_resource type="Script" uid="uid://cbm8rx8tu55kk" path="res://scripts/summon_zone.gd" id="1_0r7se"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpwed"]
 size = Vector2(98.25, 61.5)
 
 [node name="summonZone" type="Area2D" unique_id=90388722]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_0r7se")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1519437412]
 position = Vector2(-0.125, 0.25)
