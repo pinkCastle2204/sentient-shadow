@@ -1,0 +1,11 @@
+scientist: A scientist presses against the cell glass. "You're not one of them. Please — say something."
+scientist: *Scientist straightens slightly.* You're the one who's been fighting through this place. Then you already know it's worse than it looks.
+- Then help me end it.
+	[signal arg="NPC2_Brave_choice1"]
+	scientist: I can do that. I know these labs better than anyone left alive.
+	scientist: Sub-Level 4 is sealed for a reason — I helped design that seal. I can get you past it.
+	scientist: Whatever happens down there, you won't be walking in blind. Not anymore.
+- Just tell me what I need to know.
+	[signal arg="NPC2_Brave_choice2"]
+	scientist: Fair enough. Sub-Level 4. Go quickly.
+	scientist: *The scientist stays behind, watching you go, saying nothing more.*

@@ -1,0 +1,11 @@
+mutant: A voice, weak, from behind the glass: "...another one. Are you here to fix us? Or finish the job?"
+mutant: You came back for us? Then listen — Subject Zero isn't just a name. It's someone's sibling. Find them before Helix does.
+	- Tell me everything you know.
+		[signal arg="NPC1_Brave_choice1"]
+		
+		mutant: Subject zero is placed in next level..
+		mutant: That's as far as my memory goes before... before they changed me.
+	- I'll remember that.
+		[signal arg="NPC1_Brave_choice2"]
+		
+		mutant: The subject nods once, silent, respecting the restraint.

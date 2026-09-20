@@ -16,10 +16,8 @@ func _ready():
 	Dialogic.signal_event.connect(dialogic_signal)
 	item = potion.item
 
-
-
 func _process(_delta):
-		
+
 	if player_near and Input.is_action_just_pressed("interact"):
 		if !talked:
 			run_dialogue("FirstMedicMeet")
@@ -32,27 +30,24 @@ func _process(_delta):
 		elif op2:
 			run_dialogue("SecondMedicSecondOption")
 			personality.update_personality([-50,40,30,+30])
-			
-			
+
 		elif op3:
 			run_dialogue("SecondMedicThirdOption")
 			personality.update_personality([0,0,-40,-20])
-			
-		
+
 func run_dialogue(dia):
 	player.player_inte = true
 	Dialogic.start(dia)
 	await Dialogic.timeline_ended
 	player.player_inte = false
-	
-	
+
 func talk():
 	var quest = QuestManager.quests["medicine"]
 
 	#if quest not started
 	if !quest["started"]:
 		QuestManager.start_quest("medicine")
-		print("Please collect 3 medicines for me.")	
+		print("Please collect 3 medicines for me.")    
 		return
 
 	# Quest in progress
@@ -61,11 +56,10 @@ func talk():
 			quest["collected"],
 			quest["required"]
 		])
-		
+
 	else:
 		q1 = true
-		print("Thank you! You saved many lives.")	#this dialogue as well
-		
+		print("Thank you! You saved many lives.")    #this dialogue as well
 
 	# Quest completed
 func dialogic_signal(arg: String):
@@ -76,7 +70,7 @@ func dialogic_signal(arg: String):
 		option2()
 	elif arg == "option3":
 		option3()
-	
+
 func option2():
 	op2 = true
 	talk()

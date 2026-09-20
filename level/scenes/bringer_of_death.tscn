@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://c13433qw31oxt" path="res://assets/Crow Animations/crow_idle.png" id="3_sjg3w"]
 [ext_resource type="Script" uid="uid://cp2gmhx8lwlm3" path="res://scripts/meleeAttacks/hurt_area.gd" id="4_gxcvu"]
 [ext_resource type="Texture2D" uid="uid://dmvkuuuli0l10" path="res://assets/Crow Animations/crow_walk.png" id="4_o0527"]
-[ext_resource type="Script" uid="uid://5w4d4wy84bmd" path="res://scripts/BringerOfDeath/state_machineBOD.gd" id="5_ffo3x"]
 [ext_resource type="Texture2D" uid="uid://b6jgxvxy3hj62" path="res://assets/Crow Animations/crow_jump.png" id="5_jvhbm"]
 [ext_resource type="Script" uid="uid://cixu2eiocswyv" path="res://scripts/BringerOfDeath/idle.gd" id="6_t8hnf"]
+[ext_resource type="Script" uid="uid://c4ia67rtmpqf5" path="res://scripts/statemachine/state_machine.gd" id="10_dabpt"]
 [ext_resource type="Script" uid="uid://bi7pvm7ywjbj8" path="res://scripts/BringerOfDeath/chase.gd" id="10_o0527"]
 [ext_resource type="Script" uid="uid://ijbmsdngcqhw" path="res://scripts/BringerOfDeath/attack.gd" id="11_7vr13"]
 [ext_resource type="Script" uid="uid://cn2lt713gn2c2" path="res://scripts/BringerOfDeath/patrol.gd" id="12_7vr13"]
@@ -289,7 +289,7 @@ position = Vector2(1.25, 7.25)
 shape = SubResource("RectangleShape2D_2uyvy")
 
 [node name="state_machineBOD" type="Node" parent="." unique_id=383635920]
-script = ExtResource("5_ffo3x")
+script = ExtResource("10_dabpt")
 metadata/_custom_type_script = "uid://c4ia67rtmpqf5"
 
 [node name="Idle" type="Node" parent="state_machineBOD" unique_id=604250087]

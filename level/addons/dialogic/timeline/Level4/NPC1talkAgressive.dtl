@@ -1,0 +1,11 @@
+mutant: A voice, weak, from behind the glass: "...another one. Are you here to fix us? Or finish the job?"
+mutant: *The subject recoils, chains rattling.* Stay back! I— I don't want to hurt you—
+- Relax. I'm not here for you.
+	[signal arg="NPC1_Aggressive_choice1"]
+	
+	mutant: The subject slowly lowers its arms. "...You mean it? Fine. Just— don't come closer."
+- You're a liability.
+	[signal arg="NPC1_Aggressive_choice2"]
+	
+	mutant: The subject snarls and lunges—
+	[start_combat arg="mutant_zone2_hostile"]

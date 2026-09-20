@@ -1,0 +1,17 @@
+scientist: A scientist presses against the cell glass. "You're not one of them. Please — say something."
+scientist: I have access codes. Vault clearance. All yours — if you cut these restraints first.
+- Deal. Codes first, then I decide.
+	[signal arg="NPC2_Selfish_choice1"]
+	scientist: The scientist transmits the codes, relieved — not yet realizing you haven't agreed to anything.
+	scientist: There. Now — the restraints. You promised.
+	- Fine, you're free. Go.
+		[signal arg="NPC2_Selfish_rescue_after_deal"]
+		scientist: I— thank you. I didn't think you'd actually—
+	- I never said that.
+		[signal arg="NPC2_Selfish_betray"]
+		scientist: What? No — no, wait, you can't just—
+		scientist: *The scientist's voice cracks as you walk away.* I'll remember this. I swear I will.
+- I don't need your codes.
+	[signal arg="NPC2_Selfish_choice2"]
+	scientist: Then what do you want from me?
+	scientist: *The scientist watches, wary, saying nothing further.*
