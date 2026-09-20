@@ -5,6 +5,13 @@ signal quest_updated(id)
 signal quest_completed(id)
 signal quest_completed2(id)
 
+var dead_signal_route := ""
+
+func set_route(route: String):
+	dead_signal_route = route
+	print("Dead Signal route: ", route)
+
+
 var quests = {}				#initially empty, will be filled upon adding quests
 
 func _ready():
@@ -29,6 +36,13 @@ func _ready():
 		"Rescue the trapped child",
 		1,
 		"Go to the refugee"
+	)
+	register_quest(
+		"dead_signal",
+		"Repair the Radio Tower",
+		"Climb the Radio Tower and fix the Transmitter",
+		1,
+		"Return"		
 	)
 	#Add more quests here
 

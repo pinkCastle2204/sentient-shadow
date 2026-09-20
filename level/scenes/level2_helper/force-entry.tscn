@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://btx4brnulc6k4"]
+
+[ext_resource type="Script" uid="uid://cpclbgu2cok3t" path="res://scripts/level2/force_door.gd" id="1_5idgd"]
+
+[node name="ForceEntry" type="Control" unique_id=1000667643]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5idgd")
+
+[node name="background" type="ColorRect" parent="." unique_id=1378829548]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Panel" type="Panel" parent="." unique_id=796906168]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325.0
+offset_top = -240.0
+offset_right = 325.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=2124439537]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 63.0
+offset_top = 18.0
+offset_right = -63.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=386565887]
+layout_mode = 2
+
+[node name="title" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=296471526]
+layout_mode = 2
+text = "helix hospital // emergency override"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="instructions" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=271966380]
+layout_mode = 2
+text = "SECURITY DOOR LOCKED
+
+Override the mechanical lock.
+Press BYPASS when the indicator enters the SAFE ZONE."
+
+[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer" unique_id=881173205]
+layout_mode = 2
+
+[node name="lock status" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1354738700]
+layout_mode = 2
+text = "LOCK STATUS: ARMED"
+uppercase = true
+
+[node name="timingbar" type="ProgressBar" parent="Panel/MarginContainer/VBoxContainer" unique_id=1292212285]
+layout_mode = 2
+value = 50.0
+show_percentage = false
+
+[node name="status" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1427011754]
+layout_mode = 2
+text = "Waiting for INPUT ....."
+horizontal_alignment = 1
+
+[node name="bypassbutton" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=1155140619]
+layout_mode = 2
+text = "BYPASS"
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/bypassbutton" to="." method="_on_bypassbutton_pressed"]
