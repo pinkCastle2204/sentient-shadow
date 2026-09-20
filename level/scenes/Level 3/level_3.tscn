@@ -1795,4 +1795,5 @@ position = Vector2(78, 541)
 [node name="checkpoint2" parent="checkpointManager" unique_id=105694070 instance=ExtResource("18_m54hf")]
 position = Vector2(776, 543)
 
+[connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]
