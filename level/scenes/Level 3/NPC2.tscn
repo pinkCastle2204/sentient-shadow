@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://em71lqm41o57"]
+
+[ext_resource type="Texture2D" uid="uid://cxjhvkwwsqrvr" path="res://assets/mutant_idle.png" id="1_cgb1b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6hiy"]
+atlas = ExtResource("1_cgb1b")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlbwd"]
+atlas = ExtResource("1_cgb1b")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4v0h"]
+atlas = ExtResource("1_cgb1b")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ue8s"]
+atlas = ExtResource("1_cgb1b")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wr1m"]
+atlas = ExtResource("1_cgb1b")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ausw"]
+atlas = ExtResource("1_cgb1b")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_17o6o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6hiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlbwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4v0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ue8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wr1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ausw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mcpfy"]
+radius = 47.169907
+
+[node name="Area2D" type="Area2D" unique_id=30203918]
+collision_mask = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=436526902]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_17o6o")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=727094376]
+position = Vector2(0, 24)
+shape = SubResource("CircleShape2D_mcpfy")
