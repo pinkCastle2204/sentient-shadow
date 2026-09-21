@@ -1,7 +1,8 @@
+
 extends state
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../../AnimatedSprite2D"
-@onready var enemy: CharacterBody2D = $"../.."
+@onready var enemy: BringerOfDeath = $"../.."
 
 @export var idle_duration: float = 1.5  # how long to pause before resuming patrol
 

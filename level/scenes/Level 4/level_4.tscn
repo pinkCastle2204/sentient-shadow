@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://dhohfwtw6wqr8" path="res://assets/Monster_Creatures_Fantasy(Version 1.3)/Monsters_Creatures_Fantasy/Goblin/Death.png" id="9_bju42"]
 [ext_resource type="Texture2D" uid="uid://bbwgxcgiyqkqr" path="res://assets/Monster_Creatures_Fantasy(Version 1.3)/Monsters_Creatures_Fantasy/Goblin/Idle.png" id="9_tocb5"]
 [ext_resource type="Texture2D" uid="uid://boqa4wuifevka" path="res://assets/New folder/3 Cyborg/Cyborg_idle.png" id="11_aa28g"]
-[ext_resource type="PackedScene" uid="uid://cj02aqtc2yn2" path="res://scenes/Level 4/guard.tscn" id="12_ghd8c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bju42"]
 texture = ExtResource("3_p7ucm")
@@ -5428,21 +5427,6 @@ autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/npc2" unique_id=1167436949]
 shape = SubResource("CircleShape2D_2uyvy")
-
-[node name="Guard" parent="." unique_id=1985790080 instance=ExtResource("12_ghd8c")]
-position = Vector2(879, 1049)
-is_talker = false
-move_speed = 70.0
-chase_speed = 75.0
-gravity = 980.0
-max_health = 100
-attack_damage = 15
-detection_range = 150.0
-lose_target_range = 220.0
-attack_range = 5.0
-patrol_points = Array[Vector2]([Vector2(925, 340), Vector2(900, 340), Vector2(1000, 340)])
-hit_box_shift_x = 0.0
-hurt_box_shift_x = 0.0
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="NPCs/npc1" to="NPCs/npc1" method="_on_body_entered"]

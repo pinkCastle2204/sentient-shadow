@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name BringerOfDeath
 
 # Animation names, change if your SpriteFrames uses different names
 const ANIM_IDLE   := "idle"
@@ -29,7 +29,7 @@ const ANIM_DEATHS  := ["death1"]
 
 # Node references, must match bringer_of_death.tscn
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var fsm: state_machine = $state_machineBOD
+@onready var fsm: Bod_state_machine = $state_machineBOD
 @onready var hit_box: HitBox = $HitBox
 @onready var hurt_box: HurtBox = $HurtBox
 @onready var progress_bar: ProgressBar = $ProgressBar

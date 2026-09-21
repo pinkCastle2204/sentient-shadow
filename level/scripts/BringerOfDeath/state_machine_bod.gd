@@ -1,5 +1,5 @@
 extends Node
-
+class_name Bod_state_machine
 
 ## State machine specific to the BringerOfDeath enemy.
 ## Expects exactly these four children under it, named exactly as below

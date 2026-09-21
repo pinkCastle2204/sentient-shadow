@@ -1,7 +1,7 @@
 extends state
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../../AnimatedSprite2D"
-@onready var enemy: CharacterBody2D = $"../.."
+@onready var enemy: BringerOfDeath = $"../.."
 
 @export var arrive_distance: float = 4.0
 

@@ -1,7 +1,7 @@
 extends state
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../../AnimatedSprite2D"
-@onready var enemy: CharacterBody2D = $"../.."
+@onready var enemy: BringerOfDeath = $"../.."
 @onready var collision_shape_2d: CollisionShape2D = $"../../HitBox/CollisionShape2D"
 
 
