@@ -18,7 +18,15 @@
 [ext_resource type="Resource" uid="uid://dfdqye7vxp6pw" path="res://Inventory/items/cassete.tres" id="14_m54hf"]
 [ext_resource type="Script" uid="uid://cpstqnurgte84" path="res://scripts/Level3/refugee.gd" id="15_1vbeq"]
 [ext_resource type="Script" uid="uid://cc6wdnjrv5ptr" path="res://scripts/checkpoint_manager.gd" id="17_nf05y"]
+[ext_resource type="PackedScene" uid="uid://b6bkt21pqj0ml" path="res://scenes/Level 3/child.tscn" id="18_hkvtx"]
 [ext_resource type="PackedScene" uid="uid://dihji23xxltkc" path="res://scenes/checkpoint.tscn" id="18_m54hf"]
+[ext_resource type="Script" uid="uid://dso0pmtwdfcul" path="res://scripts/Level3/child.gd" id="19_f3hv7"]
+[ext_resource type="PackedScene" uid="uid://b6ijsqmv6yscu" path="res://summon_zone.tscn" id="22_1fg5o"]
+[ext_resource type="PackedScene" uid="uid://em71lqm41o57" path="res://scenes/Level 3/NPC2.tscn" id="22_t4l8a"]
+[ext_resource type="PackedScene" uid="uid://c8xquxqp4aqo3" path="res://scenes/bcompamion.tscn" id="23_22jjt"]
+[ext_resource type="Script" uid="uid://c6yp0a3v1ruh0" path="res://scripts/Level3/npc_2.gd" id="23_a8kys"]
+[ext_resource type="Script" uid="uid://dn7memv451qxe" path="res://scripts/UI/progress_bar.gd" id="26_ptp35"]
+[ext_resource type="Script" uid="uid://rom1tuqn0usd" path="res://scripts/UI/label.gd" id="27_28pnb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cmkor"]
 texture = ExtResource("4_cmkor")
@@ -1694,6 +1702,12 @@ func killplayer() -> void:
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpwed"]
 size = Vector2(365, 14)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptp35"]
+bg_color = Color(0.015686275, 0, 0.007843138, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28pnb"]
+bg_color = Color(0.99215686, 0.003921569, 0.02745098, 1)
+
 [node name="Level 3" type="Node2D" unique_id=176756541]
 script = ExtResource("1_vltyf")
 
@@ -1712,7 +1726,7 @@ tile_map_data = PackedByteArray("AAAYABIAAQAAAAEAAAAYABMAAQAAAAIAAAAYABQAAQAAAAM
 tile_set = SubResource("TileSet_07mv4")
 
 [node name="Player" parent="." unique_id=1595256849 instance=ExtResource("1_du6uu")]
-position = Vector2(69, 573)
+position = Vector2(1065, 461)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=2006357282]
 position = Vector2(-7, -27)
@@ -1763,19 +1777,31 @@ position = Vector2(634, 605)
 item = ExtResource("14_m54hf")
 
 [node name="Level3boss" parent="." unique_id=1091127635 instance=ExtResource("14_6go1b")]
-position = Vector2(594, 553)
+position = Vector2(1504, 640)
 
 [node name="Record 2" parent="." unique_id=888369693 instance=ExtResource("7_5jcue")]
 position = Vector2(1366, 317)
 item = ExtResource("14_m54hf")
 
 [node name="Record 3" parent="." unique_id=1504122421 instance=ExtResource("7_5jcue")]
-position = Vector2(951, 460)
+position = Vector2(951, 584)
 item = ExtResource("14_m54hf")
+
+[node name="Child" parent="." unique_id=950650555 instance=ExtResource("18_hkvtx")]
+position = Vector2(1629, 648)
+script = ExtResource("19_f3hv7")
 
 [node name="Refugee" parent="." unique_id=1868179147 instance=ExtResource("14_8qlw6")]
 position = Vector2(153, 360)
 script = ExtResource("15_1vbeq")
+
+[node name="PlayerReturn" type="Marker2D" parent="Refugee" unique_id=2053368473]
+position = Vector2(130, 27)
+
+[node name="ChildReturn" type="Marker2D" parent="Refugee" unique_id=1943472005]
+position = Vector2(24, 23)
+
+[node name="Bcompamion" parent="." unique_id=1958754732 instance=ExtResource("23_22jjt")]
 
 [node name="killzone" type="Area2D" parent="." unique_id=1918623766]
 collision_layer = 3
@@ -1790,10 +1816,56 @@ shape = SubResource("RectangleShape2D_mpwed")
 script = ExtResource("17_nf05y")
 
 [node name="checkpoint" parent="checkpointManager" unique_id=1595739344 instance=ExtResource("18_m54hf")]
-position = Vector2(78, 541)
+position = Vector2(1066, 400)
 
 [node name="checkpoint2" parent="checkpointManager" unique_id=105694070 instance=ExtResource("18_m54hf")]
 position = Vector2(776, 543)
+
+[node name="summonZone" parent="." unique_id=90388722 node_paths=PackedStringArray("targetMonster", "targetPlayer", "companion") instance=ExtResource("22_1fg5o")]
+position = Vector2(1358, 643)
+targetMonster = NodePath("../Level3boss")
+targetPlayer = NodePath("../Player")
+companion = NodePath("../Bcompamion")
+
+[node name="MonsterSpawn" type="Marker2D" parent="." unique_id=1495917553]
+position = Vector2(646, 452)
+
+[node name="NPC2" parent="." unique_id=30203918 instance=ExtResource("22_t4l8a")]
+position = Vector2(514, 448)
+script = ExtResource("23_a8kys")
+monster_scene = ExtResource("14_6go1b")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1118518865]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=551727694]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1593235326]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer2" unique_id=296925530]
+offset_left = 50.0
+offset_top = 39.0
+offset_right = 358.0
+offset_bottom = 72.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ptp35")
+theme_override_styles/fill = SubResource("StyleBoxFlat_28pnb")
+value = 50.0
+show_percentage = false
+script = ExtResource("26_ptp35")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer2" unique_id=781451693]
+offset_left = 757.0
+offset_top = 22.0
+offset_right = 1128.0
+offset_bottom = 65.0
+script = ExtResource("27_28pnb")
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]

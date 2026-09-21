@@ -119,7 +119,11 @@ audio/channel_defaults={
 }
 }
 variables={
-"save_child": false
+"compassion": 0,
+"courage": 0,
+"greed": 0,
+"save_child": false,
+"violence": 0
 }
 
 [display]

@@ -25,10 +25,10 @@ func _process(delta: float) -> void:
 		companion.target = targetMonster
 		
 		return
-		#print("monster marega aaj")
+		print("monster marega aaj")
 	elif (p == "Aggresive" || p == "selfish") && targetPlayer: 
 			companion.target = targetPlayer
-			print("player marega aaj")
+			#print("player marega aaj")
 			return
 	
 	companion.global_position = Vector2(455,256)
