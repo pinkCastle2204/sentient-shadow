@@ -29,6 +29,7 @@ LevelManager="*uid://byny6ky2g1js1"
 [dialogic]
 
 directories/dch_directory={
+"Child": "res://addons/dialogic/characters/Child.dch",
 "Eva": "res://addons/dialogic/characters/Eva.dch",
 "Level4npc1": "res://addons/dialogic/characters/Level4npc1.dch",
 "Mira": "res://addons/dialogic/characters/Mira.dch",
@@ -61,11 +62,21 @@ directories/dtl_directory={
 "SecondMedicMeetFirstOption": "res://addons/dialogic/timeline/SecondMedicMeetFirstOption.dtl",
 "SecondMedicSecondOption": "res://addons/dialogic/timeline/SecondMedicSecondOption.dtl",
 "SecondMedicThirdOption": "res://addons/dialogic/timeline/SecondMedicThirdOption.dtl",
+"child-before-quest": "res://addons/dialogic/timeline/Level3/child-before-quest.dtl",
+"child-monster-alive": "res://addons/dialogic/timeline/Level3/child-monster-alive.dtl",
+"child-rescued": "res://addons/dialogic/timeline/Level3/child-rescued.dtl",
+"computer-lore-1": "res://addons/dialogic/timeline/Level3/computer-lore-1.dtl",
 "guard": "res://addons/dialogic/timeline/Level4/guard.dtl",
 "hidden-aftermath": "res://addons/dialogic/timeline/endings/hidden-aftermath.dtl",
 "hidden-ending": "res://addons/dialogic/timeline/endings/hidden-ending.dtl",
 "hope-aftermath": "res://addons/dialogic/timeline/endings/hope-aftermath.dtl",
 "hope-ending": "res://addons/dialogic/timeline/endings/hope-ending.dtl",
+"level_3_ending": "res://addons/dialogic/timeline/Level3/level_3_ending.dtl",
+"level_3_intro": "res://addons/dialogic/timeline/Level3/level_3_intro.dtl",
+"npc-aggressive": "res://addons/dialogic/timeline/Level3/npc-aggressive.dtl",
+"npc-brave": "res://addons/dialogic/timeline/Level3/npc-brave.dtl",
+"npc-empathy": "res://addons/dialogic/timeline/Level3/npc-empathy.dtl",
+"refugee-after-child-rescued": "res://addons/dialogic/timeline/Level3/refugee-after-child-rescued.dtl",
 "refugee-child": "res://addons/dialogic/timeline/Level3/refugee-child.dtl",
 "sacrifice-aftermath": "res://addons/dialogic/timeline/endings/sacrifice-aftermath.dtl",
 "sacrifice-ending": "res://addons/dialogic/timeline/endings/sacrifice-ending.dtl",
@@ -110,7 +121,11 @@ audio/channel_defaults={
 }
 }
 variables={
-"save_child": false
+"compassion": 0,
+"courage": 0,
+"greed": 0,
+"save_child": false,
+"violence": 0
 }
 
 [display]

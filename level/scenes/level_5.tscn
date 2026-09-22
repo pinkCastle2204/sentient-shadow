@@ -339,8 +339,10 @@ position = Vector2(2321, 795)
 
 [node name="Level5boss1" parent="." unique_id=1091127635 instance=ExtResource("14_jwrea")]
 position = Vector2(543, 1043)
+scale = Vector2(2.6, 2.6)
 
 [node name="BringerOfDeath" parent="." unique_id=1033397475 groups=["Enemy"] instance=ExtResource("13_xxvx7")]
 position = Vector2(1077, 1177)
+scale = Vector2(1.5, 1.5)
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]

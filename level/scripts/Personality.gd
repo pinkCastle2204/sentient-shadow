@@ -86,3 +86,23 @@ func classify_personality():
 	#print("---------------------")
 
 	return best_name
+	
+func sync_to_dialogic(): 
+	Dialogic.VAR.compassion = compassion 
+	Dialogic.VAR.greed = greed 
+	Dialogic.VAR.violence = violence 
+	Dialogic.VAR.courage = courage 
+	
+func update_from_dialogic(): 
+	compassion = clamp(Dialogic.VAR.compassion, 0, 100)
+	greed = clamp(Dialogic.VAR.greed, 0, 100)
+	violence = clamp(Dialogic.VAR.violence, 0, 100)
+	courage = clamp(Dialogic.VAR.courage, 0, 100)
+	
+	classify_personality()
+	
+func start_dialogue(timeline_name): 
+	sync_to_dialogic() 
+	Dialogic.start(timeline_name) 
+	await Dialogic.timeline_ended 
+	update_from_dialogic()
