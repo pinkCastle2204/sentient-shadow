@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://p7q5a2rs6m3j"]
+
+[ext_resource type="Texture2D" uid="uid://brdu3u2ysvwm5" path="res://assets/platform.png" id="1_hj8lk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpwed"]
+size = Vector2(60, 7)
+
+[node name="Door1" type="AnimatableBody2D" unique_id=94110775]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1764022926]
+position = Vector2(32, 32)
+texture = ExtResource("1_hj8lk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1170016242]
+position = Vector2(30, 3.5)
+shape = SubResource("RectangleShape2D_mpwed")

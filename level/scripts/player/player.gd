@@ -55,11 +55,12 @@ func _physics_process(delta: float) -> void:
 	
 	# Add the gravity.
 	if not is_on_floor():
-		if jumpeda == false:
+		if jumpeda == false and not attacking:
 			jumpeda = true
 			animated_sprite_2d.play("jump")
-		else:
-			velocity += get_gravity() * delta
+		elif jumpeda == false:
+			jumpeda = true   # still mark airborne, just don't override the anim
+		velocity += get_gravity() * delta
 	else:
 		jumpeda = false
 			
@@ -153,5 +154,3 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		SPEED = 500.0
 		collision_shape_2d.disabled = true
 		collision_shape_2d_2.disabled = true
-
-	

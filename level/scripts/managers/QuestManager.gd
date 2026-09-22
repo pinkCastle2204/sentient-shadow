@@ -44,6 +44,20 @@ func _ready():
 		1,
 		"Return"		
 	)
+	register_quest(
+		"guard",
+		"Make way somehow to enter laboratory",
+		"Player has to enter the lab where he will face GUARD",
+		1,
+		"Well done"
+	)
+	register_quest(
+		"computer",
+		"Access the hidden file in computer",
+		"Player has to access the hidden file in computer ",
+		1,
+		"File access completed"
+	)
 	#Add more quests here
 
 #Add quests into the dictionary using this function

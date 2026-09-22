@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b2ci08xvjh645"]
+
+[ext_resource type="Script" uid="uid://x27u0hoypnrb" path="res://scripts/Level4/bruteforce.gd" id="1_m5wds"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5wds"]
+bg_color = Color(0.4414953, 0.66361547, 0.47138947, 1)
+
+[node name="bruteforce" type="CanvasLayer" unique_id=782617318]
+script = ExtResource("1_m5wds")
+passw = "4321"
+
+[node name="Panel" type="Panel" parent="." unique_id=293452861]
+offset_right = 1143.0
+offset_bottom = 642.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m5wds")
+
+[node name="Label" type="Label" parent="Panel" unique_id=1547252653]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 115.0
+offset_right = 660.0
+offset_bottom = 200.0
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2, 2)
+text = "Enter the password:
+Hint : it is permutation of 1234"
+
+[node name="LineEdit" type="LineEdit" parent="Panel" unique_id=247618875]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 219.0
+offset_right = 668.0
+offset_bottom = 264.0
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2, 2)
+placeholder_text = "Enter password"
+max_length = 4
+
+[node name="Label2" type="Label" parent="Panel" unique_id=733800896]
+layout_mode = 0
+offset_left = 341.0
+offset_top = 331.0
+offset_right = 697.0
+offset_bottom = 418.0
+offset_transform_scale = Vector2(2, 2)
+theme_override_font_sizes/font_size = 35
+
+[node name="Timer" type="Timer" parent="Panel" unique_id=1350962564]
+
+[connection signal="timeout" from="Panel/Timer" to="." method="_on_timer_timeout"]

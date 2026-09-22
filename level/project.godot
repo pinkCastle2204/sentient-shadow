@@ -24,6 +24,7 @@ EndingManager="*uid://38n8bh0vy0ni"
 BeehaveGlobalMetrics="*uid://c3ktl6ontsdt7"
 BeehaveGlobalDebugger="*uid://bl3ma400hpvsh"
 Dialogic="*uid://ds2q0uclmolvu"
+LevelManager="*uid://byny6ky2g1js1"
 
 [dialogic]
 
@@ -42,6 +43,7 @@ directories/dch_directory={
 directories/dtl_directory={
 "AfterFlashback": "res://addons/dialogic/timeline/intro/AfterFlashback.dtl",
 "AfterWaking": "res://addons/dialogic/timeline/intro/AfterWaking.dtl",
+"ComputerAccess": "res://addons/dialogic/timeline/Level4/ComputerAccess.dtl",
 "FinalWords": "res://addons/dialogic/timeline/FinalBoss/FinalWords.dtl",
 "FinalWordsCompanion": "res://addons/dialogic/timeline/Companion/FinalWordsCompanion.dtl",
 "FirstMedicMeet": "res://addons/dialogic/timeline/FirstMedicMeet.dtl",

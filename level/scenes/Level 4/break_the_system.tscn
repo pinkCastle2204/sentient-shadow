@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bib6cp1dbofyq"]
+
+[ext_resource type="Script" uid="uid://dchji1178t0jg" path="res://scripts/Level4/break_the_system.gd" id="1_xprys"]
+[ext_resource type="Texture2D" uid="uid://dtr2senm0y7r2" path="res://assets/computer.png" id="2_xprys"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpwed"]
+bg_color = Color(0.46361548, 0.61193573, 0.79487264, 1)
+
+[node name="BreakTheSystem" type="CanvasLayer" unique_id=118611507]
+script = ExtResource("1_xprys")
+
+[node name="Panel" type="Panel" parent="." unique_id=1474225879]
+offset_right = 1150.0
+offset_bottom = 649.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mpwed")
+
+[node name="Button" type="Button" parent="Panel" unique_id=876203862]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 182.0
+offset_right = 852.0
+offset_bottom = 363.0
+theme_override_font_sizes/font_size = 48
+text = "Smash this button"
+icon = ExtResource("2_xprys")
+
+[node name="Label" type="Label" parent="Panel" unique_id=384866999]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.09200001
+offset_left = 316.0
+offset_top = 410.0
+offset_right = 931.75
+offset_bottom = 452.292
+theme_override_font_sizes/font_size = 52
+
+[node name="Timer" type="Timer" parent="Panel" unique_id=1365575657]
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Panel/Timer" to="." method="_on_timer_timeout"]

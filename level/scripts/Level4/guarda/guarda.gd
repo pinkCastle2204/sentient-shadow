@@ -1,39 +1,42 @@
 extends CharacterBody2D
-class_name BringerOfDeath
+class_name Guard
 
 # Animation names, change if your SpriteFrames uses different names
 const ANIM_IDLE   := "idle"
-const ANIM_WALK    := "run"
-const ANIM_JUMP    := "jump"
-const ANIM_ATTACK  := "attack"
-const ANIM_DAMAGE  := "damage"
-const ANIM_DEATHS  := ["death1"]
+const ANIM_WALK   := "run"
+const ANIM_JUMP   := "jump"
+const ANIM_ATTACK := "attack"
+const ANIM_DAMAGE := "damage"
+const ANIM_DEATHS := ["death1"]
 
+@onready var helper: Label = $"../CanvasLayer2/helper"
 
-@export var move_speed: float = 70.0
-@export var chase_speed: float = 75.0
+@export var move_speed: float = 60.0
+@export var chase_speed: float = 80.0
 @export var gravity: float = 980.0
 
 @export var max_health: int = 100
-@export var attack_damage: int = 15  # base damage, before personality scaling
+@export var attack_damage: int = 10
 
 @export var detection_range: float = 150.0
 @export var lose_target_range: float = 220.0
-@export var attack_range: float = 30.0
+@export var attack_range: float = 20.0
 
 # Patrol points in local space, leave empty to idle in place
-@export var patrol_points: Array[Vector2] = [Vector2(925.0,340.0),Vector2(900.0,340.0),Vector2(1000.0,340.0)]
+@export var patrol_points: Array[Vector2] = []
 
 # Default x position of the hit box when facing right
 @export var hit_box_shift_x: float = 0.0
+@export var hurt_box_shift_x: float = 0.0
 
-# Node references, must match bringer_of_death.tscn
+# Node references, must match guard.tscn
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var fsm: Bod_state_machine = $state_machineBOD
+@onready var fsm: guard_state_machine = $guarda_state_machine
 @onready var hit_box: HitBox = $HitBox
 @onready var hurt_box: HurtBox = $HurtBox
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var collision_shape_2d: CollisionShape2D = $HitBox/CollisionShape2D
+@onready var animation_player: AnimationPlayer = $"../Door1/AnimationPlayer"
 
 # Runtime state
 var health: int
@@ -41,41 +44,17 @@ var facing: int = 1
 var target: Node2D = null
 var is_dead: bool = false
 var is_flashing_damage: bool = false
-
-# --- Personality-driven combat scaling (reacts to the PLAYER's trait vector) ---
-var aggro_multiplier: float = 1.0       # scales detection range and chase speed
-var damage_multiplier: float = 1.0      # scales this enemy's attack damage
-var effective_attack_damage: int = 15
-
+var is_hostile: bool = false  # flips true once talk chooses the attack path
+@export var doorOPEN:bool = false
+var dooropend:bool = false
 
 func _ready() -> void:
 	health = max_health
 	hurt_box.damaged.connect(_on_hurt_box_damaged)
 	hit_box.attacker = self
-	refresh_personality_scaling()
-	hit_box.damage = effective_attack_damage
-
-
-func refresh_personality_scaling() -> void:
-	# High player violence = more aggressive, harder-hitting monsters.
-	# High player compassion = slightly more forgiving encounters.
-	var violence: float = personality.violence
-	var compassion: float = personality.compassion
-
-	aggro_multiplier = 1.0 + (violence - 50.0) / 100.0        # ~0.5x to 1.5x
-	damage_multiplier = 1.0 + (violence - 50.0) / 150.0 - (compassion - 50.0) / 200.0
-
-	effective_attack_damage = int(attack_damage * damage_multiplier)
-	hit_box.damage = effective_attack_damage
-
-
-func get_effective_detection_range() -> float:
-	return detection_range * aggro_multiplier
-
-
-func get_effective_chase_speed() -> float:
-	return chase_speed * aggro_multiplier
-
+	hit_box.damage = attack_damage
+func openthedoor():
+	doorOPEN = true
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
@@ -88,9 +67,13 @@ func _physics_process(delta: float) -> void:
 	fsm.physics_update(delta)
 	move_and_slide()
 	progress_bar.value = health
+	if !dooropend && doorOPEN:
+		animation_player.play("new_animation")
+		dooropend = true
+		
+	
 
-
-# Flip sprite and mirror the hit box to match facing direction
+# Flip sprite and mirror the hit/hurt box to match facing direction
 func set_facing(direction: float) -> void:
 	if direction == 0:
 		return
@@ -104,13 +87,16 @@ func set_facing(direction: float) -> void:
 	hit_box.position.x = hit_box_shift_x if facing > 0 else -hit_box_shift_x
 	hit_box.scale.x = 1 if facing > 0 else -1
 
+	hurt_box.position.x = hurt_box_shift_x if facing > 0 else -hurt_box_shift_x
+	hurt_box.scale.x = 1 if facing > 0 else -1
 
-# Look for the player within detection range (scaled by player's violence)
+
+# Look for the player within detection range
 func try_detect_player() -> bool:
 	var player := get_tree().get_first_node_in_group("Player")
 	if player == null:
 		return false
-	if global_position.distance_to(player.global_position) <= get_effective_detection_range():
+	if global_position.distance_to(player.global_position) <= detection_range:
 		target = player
 		return true
 	return false
@@ -130,6 +116,7 @@ func _on_hurt_box_damaged(hitbox: HitBox) -> void:
 func take_damage(amount: int) -> void:
 	if is_dead:
 		return
+	is_hostile = true  # getting hit always makes the guard fight back
 	health = max(health - amount, 0)
 	if health == 0:
 		die()
@@ -155,10 +142,10 @@ func die() -> void:
 	is_dead = true
 	progress_bar.visible = false
 	velocity = Vector2.ZERO
-	
+	animation_player.play("new_animation")
 	animated_sprite.play(ANIM_DEATHS.pick_random())
 	await animated_sprite.animation_finished
-	LevelManager.load_next_level()
+	QuestManager.finish_quest("guard")
 	queue_free()
 
 
@@ -172,7 +159,3 @@ func _on_animated_sprite_2d_frame_changed() -> void:
 		collision_shape_2d.disabled = false
 	else:
 		collision_shape_2d.disabled = true
-
-
-func jump():
-	velocity.y = -100

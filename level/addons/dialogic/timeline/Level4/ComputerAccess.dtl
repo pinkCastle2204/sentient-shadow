@@ -1,0 +1,9 @@
+computer: [SYSTEM SCAN] Processing biometric signature...
+computer: ...Unrecognized. You do not match any authorized Helix personnel on record.
+computer: Access to this terminal requires a valid password. State it now, or leave.
+- Attempt to brute-force the password manually.
+	[signal arg="Computer_brute_force"]
+	computer: [WARNING] Unauthorized access attempt detected. Initiating [aa = 1]
+- Break the terminal open and rip out the drive.
+	[signal arg="Computer_break_drive"]
+	computer: [ALERT] Physical tampering detected. [aa = 1]

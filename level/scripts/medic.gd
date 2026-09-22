@@ -70,6 +70,7 @@ func dialogic_signal(arg: String):
 		option2()
 	elif arg == "option3":
 		option3()
+@onready var helper: Label = $"../CanvasLayer2/helper"
 
 func option2():
 	op2 = true
@@ -79,7 +80,9 @@ func option3():
 func on_body_entered(body):
 	if body.name == "Player":
 		player_near = true
+		helper.interact()
 
 func on_body_exited(body):
 	if body.name == "Player":
 		player_near = false
+		helper.nointeract()

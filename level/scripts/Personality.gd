@@ -1,16 +1,16 @@
 extends Node
 
-var compassion = 50
-var greed = 50
-var violence = 50
-var courage = 50
+var compassion = 10
+var greed = 95
+var violence = 35
+var courage = 45
 
 func print_traits():
 	print("---------------------")
 	print("Compassion :", compassion)
 	print("Greed      :", greed)
-	print("Honesty    :", violence)
-	print("Aggression :", courage)
+	print("Violence    :", violence)
+	print("Courage :", courage)
 	print("---------------------")
 
 var personalities = {
@@ -66,7 +66,7 @@ func update_personality(arr: Array):
 	violence += arr[2]
 	courage += arr[3]
 	classify_personality()
-	
+	print_traits()
 func classify_personality():
 
 	var best_distance = INF

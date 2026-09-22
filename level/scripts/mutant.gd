@@ -1,6 +1,7 @@
 extends Area2D
 var player_near =false
 var talked =false
+@onready var helper: Label = $"../CanvasLayer2/helper"
 
 func _ready():
 	body_entered.connect(on_body_entered)
@@ -27,7 +28,9 @@ func run_dialogue(dialogue):
 func on_body_entered(body):
 	if body.name == "Player":
 		player_near = true
+		helper.interact()
 
 func on_body_exited(body):
 	if body.name == "Player":
 		player_near = false
+		helper.nointeract()

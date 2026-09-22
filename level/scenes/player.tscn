@@ -459,9 +459,8 @@ inv = ExtResource("2_smehm")
 position = Vector2(-1, -10)
 scale = Vector2(0.74746954, 0.7851731)
 sprite_frames = SubResource("SpriteFrames_a8ls1")
-animation = &"attack"
+animation = &"run"
 autoplay = "default"
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=94393710]
 position = Vector2(0, -12)
