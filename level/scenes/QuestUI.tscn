@@ -1,11 +1,27 @@
 [gd_scene format=3 uid="uid://bo2om38ema7j5"]
 
 [ext_resource type="Script" uid="uid://cf6icblqfjrtg" path="res://scripts/UI/quest_ui.gd" id="1_87l77"]
+[ext_resource type="Texture2D" uid="uid://blr0m2am3gea7" path="res://assets/QuestBox.png" id="2_a0dqu"]
+[ext_resource type="FontFile" uid="uid://bjdtvr27resh6" path="res://assets/fonts/RubikGlitch-Regular.ttf" id="3_ek4v0"]
+[ext_resource type="FontFile" uid="uid://cpn3hxv60flo7" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="4_4iaix"]
+[ext_resource type="Texture2D" uid="uid://bif60falw34lj" path="res://assets/Card X102.png" id="5_4iaix"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_17o6o"]
+texture = ExtResource("2_a0dqu")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ng4k4"]
+texture = ExtResource("5_4iaix")
 
 [node name="QuestUI" type="CanvasLayer" unique_id=1969683578]
+process_mode = 3
+layer = 5
 script = ExtResource("1_87l77")
 
-[node name="ActiveQuest" type="Panel" parent="." unique_id=1021393710]
+[node name="ActiveQuest" type="PanelContainer" parent="." unique_id=593224360]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -17,27 +33,39 @@ offset_right = 326.0
 offset_bottom = 148.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17o6o")
 
-[node name="Title" type="Label" parent="ActiveQuest" unique_id=1921850179]
-layout_mode = 0
-offset_right = 650.0
-offset_bottom = 66.0
+[node name="MarginContainer" type="MarginContainer" parent="ActiveQuest" unique_id=1395441635]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 31
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 18
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ActiveQuest/MarginContainer" unique_id=2128015386]
+layout_mode = 2
+theme_override_constants/separation = 26
+
+[node name="Title" type="Label" parent="ActiveQuest/MarginContainer/VBoxContainer" unique_id=1921850179]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ek4v0")
 text = "ACTIVE QUESTS"
+horizontal_alignment = 1
 
-[node name="Progress" type="Label" parent="ActiveQuest" unique_id=444813869]
-layout_mode = 0
-offset_top = 89.0
-offset_right = 655.0
-offset_bottom = 299.0
+[node name="Progress" type="Label" parent="ActiveQuest/MarginContainer/VBoxContainer" unique_id=444813869]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_4iaix")
 text = "No Active Quests"
 
-[node name="Popup" type="Panel" parent="." unique_id=1685537312]
+[node name="Popup" type="PanelContainer" parent="." unique_id=633918906]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 111.0
 grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ng4k4")
 
 [node name="Message" type="Label" parent="Popup" unique_id=1042838935]
-layout_mode = 0
-offset_right = 1154.0
-offset_bottom = 109.0
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_4iaix")
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1

@@ -13,6 +13,7 @@ extends CanvasLayer
 func _ready() -> void:
 	bruteforce.visible = false
 	line_edit.text_submitted.connect(_on_line_entered)
+	
 
 func _on_line_entered(new_text: String):
 	if new_text == passw:
@@ -31,4 +32,5 @@ func _on_timer_timeout() -> void:
 	bruteforce.visible = false
 	file.visible = true
 	file.done = true
+	QuestManager.add_progress("computer")
 	QuestManager.finish_quest("computer")

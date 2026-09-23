@@ -24,6 +24,7 @@ func run_dialogue() -> void:
 	await Dialogic.timeline_ended
 	player.player_inte = false
 	
+	
 func dialogic_signal(arg: String) -> void:
 	match arg:
 		"Computer_brute_force":
@@ -35,7 +36,8 @@ func dialogic_signal(arg: String) -> void:
 			personality.update_personality([-10, 5, 20, 15]) 
 			break_the_system.visible = true
 			# forceful, destructive
-			
+	QuestManager.add_progress("computer")
+	QuestManager.finish_quest("computer")
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") && !done:

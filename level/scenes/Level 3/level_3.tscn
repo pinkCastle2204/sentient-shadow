@@ -1708,12 +1708,6 @@ bg_color = Color(0.015686275, 0, 0.007843138, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28pnb"]
 bg_color = Color(0.99215686, 0.003921569, 0.02745098, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22jjt"]
-bg_color = Color(0.015686275, 0, 0.007843138, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4l8a"]
-bg_color = Color(0.99215686, 0.003921569, 0.02745098, 1)
-
 [node name="Level 3" type="Node2D" unique_id=176756541]
 script = ExtResource("1_vltyf")
 
@@ -1843,7 +1837,6 @@ script = ExtResource("23_a8kys")
 monster_scene = ExtResource("14_6go1b")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1118518865]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=551727694]
 anchors_preset = 15
@@ -1896,6 +1889,3 @@ script = ExtResource("21_1fg5o")
 position = Vector2(1862, -164)
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="." unique_id=854804421]
-
-[connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
-[connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]
