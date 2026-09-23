@@ -15,6 +15,7 @@ func _ready() -> void:
 	randomize()
 	break_the_system.visible = false
 	req = randi_range(10, 20)  # Returns an int from 1 to 10
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,4 +34,5 @@ func _on_timer_timeout() -> void:
 	break_the_system.visible = false
 	file.visible = true
 	file.done = true
+	QuestManager.add_progress("computer")
 	QuestManager.finish_quest("computer")

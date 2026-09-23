@@ -70,6 +70,8 @@ func _physics_process(delta: float) -> void:
 	if !dooropend && doorOPEN:
 		animation_player.play("new_animation")
 		dooropend = true
+		QuestManager.add_progress("guard")
+		QuestManager.finish_quest("guard")
 		
 	
 

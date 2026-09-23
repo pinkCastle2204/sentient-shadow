@@ -1,8 +1,8 @@
 extends CanvasLayer
 
 @onready var active =$ActiveQuest
-@onready var title=$ActiveQuest/Title
-@onready var progress=$ActiveQuest/Progress
+@onready var title=$ActiveQuest/MarginContainer/VBoxContainer/Title
+@onready var progress=$ActiveQuest/MarginContainer/VBoxContainer/Progress
 @onready var popup =$Popup
 @onready var popup_text=$Popup/Message
 
@@ -17,12 +17,13 @@ func _ready():
 	
 func _process(delta):
 	if Input.is_action_just_pressed("open_quest"):
+		print("Q Key Pressed! Toggling window...")
 		active.visible=!active.visible
 	
 	
 func on_quest_started(id):
 	update()
-	show_popup("New Quest:" + QuestManager.quests[id]["title"])
+	show_popup("New Quest: " + QuestManager.quests[id]["title"])
 	
 func on_quest_updated(id):
 	update()
