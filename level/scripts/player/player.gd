@@ -4,6 +4,7 @@ var can_move =true
 @onready var timer: Timer = $Timer
 @onready var collision_shape_2d_ofplayer: CollisionShape2D = $CollisionShape2D
 @onready var checkpoint_manager: Node = $"../checkpointManager"
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var SPEED = 500.0
 const JUMP_VELOCITY = -700.0
@@ -42,11 +43,12 @@ func _physics_process(delta: float) -> void:
 		return
 	if Input.is_action_just_pressed("attack") and !attacking and is_on_floor():
 		animated_sprite_2d.play("attack")
-		
+		audio_stream_player.play()
 		attacking = true
 		SPEED = 000.0
 	if Input.is_action_just_pressed("attack") and !attacking and !is_on_floor():
 		animated_sprite_2d.play("attack 2")
+		audio_stream_player.play()
 		attacking = true
 		SPEED = 000.0
 	

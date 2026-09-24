@@ -1,4 +1,6 @@
 extends Area2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var summon_zone: Area2D = $"."
 
 @export var target: CharacterBody2D
 @export var targetMonster: CharacterBody2D
@@ -14,10 +16,12 @@ func _ready() -> void:
 
 func on_body_entered(body: Node2D):
 	if body.is_in_group("Player") && !summoned:
+		playit()
 		summoned = true
 		companion.global_position = global_position
 		
-	
+func playit():
+	audio_stream_player_2d.play()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var p: String = personality.classify_personality()
@@ -25,14 +29,17 @@ func _process(delta: float) -> void:
 	if (p == "Empathy" || p == "Brave") && targetMonster:
 		companion.target = targetMonster
 		if companion.target.health < 50:
-			companion.global_position = Vector2(455,256)
+			playit()
+			companion.global_position = locate
+			
 		return
 		#print("monster marega aaj")
 	elif (p == "Aggresive" || p == "Selfish") && targetPlayer: 
 			companion.target = targetPlayer
+			playit()
 			print("player marega aaj")
 			if companion.target.health < 50:
-				companion.global_position = Vector2(455,256)
+				companion.global_position = locate
 			return
 	if companion.target != null && companion.target.health < 50:
 		companion.global_position = locate 	

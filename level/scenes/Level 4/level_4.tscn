@@ -25,6 +25,7 @@
 [ext_resource type="Script" uid="uid://dn7memv451qxe" path="res://scripts/UI/progress_bar.gd" id="23_3my82"]
 [ext_resource type="Script" uid="uid://rom1tuqn0usd" path="res://scripts/UI/label.gd" id="24_cdbr7"]
 [ext_resource type="Script" uid="uid://ds453gir530ys" path="res://scripts/helper.gd" id="25_cdbr7"]
+[ext_resource type="PackedScene" uid="uid://dfisbabqkwgx3" path="res://scenes/personality_vector.tscn" id="26_uwkjb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bju42"]
 texture = ExtResource("3_p7ucm")
@@ -5296,30 +5297,30 @@ func run_dialogue(dia):
 func dialogic_signal(arg: String):
 	match arg:
 		\"NPC2_Empathy_choice1\":
-			personality.update_personality([40, -25, -30, -10])
+			personality.update_personality([60, -40, -45, -15])
 		\"NPC2_Empathy_choice2\":
-			personality.update_personality([-20, 10, 15, -15])
+			personality.update_personality([-30, 15, 20, -20])
 		\"NPC2_Selfish_choice1\":
-			personality.update_personality([-25, 35, 5, -15])
+			personality.update_personality([-40, 55, 10, -20])
 			# deal made, codes handed over — outcome still pending on next choice
 		\"NPC2_Selfish_rescue_after_deal\":
-			personality.update_personality([15, 10, -5, 0])
+			personality.update_personality([20, 15, -10, 5])
 			# kept the deal — smaller swing since greed was already banked above
 		\"NPC2_Selfish_betray\":
-			personality.update_personality([-30, 40, 5, -15])
+			personality.update_personality([-45, 0, 10, -20])
 			# TODO: set broken_promise_pending flag — this scientist becomes a hostile witness later
 		\"NPC2_Selfish_choice2\":
-			personality.update_personality([10, 20, -5, -10])
+			personality.update_personality([15, 30, -10, -15])
 		\"NPC2_Aggressive_choice1\":
-			personality.update_personality([-25, 15, 40, 15])
+			personality.update_personality([-35, 20, 60, 20])
 			# TODO: set sublevel4_hint flag
 		\"NPC2_Aggressive_choice2\":
-			personality.update_personality([10, -10, 35, 20])
+			personality.update_personality([15, -15, 50, 25])
 		\"NPC2_Brave_choice1\":
-			personality.update_personality([20, -15, -10, 35])
+			personality.update_personality([25, -20, -15, 55])
 			# TODO: set scientist_ally_recruited flag
 		\"NPC2_Brave_choice2\":
-			personality.update_personality([10, -5, -5, 20])
+			personality.update_personality([15, -10, -10, 30])
 @onready var helper: Label = $\"../../CanvasLayer2/helper\"
 
 func on_body_entered(body):
@@ -5331,9 +5332,6 @@ func on_body_exited(body):
 	if body.name == \"Player\":
 		player_near = false
 		helper.nointeract()
-
-
-
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r30kf"]
@@ -5448,10 +5446,10 @@ func killplayer() -> void:
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fhqkr"]
 size = Vector2(314, 16)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwkjb"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bmln5"]
 bg_color = Color(0.015686275, 0, 0.007843138, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bmln5"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5j10t"]
 bg_color = Color(0.99215686, 0.003921569, 0.02745098, 1)
 
 [node name="Level4" type="Node2D" unique_id=714765304]
@@ -5590,32 +5588,38 @@ companion = NodePath("../Bcompamion")
 [node name="Bcompamion" parent="." unique_id=1958754732 instance=ExtResource("22_d74n3")]
 position = Vector2(2611, -282)
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=50391666]
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=801078690]
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer2" unique_id=1790045572]
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer2" unique_id=2142892179]
 offset_left = 50.0
 offset_top = 39.0
 offset_right = 358.0
 offset_bottom = 72.0
-theme_override_styles/background = SubResource("StyleBoxFlat_uwkjb")
-theme_override_styles/fill = SubResource("StyleBoxFlat_bmln5")
+theme_override_styles/background = SubResource("StyleBoxFlat_bmln5")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5j10t")
 value = 50.0
 show_percentage = false
 script = ExtResource("23_3my82")
 
-[node name="Label" type="Label" parent="CanvasLayer2" unique_id=5079080]
+[node name="Label" type="Label" parent="CanvasLayer2" unique_id=1876213645]
 offset_left = 757.0
 offset_top = 22.0
 offset_right = 1128.0
 offset_bottom = 65.0
 script = ExtResource("24_cdbr7")
 
-[node name="helper" type="Label" parent="CanvasLayer2" unique_id=1421317402]
-offset_left = 463.0
-offset_top = 33.0
-offset_right = 985.0
-offset_bottom = 66.0
+[node name="helper" type="Label" parent="CanvasLayer2" unique_id=988400082]
+offset_left = 399.0
+offset_top = 130.0
+offset_right = 921.0
+offset_bottom = 163.0
 script = ExtResource("25_cdbr7")
+
+[node name="PersonalityVector" parent="CanvasLayer2" unique_id=393872146 instance=ExtResource("26_uwkjb")]
+offset_left = 741.0
+offset_top = 41.0
+offset_right = 1098.0
+offset_bottom = 77.0
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="NPCs/npc1" to="NPCs/npc1" method="_on_body_entered"]

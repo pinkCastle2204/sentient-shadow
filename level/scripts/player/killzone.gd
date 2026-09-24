@@ -4,6 +4,7 @@ extends Area2D
 @onready var player: CharacterBody2D = $"../Player"
 
 var is_killing := false
+@onready var falldamage: AudioStreamPlayer = $falldamage
 
 
 func _on_body_entered(body: Node2D) -> void:
@@ -17,6 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func killplayer() -> void:
+	falldamage.play()
 	is_killing = true
 	
 	player.dead = true

@@ -6,11 +6,8 @@
 [ext_resource type="Script" uid="uid://cp2gmhx8lwlm3" path="res://scripts/meleeAttacks/hurt_area.gd" id="6_fjrip"]
 [ext_resource type="Script" uid="uid://dtgtrq2pttj3n" path="res://scripts/meleeAttacks/attack_area.gd" id="7_smehm"]
 [ext_resource type="Texture2D" uid="uid://bcbt8jbmtdkn1" path="res://assets/Characters Pack/Outline/WarriorWoman-Sheet.png" id="7_y4r1p"]
+[ext_resource type="AudioStream" uid="uid://cp88d3jcy78db" path="res://assets/musicholder-sword-sound-260274.mp3" id="8_smehm"]
 [ext_resource type="PackedScene" uid="uid://dxe3jfgdylyoj" path="res://Inventory/inv_ui.tscn" id="9_ur7pv"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
-atlas = ExtResource("7_y4r1p")
-region = Rect2(0, 576, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
 atlas = ExtResource("7_y4r1p")
@@ -228,9 +225,6 @@ region = Rect2(560, 192, 80, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fjrip")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_ur7pv")
 }, {
 "duration": 1.0,
@@ -250,7 +244,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"attack",
-"speed": 9.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -459,7 +453,7 @@ inv = ExtResource("2_smehm")
 position = Vector2(-1, -10)
 scale = Vector2(0.74746954, 0.7851731)
 sprite_frames = SubResource("SpriteFrames_a8ls1")
-animation = &"run"
+animation = &"attack"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=94393710]
@@ -498,6 +492,9 @@ offset_left = -95.0
 offset_top = -90.0
 offset_right = 113.0
 offset_bottom = 58.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=11336389]
+stream = ExtResource("8_smehm")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

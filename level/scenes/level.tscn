@@ -31,8 +31,10 @@
 [ext_resource type="Script" uid="uid://rom1tuqn0usd" path="res://scripts/UI/label.gd" id="25_xy2fk"]
 [ext_resource type="Script" uid="uid://bdwrrbuu4hkx2" path="res://scripts/player/killzone.gd" id="29_7agi7"]
 [ext_resource type="Script" uid="uid://ds453gir530ys" path="res://scripts/helper.gd" id="29_q4oe8"]
+[ext_resource type="PackedScene" uid="uid://dfisbabqkwgx3" path="res://scenes/personality_vector.tscn" id="30_c1pbi"]
 [ext_resource type="Script" uid="uid://cc6wdnjrv5ptr" path="res://scripts/checkpoint_manager.gd" id="30_kih21"]
 [ext_resource type="PackedScene" uid="uid://dihji23xxltkc" path="res://scenes/checkpoint.tscn" id="31_w3o6u"]
+[ext_resource type="PackedScene" uid="uid://7jtwp3c74i2v" path="res://scenes/falldamage.tscn" id="32_svjb4"]
 [ext_resource type="Script" uid="uid://x1xgkshuohxc" path="res://scripts/moving_platform_script1.gd" id="34_v3why"]
 [ext_resource type="PackedScene" uid="uid://b6may6dc18r7i" path="res://scenes/plato.tscn" id="35_asl66"]
 [ext_resource type="PackedScene" uid="uid://b6ijsqmv6yscu" path="res://summon_zone.tscn" id="36_2jdvr"]
@@ -992,7 +994,7 @@ value = 50.0
 show_percentage = false
 
 [node name="Player" parent="." unique_id=1595256849 instance=ExtResource("21_h6wmr")]
-position = Vector2(444, 552)
+position = Vector2(273, 587)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1807544775]
 position = Vector2(2, -9)
@@ -1035,6 +1037,12 @@ offset_right = 921.0
 offset_bottom = 163.0
 script = ExtResource("29_q4oe8")
 
+[node name="PersonalityVector" parent="CanvasLayer2" unique_id=393872146 instance=ExtResource("30_c1pbi")]
+offset_left = 741.0
+offset_top = 41.0
+offset_right = 1098.0
+offset_bottom = 77.0
+
 [node name="BringerOfDeath" parent="." unique_id=1091127635 groups=["Enemy"] instance=ExtResource("24_wu01b")]
 position = Vector2(429, 875)
 
@@ -1044,10 +1052,12 @@ collision_mask = 2
 script = ExtResource("29_7agi7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1873194925]
-position = Vector2(1178, 949)
+position = Vector2(1168, 911)
 shape = SubResource("RectangleShape2D_b2xip")
 
 [node name="Timer" type="Timer" parent="Killzone" unique_id=572939922]
+
+[node name="falldamage" parent="Killzone" unique_id=591961068 instance=ExtResource("32_svjb4")]
 
 [node name="checkpointManager" type="Node" parent="." unique_id=1617306416]
 script = ExtResource("30_kih21")

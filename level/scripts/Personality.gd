@@ -61,10 +61,10 @@ func update_personality(arr: Array):
 	if(arr.size() != personalities.size()):
 		print("The size to update personality is wrong")
 		return
-	compassion += arr[0]
-	greed += arr[1]
-	violence += arr[2]
-	courage += arr[3]
+	compassion = clamp(compassion + arr[0], 1, 100)
+	greed = clamp(greed + arr[1], 1, 100)
+	violence = clamp(violence + arr[2], 1, 100)
+	courage = clamp(courage + arr[3], 1, 100)
 	classify_personality()
 	print_traits()
 func classify_personality():
@@ -94,10 +94,10 @@ func sync_to_dialogic():
 	Dialogic.VAR.courage = courage 
 	
 func update_from_dialogic(): 
-	compassion = clamp(Dialogic.VAR.compassion, 0, 100)
-	greed = clamp(Dialogic.VAR.greed, 0, 100)
-	violence = clamp(Dialogic.VAR.violence, 0, 100)
-	courage = clamp(Dialogic.VAR.courage, 0, 100)
+	compassion = clamp(Dialogic.VAR.compassion, 1, 100)
+	greed = clamp(Dialogic.VAR.greed, 1, 100)
+	violence = clamp(Dialogic.VAR.violence, 1, 100)
+	courage = clamp(Dialogic.VAR.courage, 1, 100)
 	
 	classify_personality()
 	
