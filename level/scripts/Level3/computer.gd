@@ -33,7 +33,7 @@ func interact():
 		used = true
 		print("Project Zero terminal unlocked.")
 		QuestManager.finish_quest("project_zero")
-		#Dialogic.start("project-zero-lore")
+		get_tree().change_scene_to_file("res://scenes/Level 3/level_3_ending.tscn")
 
 func on_body_entered(body):
 	if body.name == "Player":

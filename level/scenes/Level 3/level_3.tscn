@@ -1700,7 +1700,7 @@ func killplayer() -> void:
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mpwed"]
-size = Vector2(365, 14)
+size = Vector2(365, 18)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptp35"]
 bg_color = Color(0.015686275, 0, 0.007843138, 1)
@@ -1809,7 +1809,7 @@ collision_mask = 3
 script = SubResource("GDScript_mpwed")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=633425029]
-position = Vector2(977.5, 769)
+position = Vector2(977.5, 767)
 shape = SubResource("RectangleShape2D_mpwed")
 
 [node name="checkpointManager" type="Node" parent="." unique_id=1419383617 node_paths=PackedStringArray("monsters")]
@@ -1866,26 +1866,3 @@ offset_top = 22.0
 offset_right = 1128.0
 offset_bottom = 65.0
 script = ExtResource("21_1fg5o")
-
-[node name="ProgressBar2" type="ProgressBar" parent="CanvasLayer2" unique_id=1139642709]
-offset_left = 50.0
-offset_top = 39.0
-offset_right = 358.0
-offset_bottom = 72.0
-theme_override_styles/background = SubResource("StyleBoxFlat_ptp35")
-theme_override_styles/fill = SubResource("StyleBoxFlat_28pnb")
-value = 50.0
-show_percentage = false
-script = ExtResource("20_f3hv7")
-
-[node name="Label2" type="Label" parent="CanvasLayer2" unique_id=1560710476]
-offset_left = 757.0
-offset_top = 22.0
-offset_right = 1128.0
-offset_bottom = 65.0
-script = ExtResource("21_1fg5o")
-
-[node name="Bcompamion2" parent="." unique_id=1485578089 instance=ExtResource("20_1fg5o")]
-position = Vector2(1862, -164)
-
-[node name="CanvasLayer3" type="CanvasLayer" parent="." unique_id=854804421]

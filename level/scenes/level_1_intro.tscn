@@ -16,6 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://cktqn5xbtcb55" path="res://assets/environment/side-wall-v1.png" id="10_llaeo"]
 [ext_resource type="PackedScene" uid="uid://b0rtsvmt7nqvb" path="res://scenes/player.tscn" id="13_c1o0y"]
 [ext_resource type="AudioStream" uid="uid://b6qfn7q32rgev" path="res://assets/sound effects/lenspulse-intense-cinematic-heartbeat-sound-effect-584627.mp3" id="13_emy26"]
+[ext_resource type="Texture2D" uid="uid://be11baikkobr" path="res://assets/Btn_Primary_Normal.png" id="17_exh63"]
+[ext_resource type="Texture2D" uid="uid://b6n7sdprlxi2k" path="res://assets/Btn_Primary_Pressed.png" id="18_igrsl"]
+[ext_resource type="Texture2D" uid="uid://c4hb6iaq22rc5" path="res://assets/Btn_Primary_Hover.png" id="19_1hk17"]
+[ext_resource type="FontFile" uid="uid://bjdtvr27resh6" path="res://assets/fonts/RubikGlitch-Regular.ttf" id="20_igrsl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_emy26"]
 atlas = ExtResource("2_hbug1")
@@ -475,7 +479,6 @@ sound2 = ExtResource("3_mu36h")
 sound3 = ExtResource("4_n3m0t")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=942696577]
-visible = false
 
 [node name="IntroFade" type="ColorRect" parent="CanvasLayer" unique_id=96562059]
 modulate = Color(0, 0, 0, 1)
@@ -489,7 +492,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Smoke1" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=398598073]
-visible = false
 modulate = Color(1, 1, 1, 0.44313726)
 position = Vector2(77.999985, 103.5)
 scale = Vector2(4, 4)
@@ -498,7 +500,6 @@ animation = &"smoke"
 frame_progress = 0.28420526
 
 [node name="Smoke2" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=704600783]
-visible = false
 modulate = Color(1, 1, 1, 0.44313726)
 position = Vector2(1048, 479.5)
 scale = Vector2(4, 4)
@@ -653,13 +654,25 @@ volume_db = 20.995
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1100867501]
 stream = SubResource("AudioStreamPolyphonic_17o6o")
 
-[node name="Button" type="Button" parent="." unique_id=638414278]
+[node name="Button" type="TextureButton" parent="." unique_id=1679416187]
 offset_left = 381.0
 offset_top = 532.0
 offset_right = 426.0
 offset_bottom = 558.0
-theme_override_font_sizes/font_size = 10
-text = "Skip"
+scale = Vector2(0.05, 0.05)
+texture_normal = ExtResource("17_exh63")
+texture_pressed = ExtResource("18_igrsl")
+texture_hover = ExtResource("19_1hk17")
+
+[node name="Label" type="Label" parent="Button" unique_id=391580487]
+layout_mode = 0
+offset_right = 999.9995
+offset_bottom = 280.0
+theme_override_fonts/font = ExtResource("20_igrsl")
+theme_override_font_sizes/font_size = 120
+text = "SKIP"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
