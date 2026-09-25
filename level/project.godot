@@ -39,6 +39,7 @@ directories/dch_directory={
 "Unit-07": "res://addons/dialogic/characters/Unit-07.dch",
 "medic": "res://addons/dialogic/characters/medic.dch",
 "mutant": "res://addons/dialogic/characters/mutant.dch",
+"npc_level2": "res://addons/dialogic/characters/npc_level2.dch",
 "unknown": "res://addons/dialogic/characters/unknown.dch"
 }
 directories/dtl_directory={
@@ -71,6 +72,8 @@ directories/dtl_directory={
 "hidden-ending": "res://addons/dialogic/timeline/endings/hidden-ending.dtl",
 "hope-aftermath": "res://addons/dialogic/timeline/endings/hope-aftermath.dtl",
 "hope-ending": "res://addons/dialogic/timeline/endings/hope-ending.dtl",
+"level2_interaction": "res://addons/dialogic/timeline/level2_interaction.dtl",
+"level2_selfish": "res://addons/dialogic/timeline/level2_selfish.dtl",
 "level_3_ending": "res://addons/dialogic/timeline/Level3/level_3_ending.dtl",
 "level_3_intro": "res://addons/dialogic/timeline/Level3/level_3_intro.dtl",
 "npc-aggressive": "res://addons/dialogic/timeline/Level3/npc-aggressive.dtl",
@@ -81,7 +84,8 @@ directories/dtl_directory={
 "sacrifice-aftermath": "res://addons/dialogic/timeline/endings/sacrifice-aftermath.dtl",
 "sacrifice-ending": "res://addons/dialogic/timeline/endings/sacrifice-ending.dtl",
 "sacrifice-process": "res://addons/dialogic/timeline/endings/sacrifice-process.dtl",
-"shadow-ending": "res://addons/dialogic/timeline/endings/shadow-ending.dtl"
+"shadow-ending": "res://addons/dialogic/timeline/endings/shadow-ending.dtl",
+"timeline": "res://scenes/level2_helper/timeline.dtl"
 }
 layout/style_directory={}
 glossary/default_case_sensitive=true
