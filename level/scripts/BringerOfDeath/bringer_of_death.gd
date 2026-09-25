@@ -88,6 +88,7 @@ func _physics_process(delta: float) -> void:
 	fsm.physics_update(delta)
 	move_and_slide()
 	progress_bar.value = health
+@onready var optionality: CanvasLayer = $"../Optionality"
 
 
 # Flip sprite and mirror the hit box to match facing direction
@@ -148,7 +149,7 @@ func _flash_damage() -> void:
 	if not is_dead and fsm.current_state:
 		fsm.current_state.enter()
 
-@onready var optionality: CanvasLayer = $"../Optionality"
+
 
 func die() -> void:
 	if is_dead:
@@ -159,6 +160,10 @@ func die() -> void:
 	
 	animated_sprite.play(ANIM_DEATHS.pick_random())
 	await animated_sprite.animation_finished
+	if optionality != null:
+		optionality.panel.visible = true
+		optionality.visible = true
+		print("working now op")
 	#optionality.visible = true
 	queue_free()
 

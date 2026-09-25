@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bffs0yqr2jdrx"]
 
 [ext_resource type="PackedScene" uid="uid://bo2om38ema7j5" path="res://scenes/QuestUI.tscn" id="1_5k0ak"]
+[ext_resource type="Script" uid="uid://cm3x8axreyjdj" path="res://scripts/level.gd" id="1_cr74b"]
 [ext_resource type="Texture2D" uid="uid://w0jtjfrf1du7" path="res://assets/environment/level-design-final.jpg" id="1_fpun6"]
 [ext_resource type="Texture2D" uid="uid://cy6wq3giul3lv" path="res://assets/environment/wall.png" id="2_wc255"]
 [ext_resource type="Texture2D" uid="uid://b72blj7eh7ot7" path="res://assets/environment/arrow.png" id="3_arp2o"]
@@ -35,6 +36,7 @@
 [ext_resource type="Script" uid="uid://cc6wdnjrv5ptr" path="res://scripts/checkpoint_manager.gd" id="30_kih21"]
 [ext_resource type="PackedScene" uid="uid://dihji23xxltkc" path="res://scenes/checkpoint.tscn" id="31_w3o6u"]
 [ext_resource type="PackedScene" uid="uid://7jtwp3c74i2v" path="res://scenes/falldamage.tscn" id="32_svjb4"]
+[ext_resource type="PackedScene" uid="uid://c6eec23lth6gg" path="res://scripts/introcompa/introcompa.tscn" id="32_uhfbm"]
 [ext_resource type="Script" uid="uid://x1xgkshuohxc" path="res://scripts/moving_platform_script1.gd" id="34_v3why"]
 [ext_resource type="PackedScene" uid="uid://b6may6dc18r7i" path="res://scenes/plato.tscn" id="35_asl66"]
 [ext_resource type="PackedScene" uid="uid://b6ijsqmv6yscu" path="res://summon_zone.tscn" id="36_2jdvr"]
@@ -751,12 +753,13 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2uyvy"]
-size = Vector2(54, 34)
+size = Vector2(54, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l80gj"]
 size = Vector2(182.5, 124.5)
 
 [node name="level" type="Node2D" unique_id=585983385]
+script = ExtResource("1_cr74b")
 
 [node name="CanvasLayer" parent="." unique_id=1969683578 instance=ExtResource("1_5k0ak")]
 
@@ -1004,7 +1007,7 @@ value = 50.0
 show_percentage = false
 
 [node name="Player" parent="." unique_id=1595256849 instance=ExtResource("21_h6wmr")]
-position = Vector2(258, 609)
+position = Vector2(274, 600)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1807544775]
 position = Vector2(2, -9)
@@ -1053,6 +1056,10 @@ offset_top = 41.0
 offset_right = 1098.0
 offset_bottom = 77.0
 
+[node name="introcompa" parent="." unique_id=912908221 node_paths=PackedStringArray("target") instance=ExtResource("32_uhfbm")]
+position = Vector2(351, 581)
+target = NodePath("../Player")
+
 [node name="Killzone" type="Area2D" parent="." unique_id=339805305]
 collision_layer = 2
 collision_mask = 2
@@ -1068,7 +1075,7 @@ shape = SubResource("RectangleShape2D_b2xip")
 
 [node name="checkpointManager" type="Node" parent="." unique_id=1617306416 node_paths=PackedStringArray("monsters")]
 script = ExtResource("30_kih21")
-monsters = [null, NodePath("../Monster2")]
+monsters = [NodePath("../BringerOfDeath"), NodePath("../Monster2")]
 
 [node name="checkpoint" parent="checkpointManager" unique_id=1595739344 instance=ExtResource("31_w3o6u")]
 position = Vector2(1549, 811)
@@ -1140,7 +1147,7 @@ autoplay = &"RESET"
 [node name="Optionality" parent="." unique_id=651342392 instance=ExtResource("38_535f6")]
 visible = false
 
-[node name="Door" type="Area2D" parent="." unique_id=1422900179]
+[node name="Door" type="StaticBody2D" parent="." unique_id=1369938841]
 position = Vector2(1491, 512)
 collision_layer = 3
 collision_mask = 3
@@ -1152,14 +1159,15 @@ shape = SubResource("RectangleShape2D_2uyvy")
 
 [node name="Sprite2D" type="Sprite2D" parent="Door" unique_id=1960230732]
 position = Vector2(7, -10)
-rotation = 4.712389
+rotation = -1.5707964
 texture = ExtResource("40_iafhg")
 
 [node name="BringerOfDeath" parent="." unique_id=1091127635 instance=ExtResource("24_wu01b")]
 position = Vector2(1100, 529)
 
-[node name="summonZone" parent="." unique_id=90388722 node_paths=PackedStringArray("targetPlayer", "companion") instance=ExtResource("36_2jdvr")]
+[node name="summonZone" parent="." unique_id=90388722 node_paths=PackedStringArray("targetMonster", "targetPlayer", "companion") instance=ExtResource("36_2jdvr")]
 position = Vector2(1003, 531)
+targetMonster = NodePath("../BringerOfDeath")
 targetPlayer = NodePath("../Player")
 companion = NodePath("../Bcompamion")
 

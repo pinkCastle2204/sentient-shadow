@@ -26,6 +26,7 @@
 [ext_resource type="Script" uid="uid://rom1tuqn0usd" path="res://scripts/UI/label.gd" id="24_cdbr7"]
 [ext_resource type="Script" uid="uid://ds453gir530ys" path="res://scripts/helper.gd" id="25_cdbr7"]
 [ext_resource type="PackedScene" uid="uid://dfisbabqkwgx3" path="res://scenes/personality_vector.tscn" id="26_uwkjb"]
+[ext_resource type="Script" uid="uid://bltier8tuhrn8" path="res://scripts/level2/next_level_chalo.gd" id="27_bmln5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bju42"]
 texture = ExtResource("3_p7ucm")
@@ -5452,6 +5453,9 @@ bg_color = Color(0.015686275, 0, 0.007843138, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5j10t"]
 bg_color = Color(0.99215686, 0.003921569, 0.02745098, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5j10t"]
+size = Vector2(109, 103)
+
 [node name="Level4" type="Node2D" unique_id=714765304]
 
 [node name="Background" type="TileMapLayer" parent="." unique_id=796612415]
@@ -5485,10 +5489,11 @@ one_shot = true
 
 [node name="Level4_boss" parent="." unique_id=1091127635 instance=ExtResource("6_jgrsl")]
 z_index = 7
-position = Vector2(83, 1733)
+position = Vector2(498, 1751)
 
-[node name="checkpointManager" type="Node" parent="." unique_id=645755393]
+[node name="checkpointManager" type="Node" parent="." unique_id=645755393 node_paths=PackedStringArray("monsters")]
 script = ExtResource("7_m52kv")
+monsters = [NodePath("../Level4_boss")]
 metadata/_custom_type_script = "uid://cc6wdnjrv5ptr"
 
 [node name="checkpoint" parent="checkpointManager" unique_id=1595739344 instance=ExtResource("8_tocb5")]
@@ -5620,6 +5625,15 @@ offset_left = 741.0
 offset_top = 41.0
 offset_right = 1098.0
 offset_bottom = 77.0
+
+[node name="nextLevelChalo" type="Area2D" parent="." unique_id=463247782]
+position = Vector2(111, 1452)
+collision_mask = 3
+script = ExtResource("27_bmln5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nextLevelChalo" unique_id=743755821]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_5j10t")
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="NPCs/npc1" to="NPCs/npc1" method="_on_body_entered"]

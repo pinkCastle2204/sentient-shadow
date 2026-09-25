@@ -1,5 +1,6 @@
 extends Area2D
 @onready var optionality: CanvasLayer = $"../Optionality"
+@onready var level: Node2D = $".."
 
 @onready var player: CharacterBody2D = $"../Player"
 @onready var areaforretrial: Area2D = $"."
@@ -16,6 +17,7 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	
 	if body.is_in_group("Player"):
 		optionality.panel.visible = true
 		print("what to do ")

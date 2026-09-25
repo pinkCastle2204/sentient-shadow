@@ -63,6 +63,7 @@ directories/dtl_directory={
 "SecondMedicMeetFirstOption": "res://addons/dialogic/timeline/SecondMedicMeetFirstOption.dtl",
 "SecondMedicSecondOption": "res://addons/dialogic/timeline/SecondMedicSecondOption.dtl",
 "SecondMedicThirdOption": "res://addons/dialogic/timeline/SecondMedicThirdOption.dtl",
+"Unit7first": "res://addons/dialogic/timeline/Level4/Unit7first.dtl",
 "child-before-quest": "res://addons/dialogic/timeline/Level3/child-before-quest.dtl",
 "child-monster-alive": "res://addons/dialogic/timeline/Level3/child-monster-alive.dtl",
 "child-rescued": "res://addons/dialogic/timeline/Level3/child-rescued.dtl",

@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cth5wplv5jmuw"]
 
 [ext_resource type="Texture2D" uid="uid://dywsesatncwrr" path="res://assets/level2-ref.png" id="1_d6fun"]
+[ext_resource type="Script" uid="uid://crntwehkx7l3l" path="res://scripts/level_2.gd" id="1_y6lc1"]
 [ext_resource type="Texture2D" uid="uid://bxm042ufjo3hg" path="res://assets/Sidescroller Shooter - Central City/Background/Base Color.png" id="2_4038r"]
 [ext_resource type="Texture2D" uid="uid://dmmhqjmecapn2" path="res://assets/Sidescroller Shooter - Central City/Assets/Tiles.png" id="3_2k3dv"]
 [ext_resource type="Texture2D" uid="uid://bekk2ue2nw8mh" path="res://assets/Sidescroller Shooter - Central City/Assets/Props-01.png" id="4_2k3dv"]
@@ -22,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://c8xquxqp4aqo3" path="res://scenes/bcompamion.tscn" id="20_24ks5"]
 [ext_resource type="Script" uid="uid://muq6m6d40rtk" path="res://scripts/level2/npc_2.gd" id="21_63e4f"]
 [ext_resource type="Texture2D" uid="uid://boqa4wuifevka" path="res://assets/New folder/3 Cyborg/Cyborg_idle.png" id="21_s4es8"]
+[ext_resource type="Script" uid="uid://bltier8tuhrn8" path="res://scripts/level2/next_level_chalo.gd" id="24_ekhvm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bo4dx"]
 texture = ExtResource("4_alqfr")
@@ -1399,7 +1401,11 @@ animations = [{
 radius = 27.777771
 height = 55.555542
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpwed"]
+size = Vector2(109, 103)
+
 [node name="level2-node" type="Node2D" unique_id=1933303384]
+script = ExtResource("1_y6lc1")
 
 [node name="BaseColor" type="Sprite2D" parent="." unique_id=1846206590]
 z_index = -1
@@ -1458,7 +1464,7 @@ color = Color(0.5136455, 0.2886756, 0.6602326, 1)
 
 [node name="Player" parent="." unique_id=1595256849 instance=ExtResource("9_xa7n4")]
 z_index = 0
-position = Vector2(469, 246)
+position = Vector2(94, 282)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=2052362921]
 position = Vector2(2, -9)
@@ -1637,6 +1643,15 @@ collision_mask = 3
 position = Vector2(-11.111112, 6.9444447)
 shape = SubResource("CapsuleShape2D_tsb5i")
 
+[node name="nextLevelChalo" type="Area2D" parent="." unique_id=1616857644]
+position = Vector2(1286, -72)
+collision_mask = 3
+script = ExtResource("24_ekhvm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nextLevelChalo" unique_id=1631268701]
+position = Vector2(-3, 1)
+shape = SubResource("RectangleShape2D_mpwed")
+
 [connection signal="pressed" from="Player/Camera2D/Door_info/route_choice/restore" to="Door" method="_on_restore_pressed"]
 [connection signal="pressed" from="Player/Camera2D/Door_info/route_choice/force" to="Door" method="_on_force_pressed"]
 [connection signal="hack_successful" from="Player/Camera2D/hack-terminal" to="Door" method="_on_hackterminal_hack_successful"]
@@ -1648,3 +1663,4 @@ shape = SubResource("CapsuleShape2D_tsb5i")
 [connection signal="body_exited" from="Node_transmitter/TX_region" to="Node_transmitter" method="_on_tx_region_body_exited"]
 [connection signal="body_entered" from="NPC2/AnimatedSprite2D/interaction_area" to="NPC2" method="_on_interaction_area_body_entered"]
 [connection signal="body_exited" from="NPC2/AnimatedSprite2D/interaction_area" to="NPC2" method="_on_interaction_area_body_exited"]
+[connection signal="body_entered" from="nextLevelChalo" to="." method="_on_next_level_chalo_body_entered"]

@@ -1,4 +1,5 @@
 extends Area2D
+@onready var level: Node2D = $".."
 
 var player_near =false
 @onready var player: CharacterBody2D = $"../Player"
@@ -27,13 +28,17 @@ func _process(_delta):
 			player.removeitems(item)
 			run_dialogue("SecondMedicMeetFirstOption")
 			personality.update_personality([50,-40,5,-10])
+			level.quest1 = true
 		elif op2:
 			run_dialogue("SecondMedicSecondOption")
 			personality.update_personality([-50,40,30,+30])
+			level.quest1 = true
+			
 
 		elif op3:
 			run_dialogue("SecondMedicThirdOption")
 			personality.update_personality([0,0,-40,-20])
+			level.quest1 = true
 
 func run_dialogue(dia):
 	player.player_inte = true

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://41aw632q3l2a"]
+
+[ext_resource type="VideoStream" uid="uid://rbvfeaxcf4if" path="res://scripts/Create_a_second_cinematic_i.ogv" id="1_d23nf"]
+
+[node name="introbeforetitle" type="Node2D" unique_id=1474492993]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1249001411]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_d23nf")
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=517181055]
+zoom = Vector2(0.9, 0.9)
