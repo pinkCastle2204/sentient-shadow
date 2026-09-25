@@ -5,7 +5,7 @@ extends state
 
 func enter():
 	animated_sprite_2d.play("chase")
-	print("Patrol state entered")
+	#print("Patrol state entered")
 
 func update(delta: float):
 	monster_2.patrol()

@@ -1818,8 +1818,9 @@ script = SubResource("GDScript_mpwed")
 position = Vector2(977.5, 769)
 shape = SubResource("RectangleShape2D_mpwed")
 
-[node name="checkpointManager" type="Node" parent="." unique_id=1419383617]
+[node name="checkpointManager" type="Node" parent="." unique_id=1419383617 node_paths=PackedStringArray("monsters")]
 script = ExtResource("17_nf05y")
+monsters = [NodePath("../Level3boss")]
 
 [node name="checkpoint" parent="checkpointManager" unique_id=1595739344 instance=ExtResource("18_m54hf")]
 position = Vector2(1066, 400)

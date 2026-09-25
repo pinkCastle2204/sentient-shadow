@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name BringerOfDeath
+class_name BringerOfDeath1
 
 # Animation names, change if your SpriteFrames uses different names
 const ANIM_IDLE   := "idle"
@@ -159,7 +159,7 @@ func die() -> void:
 	
 	animated_sprite.play(ANIM_DEATHS.pick_random())
 	await animated_sprite.animation_finished
-	#optionality.visible = true
+	optionality.panel.visible = true
 	queue_free()
 
 

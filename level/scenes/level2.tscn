@@ -1545,8 +1545,9 @@ text = "TRANSMITTER"
 [node name="Level2boss" parent="." unique_id=1091127635 instance=ExtResource("10_bo4dx")]
 position = Vector2(1256, 110)
 
-[node name="checkpointManager" type="Node" parent="." unique_id=147927174]
+[node name="checkpointManager" type="Node" parent="." unique_id=147927174 node_paths=PackedStringArray("monsters")]
 script = ExtResource("11_8g4ke")
+monsters = [NodePath("../Level2boss")]
 
 [node name="checkpoint" parent="checkpointManager" unique_id=1595739344 instance=ExtResource("12_56gwk")]
 position = Vector2(70, 243)

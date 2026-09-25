@@ -12,7 +12,7 @@ func enter():
 
 func update(delta: float):
 	monster_2.chase()
-	print("chase")
+	#print("chase")
 
 func exit():
 	pass

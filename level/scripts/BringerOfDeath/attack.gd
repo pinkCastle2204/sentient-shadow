@@ -1,7 +1,7 @@
 extends state
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../../AnimatedSprite2D"
-@onready var enemy: BringerOfDeath = $"../.."
+@onready var enemy: BringerOfDeath1 = $"../.."
 @onready var collision_shape_2d: CollisionShape2D = $"../../HitBox/CollisionShape2D"
 
 
@@ -33,7 +33,7 @@ func _on_attack_finished() -> void:
 		return
 	if enemy.distance_to_target() <= enemy.attack_range:
 		enter()  # still in range, re-trigger the same state directly
-		print("Repeated once again")
+		
 	else:
 		change_state.emit("chase")
 

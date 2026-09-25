@@ -13,7 +13,7 @@ func enter():
 
 func update(delta: float):
 	monster_2.attack()
-	print("attack")
+	#print("attack")
 
 func exit():
 	collision_shape_2d.disabled = true

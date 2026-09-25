@@ -11,6 +11,7 @@ signal all_levels_completed
 @export var level_paths: Array[String] = [
 	"res://scenes/level.tscn",
 	"res://scenes/level2.tscn",
+	
 	"res://scenes/Level 3/level_3.tscn",
 	"res://scenes/Level 4/level_4.tscn",
 	"res://scenes/level_5.tscn"

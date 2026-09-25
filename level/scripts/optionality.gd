@@ -1,0 +1,20 @@
+extends CanvasLayer
+@onready var door: Area2D = $"../Door"
+@onready var player: CharacterBody2D = $"../Player"
+@onready var panel: Panel = $Panel
+
+func _ready() -> void:
+	panel.visible = false
+
+func _process(delta: float) -> void:
+	player.player_inte = panel.visible
+
+func _on_next_level_pressed() -> void:
+	LevelManager.load_next_level()
+	panel.visible = false
+	player.player_inte = false
+
+func _on_optional_boss_pressed() -> void:
+	door.visible = false
+	panel.visiblevisible = false
+	player.player_inte = false

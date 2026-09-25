@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://butx7fy3vhlmk"]
+
+[ext_resource type="Script" uid="uid://q572pjj2nmat" path="res://scripts/optionality.gd" id="1_nsvko"]
+
+[node name="Optionality" type="CanvasLayer" unique_id=651342392]
+script = ExtResource("1_nsvko")
+
+[node name="Panel" type="Panel" parent="." unique_id=1366680914]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel" unique_id=511660450]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 125.0
+offset_right = 800.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 37
+text = "what do you want to choose"
+
+[node name="NextLevel" type="Button" parent="Panel" unique_id=584538849]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 346.0
+offset_right = 525.0
+offset_bottom = 400.0
+theme_override_font_sizes/font_size = 33
+text = "Move to next level"
+
+[node name="OptionalBoss" type="Button" parent="Panel" unique_id=787565779]
+layout_mode = 0
+offset_left = 635.0
+offset_top = 344.0
+offset_right = 944.0
+offset_bottom = 398.0
+theme_override_font_sizes/font_size = 33
+text = "Fight optional boss"
+
+[connection signal="pressed" from="Panel/NextLevel" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="Panel/OptionalBoss" to="." method="_on_optional_boss_pressed"]

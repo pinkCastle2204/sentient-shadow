@@ -5,7 +5,7 @@ extends state
 
 func enter():
 	animated_sprite_2d.play("run")
-	print("Flee state entered")
+	#print("Flee state entered")
 
 func update(delta: float):
 	monster_2.flee()

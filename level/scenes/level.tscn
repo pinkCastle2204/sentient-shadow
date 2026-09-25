@@ -34,11 +34,16 @@
 [ext_resource type="PackedScene" uid="uid://dfisbabqkwgx3" path="res://scenes/personality_vector.tscn" id="30_c1pbi"]
 [ext_resource type="Script" uid="uid://cc6wdnjrv5ptr" path="res://scripts/checkpoint_manager.gd" id="30_kih21"]
 [ext_resource type="PackedScene" uid="uid://dihji23xxltkc" path="res://scenes/checkpoint.tscn" id="31_w3o6u"]
+[ext_resource type="Script" uid="uid://desg1wg6vi06o" path="res://scripts/BringerOfDeath/bringer_of_deathnNew.gd" id="32_cr74b"]
 [ext_resource type="PackedScene" uid="uid://7jtwp3c74i2v" path="res://scenes/falldamage.tscn" id="32_svjb4"]
 [ext_resource type="Script" uid="uid://x1xgkshuohxc" path="res://scripts/moving_platform_script1.gd" id="34_v3why"]
 [ext_resource type="PackedScene" uid="uid://b6may6dc18r7i" path="res://scenes/plato.tscn" id="35_asl66"]
 [ext_resource type="PackedScene" uid="uid://b6ijsqmv6yscu" path="res://summon_zone.tscn" id="36_2jdvr"]
 [ext_resource type="PackedScene" uid="uid://c8xquxqp4aqo3" path="res://scenes/bcompamion.tscn" id="37_q4oe8"]
+[ext_resource type="PackedScene" uid="uid://butx7fy3vhlmk" path="res://scenes/optionality.tscn" id="38_535f6"]
+[ext_resource type="Script" uid="uid://cdkcmn0a3nm32" path="res://scripts/doorLevel1.gd" id="39_0fmhk"]
+[ext_resource type="Texture2D" uid="uid://brdu3u2ysvwm5" path="res://assets/platform.png" id="40_iafhg"]
+[ext_resource type="Script" uid="uid://cswajesd640tj" path="res://scripts/areaforretrial.gd" id="43_iafhg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_km5ld"]
 texture = ExtResource("2_wc255")
@@ -746,6 +751,12 @@ _data = {
 &"new_animation_2": SubResource("Animation_asl66")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2uyvy"]
+size = Vector2(54, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l80gj"]
+size = Vector2(182.5, 124.5)
+
 [node name="level" type="Node2D" unique_id=585983385]
 
 [node name="CanvasLayer" parent="." unique_id=1969683578 instance=ExtResource("1_5k0ak")]
@@ -916,7 +927,7 @@ position = Vector2(239, 448)
 position = Vector2(811, 541)
 
 [node name="Monster2" type="CharacterBody2D" parent="." unique_id=321805557 node_paths=PackedStringArray("player") groups=["Enemy"]]
-position = Vector2(992, 520)
+position = Vector2(329, 815)
 script = ExtResource("10_cmcjb")
 player = NodePath("../Player")
 
@@ -994,7 +1005,7 @@ value = 50.0
 show_percentage = false
 
 [node name="Player" parent="." unique_id=1595256849 instance=ExtResource("21_h6wmr")]
-position = Vector2(657, 718)
+position = Vector2(258, 609)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1807544775]
 position = Vector2(2, -9)
@@ -1044,7 +1055,11 @@ offset_right = 1098.0
 offset_bottom = 77.0
 
 [node name="BringerOfDeath" parent="." unique_id=1091127635 groups=["Enemy"] instance=ExtResource("24_wu01b")]
-position = Vector2(429, 875)
+position = Vector2(1189, 470)
+script = ExtResource("32_cr74b")
+move_speed = 70.0
+chase_speed = 75.0
+attack_range = 30.0
 
 [node name="Killzone" type="Area2D" parent="." unique_id=339805305]
 collision_layer = 2
@@ -1071,9 +1086,6 @@ position = Vector2(472, 241)
 
 [node name="checkpoint3" parent="checkpointManager" unique_id=717996290 instance=ExtResource("31_w3o6u")]
 position = Vector2(656, 563)
-
-[node name="checkpoint4" parent="checkpointManager" unique_id=878043209 instance=ExtResource("31_w3o6u")]
-position = Vector2(666, 740)
 
 [node name="moving-platform1" type="Node" parent="." unique_id=1980166048]
 
@@ -1133,8 +1145,26 @@ position = Vector2(1008, 797)
 libraries/ = SubResource("AnimationLibrary_svjb4")
 autoplay = &"RESET"
 
+[node name="Optionality" parent="." unique_id=651342392 instance=ExtResource("38_535f6")]
+visible = false
+
+[node name="Door" type="Area2D" parent="." unique_id=1422900179]
+position = Vector2(1491, 512)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("39_0fmhk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=1926068888]
+position = Vector2(10, 3)
+shape = SubResource("RectangleShape2D_2uyvy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Door" unique_id=1960230732]
+position = Vector2(7, -10)
+rotation = 4.712389
+texture = ExtResource("40_iafhg")
+
 [node name="summonZone" parent="." unique_id=90388722 node_paths=PackedStringArray("target", "targetMonster", "targetPlayer", "companion") instance=ExtResource("36_2jdvr")]
-position = Vector2(629, 875)
+position = Vector2(1003, 531)
 target = NodePath("../BringerOfDeath")
 targetMonster = NodePath("../BringerOfDeath")
 targetPlayer = NodePath("../Player")
@@ -1144,8 +1174,18 @@ companion = NodePath("../Bcompamion")
 position = Vector2(1835, -1014)
 target = NodePath("../Player")
 
+[node name="areaforretrial" type="Area2D" parent="." unique_id=344109421]
+position = Vector2(1391, 699)
+collision_mask = 3
+script = ExtResource("43_iafhg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="areaforretrial" unique_id=1377315474]
+position = Vector2(171.25, 111.75)
+shape = SubResource("RectangleShape2D_l80gj")
+
 [connection signal="frame_changed" from="Monster2/AnimatedSprite2D" to="Monster2" method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="damaged" from="Monster2/HurtBox" to="Monster2" method="_on_hurt_box_damaged"]
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
 [connection signal="timeout" from="Killzone/Timer" to="Killzone" method="_on_timer_timeout"]
+[connection signal="body_entered" from="areaforretrial" to="areaforretrial" method="_on_body_entered"]

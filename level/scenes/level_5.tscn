@@ -304,7 +304,7 @@ offset_bottom = 163.0
 script = ExtResource("9_ls1u8")
 
 [node name="Player" parent="." unique_id=1595256849 instance=ExtResource("6_cynta")]
-position = Vector2(2979, 649)
+position = Vector2(266, 1101)
 scale = Vector2(3.005, 3.005)
 attackDamage = 5
 
