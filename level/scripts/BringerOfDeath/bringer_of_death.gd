@@ -19,7 +19,7 @@ const ANIM_DEATHS  := ["death1"]
 
 @export var detection_range: float = 150.0
 @export var lose_target_range: float = 220.0
-@export var attack_range: float = 30.0
+@export var attack_range: float = 31.0
 
 # Patrol points in local space, leave empty to idle in place
 @export var patrol_points: Array[Vector2] = [Vector2(925.0,340.0),Vector2(900.0,340.0),Vector2(1000.0,340.0)]
