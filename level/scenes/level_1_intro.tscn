@@ -475,6 +475,7 @@ sound2 = ExtResource("3_mu36h")
 sound3 = ExtResource("4_n3m0t")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=942696577]
+visible = false
 
 [node name="IntroFade" type="ColorRect" parent="CanvasLayer" unique_id=96562059]
 modulate = Color(0, 0, 0, 1)
@@ -652,4 +653,13 @@ volume_db = 20.995
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1100867501]
 stream = SubResource("AudioStreamPolyphonic_17o6o")
 
+[node name="Button" type="Button" parent="." unique_id=638414278]
+offset_left = 381.0
+offset_top = 532.0
+offset_right = 426.0
+offset_bottom = 558.0
+theme_override_font_sizes/font_size = 10
+text = "Skip"
+
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

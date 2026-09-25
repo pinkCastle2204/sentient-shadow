@@ -70,3 +70,7 @@ func stop_sound2():
 			playback.stop_stream(screams_loop_id)
 		screams_loop_id = -1
 	
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/level.tscn")

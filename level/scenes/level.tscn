@@ -994,7 +994,7 @@ value = 50.0
 show_percentage = false
 
 [node name="Player" parent="." unique_id=1595256849 instance=ExtResource("21_h6wmr")]
-position = Vector2(273, 587)
+position = Vector2(657, 718)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1807544775]
 position = Vector2(2, -9)
@@ -1059,8 +1059,9 @@ shape = SubResource("RectangleShape2D_b2xip")
 
 [node name="falldamage" parent="Killzone" unique_id=591961068 instance=ExtResource("32_svjb4")]
 
-[node name="checkpointManager" type="Node" parent="." unique_id=1617306416]
+[node name="checkpointManager" type="Node" parent="." unique_id=1617306416 node_paths=PackedStringArray("monsters")]
 script = ExtResource("30_kih21")
+monsters = [NodePath("../BringerOfDeath"), NodePath("../Monster2")]
 
 [node name="checkpoint" parent="checkpointManager" unique_id=1595739344 instance=ExtResource("31_w3o6u")]
 position = Vector2(1549, 811)

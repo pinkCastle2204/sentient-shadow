@@ -1,9 +1,9 @@
 extends Node
 
-var compassion = 10
-var greed = 95
-var violence = 35
-var courage = 45
+var compassion = 50
+var greed = 50
+var violence = 50
+var courage = 50
 
 func print_traits():
 	print("---------------------")
@@ -16,29 +16,29 @@ func print_traits():
 var personalities = {
 	"Selfish": {
 		"compassion": 10,
-		"greed": 95,
-		"violence": 35,
-		"courage": 45
+		"greed": 90,
+		"violence": 60,
+		"courage": 30
 	},
 
 	"Empathy": {
-		"compassion": 95,
+		"compassion": 90,
 		"greed": 10,
-		"violence": 15,
-		"courage": 70
+		"violence": 10,
+		"courage": 60
 	},
 
 	"Aggressive": {
 		"compassion": 15,
-		"greed": 40,
+		"greed": 50,
 		"violence": 95,
-		"courage": 80
+		"courage": 85
 	},
 
 	"Brave": {
-		"compassion": 60,
-		"greed": 20,
-		"violence": 45,
+		"compassion": 55,
+		"greed": 15,
+		"violence": 40,
 		"courage": 95
 	}
 }

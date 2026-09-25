@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="LevelVersion10"
-run/main_scene="uid://bffs0yqr2jdrx"
+run/main_scene="uid://b5dn2yvul8xqt"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://dt8qth3j1pi0b"
 
 [autoload]
 

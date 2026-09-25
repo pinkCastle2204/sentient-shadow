@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://b5dn2yvul8xqt"]
+
+[ext_resource type="Texture2D" uid="uid://dt8qth3j1pi0b" path="res://assets/Gemini_Generated_Image_ka3jddka3jddka3j.png" id="1_cmhrf"]
+[ext_resource type="Script" uid="uid://cu47t0wfiv7ig" path="res://scripts/mainmenu.gd" id="1_d2nv2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mpwed"]
+texture = ExtResource("1_cmhrf")
+
+[node name="mainmenu" type="Control" unique_id=653928556]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d2nv2")
+
+[node name="Panel" type="Panel" parent="." unique_id=2048151703]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mpwed")
+
+[node name="Start" type="Button" parent="." unique_id=864522552]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 371.0
+offset_right = 440.0
+offset_bottom = 521.0
+theme_override_font_sizes/font_size = 44
+text = "Start"
+
+[node name="Controls" type="Button" parent="." unique_id=1180272721]
+layout_mode = 0
+offset_left = 778.0
+offset_top = 376.0
+offset_right = 1068.0
+offset_bottom = 526.0
+offset_transform_enabled = true
+theme_override_font_sizes/font_size = 44
+text = "controls"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

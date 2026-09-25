@@ -7,6 +7,7 @@ extends Area2D
 @export var targetPlayer: CharacterBody2D
 @export var companion: CharacterBody2D
 var summoned:bool = false;
+var played:bool = false
 @export var locate : Vector2
 # Called when the node enters the scene tree for the first time.
 func desummon():
@@ -16,27 +17,29 @@ func _ready() -> void:
 
 func on_body_entered(body: Node2D):
 	if body.is_in_group("Player") && !summoned:
-		playit()
+		
 		summoned = true
 		companion.global_position = global_position
 		
 func playit():
-	audio_stream_player_2d.play()
+	if !played:
+		played = true
+		audio_stream_player_2d.play()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var p: String = personality.classify_personality()
 	#print(p)
 	if (p == "Empathy" || p == "Brave") && targetMonster:
 		companion.target = targetMonster
+		playit()
 		if companion.target.health < 50:
-			playit()
 			companion.global_position = locate
 			
 		return
 		#print("monster marega aaj")
 	elif (p == "Aggresive" || p == "Selfish") && targetPlayer: 
-			companion.target = targetPlayer
 			playit()
+			companion.target = targetPlayer
 			print("player marega aaj")
 			if companion.target.health < 50:
 				companion.global_position = locate

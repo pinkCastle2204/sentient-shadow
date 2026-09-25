@@ -21,15 +21,12 @@
 [ext_resource type="PackedScene" uid="uid://b6bkt21pqj0ml" path="res://scenes/Level 3/child.tscn" id="18_hkvtx"]
 [ext_resource type="PackedScene" uid="uid://dihji23xxltkc" path="res://scenes/checkpoint.tscn" id="18_m54hf"]
 [ext_resource type="Script" uid="uid://dso0pmtwdfcul" path="res://scripts/Level3/child.gd" id="19_f3hv7"]
-[ext_resource type="PackedScene" uid="uid://b6ijsqmv6yscu" path="res://summon_zone.tscn" id="22_1fg5o"]
-[ext_resource type="PackedScene" uid="uid://em71lqm41o57" path="res://scenes/Level 3/NPC2.tscn" id="22_t4l8a"]
-[ext_resource type="PackedScene" uid="uid://c8xquxqp4aqo3" path="res://scenes/bcompamion.tscn" id="23_22jjt"]
-[ext_resource type="Script" uid="uid://c6yp0a3v1ruh0" path="res://scripts/Level3/npc_2.gd" id="23_a8kys"]
-[ext_resource type="Script" uid="uid://dn7memv451qxe" path="res://scripts/UI/progress_bar.gd" id="26_ptp35"]
-[ext_resource type="Script" uid="uid://rom1tuqn0usd" path="res://scripts/UI/label.gd" id="27_28pnb"]
 [ext_resource type="PackedScene" uid="uid://c8xquxqp4aqo3" path="res://scenes/bcompamion.tscn" id="20_1fg5o"]
 [ext_resource type="Script" uid="uid://dn7memv451qxe" path="res://scripts/UI/progress_bar.gd" id="20_f3hv7"]
 [ext_resource type="Script" uid="uid://rom1tuqn0usd" path="res://scripts/UI/label.gd" id="21_1fg5o"]
+[ext_resource type="PackedScene" uid="uid://b6ijsqmv6yscu" path="res://summon_zone.tscn" id="22_1fg5o"]
+[ext_resource type="PackedScene" uid="uid://em71lqm41o57" path="res://scenes/Level 3/NPC2.tscn" id="22_t4l8a"]
+[ext_resource type="Script" uid="uid://c6yp0a3v1ruh0" path="res://scripts/Level3/npc_2.gd" id="23_a8kys"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cmkor"]
 texture = ExtResource("4_cmkor")
@@ -1786,7 +1783,6 @@ position = Vector2(634, 605)
 item = ExtResource("14_m54hf")
 
 [node name="Level3boss" parent="." unique_id=1091127635 instance=ExtResource("14_6go1b")]
-position = Vector2(1504, 640)
 position = Vector2(1384, 559)
 
 [node name="Record 2" parent="." unique_id=888369693 instance=ExtResource("7_5jcue")]
@@ -1811,7 +1807,7 @@ position = Vector2(130, 27)
 [node name="ChildReturn" type="Marker2D" parent="Refugee" unique_id=1943472005]
 position = Vector2(24, 23)
 
-[node name="Bcompamion" parent="." unique_id=1958754732 instance=ExtResource("23_22jjt")]
+[node name="Bcompamion" parent="." unique_id=1958754732 instance=ExtResource("20_1fg5o")]
 
 [node name="killzone" type="Area2D" parent="." unique_id=1918623766]
 collision_layer = 3
@@ -1867,7 +1863,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_ptp35")
 theme_override_styles/fill = SubResource("StyleBoxFlat_28pnb")
 value = 50.0
 show_percentage = false
-script = ExtResource("26_ptp35")
+script = ExtResource("20_f3hv7")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="CanvasLayer2" unique_id=781451693]
@@ -1875,14 +1871,9 @@ offset_left = 757.0
 offset_top = 22.0
 offset_right = 1128.0
 offset_bottom = 65.0
-script = ExtResource("27_28pnb")
+script = ExtResource("21_1fg5o")
 
-[node name="Bcompamion" parent="." unique_id=1958754732 instance=ExtResource("20_1fg5o")]
-position = Vector2(1862, -164)
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=854804421]
-
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer2" unique_id=1139642709]
+[node name="ProgressBar2" type="ProgressBar" parent="CanvasLayer2" unique_id=1139642709]
 offset_left = 50.0
 offset_top = 39.0
 offset_right = 358.0
@@ -1893,12 +1884,17 @@ value = 50.0
 show_percentage = false
 script = ExtResource("20_f3hv7")
 
-[node name="Label" type="Label" parent="CanvasLayer2" unique_id=1560710476]
+[node name="Label2" type="Label" parent="CanvasLayer2" unique_id=1560710476]
 offset_left = 757.0
 offset_top = 22.0
 offset_right = 1128.0
 offset_bottom = 65.0
 script = ExtResource("21_1fg5o")
+
+[node name="Bcompamion2" parent="." unique_id=1485578089 instance=ExtResource("20_1fg5o")]
+position = Vector2(1862, -164)
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="." unique_id=854804421]
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]
