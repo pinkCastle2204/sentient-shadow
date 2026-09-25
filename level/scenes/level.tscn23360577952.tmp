@@ -1053,6 +1053,10 @@ offset_top = 41.0
 offset_right = 1098.0
 offset_bottom = 77.0
 
+[node name="BringerOfDeath" parent="." unique_id=1091127635 groups=["Enemy"] instance=ExtResource("24_wu01b")]
+position = Vector2(1189, 470)
+script = null
+
 [node name="Killzone" type="Area2D" parent="." unique_id=339805305]
 collision_layer = 2
 collision_mask = 2
@@ -1068,7 +1072,7 @@ shape = SubResource("RectangleShape2D_b2xip")
 
 [node name="checkpointManager" type="Node" parent="." unique_id=1617306416 node_paths=PackedStringArray("monsters")]
 script = ExtResource("30_kih21")
-monsters = [null, NodePath("../Monster2")]
+monsters = [NodePath("../BringerOfDeath"), NodePath("../Monster2")]
 
 [node name="checkpoint" parent="checkpointManager" unique_id=1595739344 instance=ExtResource("31_w3o6u")]
 position = Vector2(1549, 811)
@@ -1155,11 +1159,10 @@ position = Vector2(7, -10)
 rotation = 4.712389
 texture = ExtResource("40_iafhg")
 
-[node name="BringerOfDeath" parent="." unique_id=1091127635 instance=ExtResource("24_wu01b")]
-position = Vector2(1100, 529)
-
-[node name="summonZone" parent="." unique_id=90388722 node_paths=PackedStringArray("targetPlayer", "companion") instance=ExtResource("36_2jdvr")]
+[node name="summonZone" parent="." unique_id=90388722 node_paths=PackedStringArray("target", "targetMonster", "targetPlayer", "companion") instance=ExtResource("36_2jdvr")]
 position = Vector2(1003, 531)
+target = NodePath("../BringerOfDeath")
+targetMonster = NodePath("../BringerOfDeath")
 targetPlayer = NodePath("../Player")
 companion = NodePath("../Bcompamion")
 
