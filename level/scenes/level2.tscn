@@ -20,6 +20,8 @@
 [ext_resource type="Script" uid="uid://dn7memv451qxe" path="res://scripts/UI/progress_bar.gd" id="18_o3sye"]
 [ext_resource type="Script" uid="uid://rom1tuqn0usd" path="res://scripts/UI/label.gd" id="19_24ks5"]
 [ext_resource type="PackedScene" uid="uid://c8xquxqp4aqo3" path="res://scenes/bcompamion.tscn" id="20_24ks5"]
+[ext_resource type="Script" uid="uid://muq6m6d40rtk" path="res://scripts/level2/npc_2.gd" id="21_63e4f"]
+[ext_resource type="Texture2D" uid="uid://boqa4wuifevka" path="res://assets/New folder/3 Cyborg/Cyborg_idle.png" id="21_s4es8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bo4dx"]
 texture = ExtResource("4_alqfr")
@@ -1357,6 +1359,46 @@ bg_color = Color(0.015686275, 0, 0.007843138, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63e4f"]
 bg_color = Color(0.99215686, 0.003921569, 0.02745098, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_63e4f"]
+atlas = ExtResource("21_s4es8")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6lc1"]
+atlas = ExtResource("21_s4es8")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekhvm"]
+atlas = ExtResource("21_s4es8")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nflru"]
+atlas = ExtResource("21_s4es8")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qshva"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63e4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6lc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekhvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nflru")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tsb5i"]
+radius = 27.777771
+height = 55.555542
+
 [node name="level2-node" type="Node2D" unique_id=1933303384]
 
 [node name="BaseColor" type="Sprite2D" parent="." unique_id=1846206590]
@@ -1578,6 +1620,23 @@ script = ExtResource("19_24ks5")
 [node name="Bcompamion" parent="." unique_id=1958754732 instance=ExtResource("20_24ks5")]
 position = Vector2(2151, -930)
 
+[node name="NPC2" type="Node" parent="." unique_id=479995261]
+script = ExtResource("21_63e4f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC2" unique_id=147638166]
+position = Vector2(682, 351)
+scale = Vector2(0.72, 0.72)
+sprite_frames = SubResource("SpriteFrames_qshva")
+frame_progress = 0.90703845
+
+[node name="interaction_area" type="Area2D" parent="NPC2/AnimatedSprite2D" unique_id=684991313]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC2/AnimatedSprite2D/interaction_area" unique_id=278055555]
+position = Vector2(-11.111112, 6.9444447)
+shape = SubResource("CapsuleShape2D_tsb5i")
+
 [connection signal="pressed" from="Player/Camera2D/Door_info/route_choice/restore" to="Door" method="_on_restore_pressed"]
 [connection signal="pressed" from="Player/Camera2D/Door_info/route_choice/force" to="Door" method="_on_force_pressed"]
 [connection signal="hack_successful" from="Player/Camera2D/hack-terminal" to="Door" method="_on_hackterminal_hack_successful"]
@@ -1587,3 +1646,5 @@ position = Vector2(2151, -930)
 [connection signal="body_exited" from="Door/MainframeDoor/Area2D" to="Door" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Node_transmitter/TX_region" to="Node_transmitter" method="_on_tx_region_body_entered"]
 [connection signal="body_exited" from="Node_transmitter/TX_region" to="Node_transmitter" method="_on_tx_region_body_exited"]
+[connection signal="body_entered" from="NPC2/AnimatedSprite2D/interaction_area" to="NPC2" method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="NPC2/AnimatedSprite2D/interaction_area" to="NPC2" method="_on_interaction_area_body_exited"]
