@@ -1,12 +1,15 @@
 Refugee: Thank you for saving her.
 Refugee: Can I help you with something?
 - If you have supplies, I could use some.
-	set {greed} += 5.0
+	set {greed} += 15.0
+	set {compassion} -= 10.0
+	set {violence} += 5.0
 	Refugee: I am sorry, I do not have any.
 - Just make sure your child is safe. That’s enough for me.
-	set {compassion} += 5.0
+	set {compassion} += 15.0
 	Refugee: Thank you. You should take care as well.
 - Please tell me anything related to what's happening.
-	set {courage} += 4.0
+	set {courage} += 15.0
+	set {greed} += 5.0
 	Refugee: Not every infected person loses themselves. Some of them still remember who they are... they just can't control what they've become.
 	Refugee: “I recognise some of the infected. They were people from around here. They said they were leaving for a business trip, but I later saw them being taken into one of the company’s facilities. When they returned… they were no longer themselves.”

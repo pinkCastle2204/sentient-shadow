@@ -29,7 +29,6 @@ func start_dialogue():
 	player.animated_sprite_2d.stop()
 
 	Dialogic.start("refugee-child")
-
 	await Dialogic.timeline_ended
 
 	player.can_move = true
