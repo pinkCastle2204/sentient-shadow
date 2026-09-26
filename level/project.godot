@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LevelVersion10"
-run/main_scene="uid://b5dn2yvul8xqt"
+run/main_scene="uid://41aw632q3l2a"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="uid://dt8qth3j1pi0b"
 

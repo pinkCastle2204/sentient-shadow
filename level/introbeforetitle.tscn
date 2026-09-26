@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://41aw632q3l2a"]
 
-[ext_resource type="VideoStream" uid="uid://rbvfeaxcf4if" path="res://scripts/Create_a_second_cinematic_i.ogv" id="1_d23nf"]
+[ext_resource type="VideoStream" uid="uid://bbdovybl1ckho" path="res://assets/output.ogv" id="1_d23nf"]
+[ext_resource type="Script" uid="uid://d3xy3i0kt0vrc" path="res://scripts/introbeforetitle.gd" id="1_eeiyn"]
 
 [node name="introbeforetitle" type="Node2D" unique_id=1474492993]
+script = ExtResource("1_eeiyn")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1249001411]
 anchors_preset = 15
@@ -15,3 +17,5 @@ autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=517181055]
 zoom = Vector2(0.9, 0.9)
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

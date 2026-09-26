@@ -27,6 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://b6ijsqmv6yscu" path="res://summon_zone.tscn" id="22_1fg5o"]
 [ext_resource type="PackedScene" uid="uid://em71lqm41o57" path="res://scenes/Level 3/NPC2.tscn" id="22_t4l8a"]
 [ext_resource type="Script" uid="uid://c6yp0a3v1ruh0" path="res://scripts/Level3/npc_2.gd" id="23_a8kys"]
+[ext_resource type="Script" uid="uid://ds453gir530ys" path="res://scripts/helper.gd" id="28_enom5"]
+[ext_resource type="PackedScene" uid="uid://dfisbabqkwgx3" path="res://scenes/personality_vector.tscn" id="29_4jpr7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cmkor"]
 texture = ExtResource("4_cmkor")
@@ -1866,6 +1868,19 @@ offset_top = 22.0
 offset_right = 1128.0
 offset_bottom = 65.0
 script = ExtResource("21_1fg5o")
+
+[node name="helper" type="Label" parent="CanvasLayer2" unique_id=31093483]
+offset_left = 399.0
+offset_top = 130.0
+offset_right = 921.0
+offset_bottom = 163.0
+script = ExtResource("28_enom5")
+
+[node name="PersonalityVector" parent="CanvasLayer2" unique_id=393872146 instance=ExtResource("29_4jpr7")]
+offset_left = 741.0
+offset_top = 41.0
+offset_right = 1098.0
+offset_bottom = 77.0
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]
