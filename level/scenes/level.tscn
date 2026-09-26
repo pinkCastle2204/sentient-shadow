@@ -1165,8 +1165,9 @@ texture = ExtResource("40_iafhg")
 [node name="BringerOfDeath" parent="." unique_id=1091127635 instance=ExtResource("24_wu01b")]
 position = Vector2(1100, 529)
 
-[node name="summonZone" parent="." unique_id=90388722 node_paths=PackedStringArray("targetMonster", "targetPlayer", "companion") instance=ExtResource("36_2jdvr")]
+[node name="summonZone" parent="." unique_id=90388722 node_paths=PackedStringArray("target", "targetMonster", "targetPlayer", "companion") instance=ExtResource("36_2jdvr")]
 position = Vector2(1003, 531)
+target = NodePath("../BringerOfDeath")
 targetMonster = NodePath("../BringerOfDeath")
 targetPlayer = NodePath("../Player")
 companion = NodePath("../Bcompamion")

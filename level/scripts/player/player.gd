@@ -150,6 +150,7 @@ func removeitems(item):
 
 func _on_timer_timeout() -> void:
 	global_position = checkpoint_manager.last_location
+	checkpoint_manager.respawn_monsters()
 	health = 100
 	dead = false
 	attacking = false

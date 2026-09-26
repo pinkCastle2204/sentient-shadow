@@ -1866,3 +1866,6 @@ offset_top = 22.0
 offset_right = 1128.0
 offset_bottom = 65.0
 script = ExtResource("21_1fg5o")
+
+[connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
+[connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]

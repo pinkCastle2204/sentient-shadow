@@ -393,7 +393,6 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/1 = SubResource("TileSetAtlasSource_68hud")
 
 [node name="Level5" type="Node2D" unique_id=940024811]
-position = Vector2(-9, -26)
 
 [node name="ref" type="TextureRect" parent="." unique_id=92052730]
 visible = false

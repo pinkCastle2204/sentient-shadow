@@ -27,6 +27,7 @@
 [ext_resource type="Script" uid="uid://ds453gir530ys" path="res://scripts/helper.gd" id="25_cdbr7"]
 [ext_resource type="PackedScene" uid="uid://dfisbabqkwgx3" path="res://scenes/personality_vector.tscn" id="26_uwkjb"]
 [ext_resource type="Script" uid="uid://bltier8tuhrn8" path="res://scripts/level2/next_level_chalo.gd" id="27_bmln5"]
+[ext_resource type="Texture2D" uid="uid://dtr2senm0y7r2" path="res://assets/computer.png" id="28_5j10t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bju42"]
 texture = ExtResource("3_p7ucm")
@@ -5627,13 +5628,16 @@ offset_right = 1098.0
 offset_bottom = 77.0
 
 [node name="nextLevelChalo" type="Area2D" parent="." unique_id=463247782]
-position = Vector2(111, 1452)
+position = Vector2(81, 1630)
 collision_mask = 3
 script = ExtResource("27_bmln5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="nextLevelChalo" unique_id=743755821]
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_5j10t")
+
+[node name="Sprite2D" type="Sprite2D" parent="nextLevelChalo" unique_id=678983393]
+texture = ExtResource("28_5j10t")
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
 [connection signal="body_entered" from="NPCs/npc1" to="NPCs/npc1" method="_on_body_entered"]
@@ -5642,3 +5646,4 @@ shape = SubResource("RectangleShape2D_5j10t")
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="killzone" to="killzone" method="_on_body_entered"]
 [connection signal="body_entered" from="killzone2" to="killzone2" method="_on_body_entered"]
+[connection signal="body_entered" from="nextLevelChalo" to="nextLevelChalo" method="_on_body_entered"]

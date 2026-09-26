@@ -12,4 +12,4 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		print("Its working")
 		checkpoint_manager.last_location = $respawnPoint.global_position
-		checkpoint_manager.respawn_monsters()
+		

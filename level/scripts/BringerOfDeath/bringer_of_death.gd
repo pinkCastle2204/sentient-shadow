@@ -151,19 +151,22 @@ func _flash_damage() -> void:
 
 
 
+@onready var next_level_chalo: Area2D = $"../nextLevelChalo"
 func die() -> void:
 	if is_dead:
 		return
 	is_dead = true
 	progress_bar.visible = false
 	velocity = Vector2.ZERO
-	
+
 	animated_sprite.play(ANIM_DEATHS.pick_random())
 	await animated_sprite.animation_finished
 	if optionality != null:
 		optionality.panel.visible = true
 		optionality.visible = true
 		print("working now op")
+	if next_level_chalo != null:
+		next_level_chalo.done = true
 	#optionality.visible = true
 	queue_free()
 
