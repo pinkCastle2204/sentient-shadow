@@ -17,5 +17,5 @@ func _on_next_level_pressed() -> void:
 
 func _on_optional_boss_pressed() -> void:
 	door.visible = false
-	panel.visiblevisible = false
+	panel.visible = false
 	player.player_inte = false
