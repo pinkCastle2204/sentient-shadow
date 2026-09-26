@@ -34,6 +34,8 @@ func startdialogue2():
 	
 func startdialogue3():
 	Dialogic.start("AfterFlashback")
+	await Dialogic.timeline_ended
+	get_tree().change_scene_to_file("res://scenes/level.tscn")
 	
 func play_sound1():
 	if siren_loop_id != -1: 

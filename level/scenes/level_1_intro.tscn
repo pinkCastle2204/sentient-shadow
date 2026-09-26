@@ -492,6 +492,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Smoke1" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=398598073]
+visible = false
 modulate = Color(1, 1, 1, 0.44313726)
 position = Vector2(77.999985, 103.5)
 scale = Vector2(4, 4)
@@ -500,6 +501,7 @@ animation = &"smoke"
 frame_progress = 0.28420526
 
 [node name="Smoke2" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=704600783]
+visible = false
 modulate = Color(1, 1, 1, 0.44313726)
 position = Vector2(1048, 479.5)
 scale = Vector2(4, 4)
@@ -654,17 +656,24 @@ volume_db = 20.995
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1100867501]
 stream = SubResource("AudioStreamPolyphonic_17o6o")
 
-[node name="Button" type="TextureButton" parent="." unique_id=1679416187]
-offset_left = 381.0
-offset_top = 532.0
-offset_right = 426.0
-offset_bottom = 558.0
-scale = Vector2(0.05, 0.05)
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=378402196]
+layer = 2
+
+[node name="Button" type="TextureButton" parent="CanvasLayer2" unique_id=1679416187]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -155.99994
+offset_top = 41.999996
+offset_right = 868.0
+offset_bottom = 339.0
+grow_horizontal = 0
+scale = Vector2(0.12, 0.12)
 texture_normal = ExtResource("17_exh63")
 texture_pressed = ExtResource("18_igrsl")
 texture_hover = ExtResource("19_1hk17")
 
-[node name="Label" type="Label" parent="Button" unique_id=391580487]
+[node name="Label" type="Label" parent="CanvasLayer2/Button" unique_id=391580487]
 layout_mode = 0
 offset_right = 999.9995
 offset_bottom = 280.0
@@ -675,4 +684,4 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Button" to="." method="_on_button_pressed"]
