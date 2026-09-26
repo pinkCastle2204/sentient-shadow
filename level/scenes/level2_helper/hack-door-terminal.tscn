@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://couyutl1i5on8"]
+
+[ext_resource type="Script" uid="uid://rdil5f8lqn1g" path="res://scripts/level2/hack_door_terminal.gd" id="1_0dcui"]
+
+[sub_resource type="FontFile" id="FontFile_iwg3q"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[node name="hack-terminal" type="Control" unique_id=1537563399]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0dcui")
+
+[node name="background" type="ColorRect" parent="." unique_id=1971149121]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Panel" type="Panel" parent="." unique_id=2019289816]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -200.0
+offset_right = 350.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=3978512]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=904117540]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=2061698677]
+layout_mode = 2
+text = "Helix Hospital // Security Terminal"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer" unique_id=927086959]
+layout_mode = 2
+
+[node name="Status" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=419371625]
+layout_mode = 2
+text = "Connection established"
+
+[node name="Network" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=605271042]
+layout_mode = 2
+text = "Network : Online
+Security: Active
+access level: restricted"
+uppercase = true
+
+[node name="Spacer" type="Control" parent="Panel/MarginContainer/VBoxContainer" unique_id=897975579]
+layout_mode = 2
+
+[node name="Nodes" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=2125211550]
+layout_mode = 2
+alignment = 1
+
+[node name="NodeA" type="Button" parent="Panel/MarginContainer/VBoxContainer/Nodes" unique_id=1380034206]
+layout_mode = 2
+text = "NODE A"
+
+[node name="NodeB" type="Button" parent="Panel/MarginContainer/VBoxContainer/Nodes" unique_id=1490503875]
+layout_mode = 2
+text = "NODE B"
+
+[node name="NodeC" type="Button" parent="Panel/MarginContainer/VBoxContainer/Nodes" unique_id=26576644]
+layout_mode = 2
+text = "NODE C"
+
+[node name="NodeD" type="Button" parent="Panel/MarginContainer/VBoxContainer/Nodes" unique_id=1794689163]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_iwg3q")
+text = "NODE D"
+
+[node name="reset" type="Button" parent="Panel/MarginContainer/VBoxContainer/Nodes" unique_id=770306219]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_iwg3q")
+text = "Reset
+"
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Nodes/NodeA" to="." method="_on_node_a_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Nodes/NodeB" to="." method="_on_node_b_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Nodes/NodeC" to="." method="_on_node_c_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Nodes/NodeD" to="." method="_on_node_d_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Nodes/reset" to="." method="_on_reset_pressed"]

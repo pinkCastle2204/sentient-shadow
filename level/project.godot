@@ -1,0 +1,209 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="LevelVersion10"
+run/main_scene="uid://41aw632q3l2a"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+config/icon="uid://dt8qth3j1pi0b"
+
+[autoload]
+
+QuestManager="*uid://cvgdrjrxomhpn"
+personality="*uid://kyp34pfq0is5"
+GameState="*uid://bg46une044fpm"
+EndingManager="*uid://38n8bh0vy0ni"
+BeehaveGlobalMetrics="*uid://c3ktl6ontsdt7"
+BeehaveGlobalDebugger="*uid://bl3ma400hpvsh"
+Dialogic="*uid://ds2q0uclmolvu"
+LevelManager="*uid://byny6ky2g1js1"
+
+[dialogic]
+
+directories/dch_directory={
+"Child": "res://addons/dialogic/characters/Child.dch",
+"Eva": "res://addons/dialogic/characters/Eva.dch",
+"Level4npc1": "res://addons/dialogic/characters/Level4npc1.dch",
+"Mira": "res://addons/dialogic/characters/Mira.dch",
+"Refugee": "res://addons/dialogic/characters/Refugee.dch",
+"SYSTEM": "res://addons/dialogic/characters/SYSTEM.dch",
+"Samyak": "res://addons/dialogic/characters/Samyak.dch",
+"Unit-07": "res://addons/dialogic/characters/Unit-07.dch",
+"medic": "res://addons/dialogic/characters/medic.dch",
+"mutant": "res://addons/dialogic/characters/mutant.dch",
+"npc_level2": "res://addons/dialogic/characters/npc_level2.dch",
+"unknown": "res://addons/dialogic/characters/unknown.dch"
+}
+directories/dtl_directory={
+"AfterFlashback": "res://addons/dialogic/timeline/intro/AfterFlashback.dtl",
+"AfterWaking": "res://addons/dialogic/timeline/intro/AfterWaking.dtl",
+"ComputerAccess": "res://addons/dialogic/timeline/Level4/ComputerAccess.dtl",
+"FinalWords": "res://addons/dialogic/timeline/FinalBoss/FinalWords.dtl",
+"FinalWordsCompanion": "res://addons/dialogic/timeline/Companion/FinalWordsCompanion.dtl",
+"FirstMedicMeet": "res://addons/dialogic/timeline/FirstMedicMeet.dtl",
+"Flashback": "res://addons/dialogic/timeline/intro/Flashback.dtl",
+"Intro": "res://addons/dialogic/timeline/intro/Intro.dtl",
+"MutantMeet": "res://addons/dialogic/timeline/mutant/MutantMeet.dtl",
+"NPC1talk": "res://addons/dialogic/timeline/Level4/NPC1talk.dtl",
+"NPC1talkAgressive": "res://addons/dialogic/timeline/Level4/NPC1talkAgressive.dtl",
+"NPC1talkBrave": "res://addons/dialogic/timeline/Level4/NPC1talkBrave.dtl",
+"NPC1talkSelfish": "res://addons/dialogic/timeline/Level4/NPC1talkSelfish.dtl",
+"NPC2talkAgressive": "res://addons/dialogic/timeline/Level4/NPC2talkAgressive.dtl",
+"NPC2talkEmpathy": "res://addons/dialogic/timeline/Level4/NPC2talkEmpathy.dtl",
+"NPCtalk2Brave": "res://addons/dialogic/timeline/Level4/NPCtalk2Brave.dtl",
+"NPCtalk2Selfish": "res://addons/dialogic/timeline/Level4/NPCtalk2Selfish.dtl",
+"SecondMedicMeetFirstOption": "res://addons/dialogic/timeline/SecondMedicMeetFirstOption.dtl",
+"SecondMedicSecondOption": "res://addons/dialogic/timeline/SecondMedicSecondOption.dtl",
+"SecondMedicThirdOption": "res://addons/dialogic/timeline/SecondMedicThirdOption.dtl",
+"Unit7first": "res://addons/dialogic/timeline/Level4/Unit7first.dtl",
+"child-before-quest": "res://addons/dialogic/timeline/Level3/child-before-quest.dtl",
+"child-monster-alive": "res://addons/dialogic/timeline/Level3/child-monster-alive.dtl",
+"child-rescued": "res://addons/dialogic/timeline/Level3/child-rescued.dtl",
+"computer-lore-1": "res://addons/dialogic/timeline/Level3/computer-lore-1.dtl",
+"guard": "res://addons/dialogic/timeline/Level4/guard.dtl",
+"hidden-aftermath": "res://addons/dialogic/timeline/endings/hidden-aftermath.dtl",
+"hidden-ending": "res://addons/dialogic/timeline/endings/hidden-ending.dtl",
+"hope-aftermath": "res://addons/dialogic/timeline/endings/hope-aftermath.dtl",
+"hope-ending": "res://addons/dialogic/timeline/endings/hope-ending.dtl",
+"level2_interaction": "res://addons/dialogic/timeline/level2_interaction.dtl",
+"level2_selfish": "res://addons/dialogic/timeline/level2_selfish.dtl",
+"level_3_ending": "res://addons/dialogic/timeline/Level3/level_3_ending.dtl",
+"level_3_intro": "res://addons/dialogic/timeline/Level3/level_3_intro.dtl",
+"npc-aggressive": "res://addons/dialogic/timeline/Level3/npc-aggressive.dtl",
+"npc-brave": "res://addons/dialogic/timeline/Level3/npc-brave.dtl",
+"npc-empathy": "res://addons/dialogic/timeline/Level3/npc-empathy.dtl",
+"refugee-after-child-rescued": "res://addons/dialogic/timeline/Level3/refugee-after-child-rescued.dtl",
+"refugee-child": "res://addons/dialogic/timeline/Level3/refugee-child.dtl",
+"sacrifice-aftermath": "res://addons/dialogic/timeline/endings/sacrifice-aftermath.dtl",
+"sacrifice-ending": "res://addons/dialogic/timeline/endings/sacrifice-ending.dtl",
+"sacrifice-process": "res://addons/dialogic/timeline/endings/sacrifice-process.dtl",
+"shadow-ending": "res://addons/dialogic/timeline/endings/shadow-ending.dtl",
+"timeline": "res://scenes/level2_helper/timeline.dtl"
+}
+layout/style_directory={}
+glossary/default_case_sensitive=true
+layout/style_list=[]
+layout/default_style="Default"
+text/letter_speed=0.01
+text/initial_text_reveal_skippable=true
+text/text_reveal_skip_delay=0.1
+text/advance_delay=0.1
+text/autoadvance_per_character_delay=0.1
+text/autoadvance_ignored_characters_enabled=true
+animations/join_default_length=0.5
+animations/join_default_wait=true
+animations/leave_default_length=0.5
+animations/leave_default_wait=true
+animations/cross_fade_default_length=0.5
+choices/autofocus_first=true
+choices/delay=0.2
+choices/reveal_delay=0
+choices/reveal_by_input=false
+save/autosave_delay=60.0
+save/encryption_on_exports_only=true
+text/autoadvance_enabled=false
+text/autopauses={}
+audio/channel_defaults={
+"": {
+"audio_bus": "",
+"fade_length": 0.0,
+"loop": false,
+"volume": 0.0
+},
+"music": {
+"audio_bus": "",
+"fade_length": 0.0,
+"loop": true,
+"volume": 0.0
+}
+}
+variables={
+"compassion": 0,
+"courage": 0,
+"greed": 0,
+"save_child": false,
+"violence": 0
+}
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/beehave/plugin.cfg", "res://addons/dialogic/plugin.cfg")
+
+[input]
+
+Jump={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":0,"pressure":0.0,"pressed":true,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":119,"location":0,"echo":false,"script":null)
+]
+}
+move_right={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194321,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":0,"axis_value":1.0,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":100,"location":0,"echo":false,"script":null)
+]
+}
+move_left={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":0,"axis_value":-1.0,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":97,"location":0,"echo":false,"script":null)
+]
+}
+attack={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":2,"pressure":0.0,"pressed":true,"script":null)
+]
+}
+interact={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+]
+}
+i_button={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":73,"key_label":0,"unicode":105,"location":0,"echo":false,"script":null)
+]
+}
+open_quest={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"location":0,"echo":false,"script":null)
+]
+}
+dialogic_default_action={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":16,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194309,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":16,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":32,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":16,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":88,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
+]
+}
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+viewport/hdr_2d=true

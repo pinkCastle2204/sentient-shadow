@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://butx7fy3vhlmk"]
+
+[ext_resource type="Script" uid="uid://q572pjj2nmat" path="res://scripts/optionality.gd" id="1_nsvko"]
+[ext_resource type="Texture2D" uid="uid://gj4j4qlrh0m8" path="res://assets/Optionality.png" id="2_rujlb"]
+[ext_resource type="Texture2D" uid="uid://be11baikkobr" path="res://assets/Btn_Primary_Normal.png" id="3_i8yux"]
+[ext_resource type="Texture2D" uid="uid://b6n7sdprlxi2k" path="res://assets/Btn_Primary_Pressed.png" id="4_h8yj2"]
+[ext_resource type="Texture2D" uid="uid://c4hb6iaq22rc5" path="res://assets/Btn_Primary_Hover.png" id="5_ypmnc"]
+[ext_resource type="FontFile" uid="uid://cpn3hxv60flo7" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="6_a3gj2"]
+[ext_resource type="FontFile" uid="uid://bjdtvr27resh6" path="res://assets/fonts/RubikGlitch-Regular.ttf" id="7_rnt2v"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_17o6o"]
+texture = ExtResource("2_rujlb")
+
+[node name="Optionality" type="CanvasLayer" unique_id=651342392]
+script = ExtResource("1_nsvko")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1293780079]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_17o6o")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=637553313]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1694164260]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=511660450]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_rnt2v")
+theme_override_font_sizes/font_size = 50
+text = "CHOOSE ONE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Panel/MarginContainer" unique_id=2141952458]
+layout_mode = 2
+
+[node name="NextLevel" type="TextureButton" parent="Panel/MarginContainer/Control" unique_id=1693545796]
+layout_mode = 0
+offset_left = 73.99999
+offset_top = 233.0
+offset_right = 1098.0
+offset_bottom = 530.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("3_i8yux")
+texture_pressed = ExtResource("4_h8yj2")
+texture_hover = ExtResource("5_ypmnc")
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Control/NextLevel" unique_id=165243328]
+layout_mode = 0
+offset_right = 1012.4999
+offset_bottom = 272.49994
+theme_override_fonts/font = ExtResource("6_a3gj2")
+theme_override_font_sizes/font_size = 100
+text = "Move to next level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionalBoss" type="TextureButton" parent="Panel/MarginContainer/Control" unique_id=1692591776]
+layout_mode = 0
+offset_left = 602.0
+offset_top = 233.0
+offset_right = 1626.0
+offset_bottom = 530.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("3_i8yux")
+texture_pressed = ExtResource("4_h8yj2")
+texture_hover = ExtResource("5_ypmnc")
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/Control/OptionalBoss" unique_id=171113226]
+layout_mode = 0
+offset_left = -10.0
+offset_right = 992.4999
+offset_bottom = 292.49994
+theme_override_fonts/font = ExtResource("6_a3gj2")
+theme_override_font_sizes/font_size = 100
+text = "Fight optional boss"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Panel/MarginContainer/Control/NextLevel" to="." method="_on_next_level_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/Control/OptionalBoss" to="." method="_on_optional_boss_pressed"]

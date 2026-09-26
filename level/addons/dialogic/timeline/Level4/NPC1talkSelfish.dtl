@@ -1,0 +1,10 @@
+mutant: A voice, weak, from behind the glass: "...another one. Are you here to fix us? Or finish the job?"
+mutant: *The subject watches silently, then mutters,* Nothing here's worth taking. Move along.
+- Wrong. You might be worth something.
+	[signal arg="NPC1_Selfish_choice1"]
+	
+	mutant: The subject stiffens. "...Helix already tried that. Ask them how it went."
+- [leave]
+	[signal arg="NPC1_Selfish_choice2"]
+	
+	mutant: No reaction — the subject simply watches you leave.

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://w3xxwkcjfvya"
+path="res://.godot/imported/freesound_community-facility-siren-loopable-100687.mp3-f3aa640d4e8a7ea85f9a385b3429212f.mp3str"
+
+[deps]
+
+source_file="res://assets/sound effects/freesound_community-facility-siren-loopable-100687.mp3"
+dest_files=["res://.godot/imported/freesound_community-facility-siren-loopable-100687.mp3-f3aa640d4e8a7ea85f9a385b3429212f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

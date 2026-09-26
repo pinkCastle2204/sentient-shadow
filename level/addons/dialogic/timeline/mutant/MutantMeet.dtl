@@ -1,0 +1,12 @@
+mutant: Please...kill me
+mutant: I can't handle the pain anymore
+mutant: I've seen my friends turn into monsters...seen them rip each other apart..
+mutant: I don't want to turn into one of them
+mutant: Please end it...for me..
+- Kill him
+	[signal arg="killed"]
+	mutant: Thank you..[aa = 2]
+- Ignore him
+	[signal arg="ignored"]
+	mutant: I understand...\
+	You shouldn't carry the burden of killing me[aa = 2]

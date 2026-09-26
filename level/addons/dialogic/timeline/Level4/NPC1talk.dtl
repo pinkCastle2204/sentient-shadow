@@ -1,0 +1,10 @@
+mutant: A voice, weak, from behind the glass: "...another one. Are you here to fix us? Or finish the job?"
+mutant: Please — I can still feel who I was. Don't let them tell you I'm just an experiment.
+- I'll get you out of here.
+	[signal arg="NPC1_Empathy_choice1"]
+	
+	mutant: You mean that? Then hurry — before they notice this cell's open.
+- I can't help everyone. I'm sorry.
+	[signal arg="NPC1_Empathy_choice2"]
+	
+	mutant: The subject's face falls, chains going slack. "...Of course. Why would you."

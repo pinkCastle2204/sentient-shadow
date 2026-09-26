@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="Inv" format=3 uid="uid://cvs3hlar6lsud"]
+
+[ext_resource type="Script" uid="uid://cvqakkq0ibpww" path="res://inv_slot.gd" id="2_u4l7u"]
+[ext_resource type="Script" uid="uid://d3dagf5fnipu" path="res://inventory.gd" id="3_ig6sg"]
+
+[sub_resource type="Resource" id="Resource_20w12"]
+script = ExtResource("2_u4l7u")
+metadata/_custom_type_script = "uid://cvqakkq0ibpww"
+
+[sub_resource type="Resource" id="Resource_t7ayl"]
+script = ExtResource("2_u4l7u")
+metadata/_custom_type_script = "uid://cvqakkq0ibpww"
+
+[sub_resource type="Resource" id="Resource_hyv8y"]
+script = ExtResource("2_u4l7u")
+metadata/_custom_type_script = "uid://cvqakkq0ibpww"
+
+[sub_resource type="Resource" id="Resource_l28v0"]
+script = ExtResource("2_u4l7u")
+metadata/_custom_type_script = "uid://cvqakkq0ibpww"
+
+[sub_resource type="Resource" id="Resource_4aqo6"]
+script = ExtResource("2_u4l7u")
+metadata/_custom_type_script = "uid://cvqakkq0ibpww"
+
+[sub_resource type="Resource" id="Resource_3esfb"]
+script = ExtResource("2_u4l7u")
+metadata/_custom_type_script = "uid://cvqakkq0ibpww"
+
+[sub_resource type="Resource" id="Resource_jua4q"]
+script = ExtResource("2_u4l7u")
+metadata/_custom_type_script = "uid://cvqakkq0ibpww"
+
+[sub_resource type="Resource" id="Resource_mj13q"]
+script = ExtResource("2_u4l7u")
+metadata/_custom_type_script = "uid://cvqakkq0ibpww"
+
+[sub_resource type="Resource" id="Resource_x8d8c"]
+script = ExtResource("2_u4l7u")
+metadata/_custom_type_script = "uid://cvqakkq0ibpww"
+
+[sub_resource type="Resource" id="Resource_u4l7u"]
+script = ExtResource("2_u4l7u")
+metadata/_custom_type_script = "uid://cvqakkq0ibpww"
+
+[sub_resource type="Resource" id="Resource_noluh"]
+script = ExtResource("2_u4l7u")
+metadata/_custom_type_script = "uid://cvqakkq0ibpww"
+
+[sub_resource type="Resource" id="Resource_h1abu"]
+script = ExtResource("2_u4l7u")
+metadata/_custom_type_script = "uid://cvqakkq0ibpww"
+
+[resource]
+script = ExtResource("3_ig6sg")
+slots = Array[ExtResource("2_u4l7u")]([SubResource("Resource_20w12"), SubResource("Resource_t7ayl"), SubResource("Resource_hyv8y"), SubResource("Resource_l28v0"), SubResource("Resource_4aqo6"), SubResource("Resource_3esfb"), SubResource("Resource_jua4q"), SubResource("Resource_mj13q"), SubResource("Resource_x8d8c"), SubResource("Resource_u4l7u"), SubResource("Resource_noluh"), SubResource("Resource_h1abu")])
+metadata/_custom_type_script = "uid://d3dagf5fnipu"

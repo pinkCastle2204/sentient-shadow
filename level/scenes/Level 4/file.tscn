@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dnvpu30l8l2wb"]
+
+[ext_resource type="Texture2D" uid="uid://0tsjhdufcfp8" path="res://assets/wall.png" id="1_d7ejx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2uyvy"]
+texture = ExtResource("1_d7ejx")
+
+[node name="File" type="CanvasLayer" unique_id=1226290169]
+
+[node name="Panel" type="Panel" parent="." unique_id=184303860]
+offset_right = 1146.0
+offset_bottom = 650.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_2uyvy")
+
+[node name="Label" type="Label" parent="Panel" unique_id=14349824]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 11.0
+offset_right = 987.0
+offset_bottom = 606.0
+text = "================================================
+SUBJECT INTAKE RECORD
+DESIGNATION: SUBJECT ZERO
+NAME ON FILE: MIRA
+STATUS: ACTIVE — CONTAINMENT CHAMBER, SUB-LEVEL 4
+================================================
+
+Subject is the only known genetic match capable of
+surviving the Catalyst serum. Every other candidate
+failed. Subject Zero did not.
+
+RESEARCHER LOG — DR. A. VOSS:
+
+Subject remains lucid. She remembers who she is. She
+asks every day if anyone is looking for her.
+
+She has a sibling. That should have been redacted.
+It wasn't. I don't think that was an accident.
+
+Sub-Level 4. Containment Chamber 1. She is still
+herself. Get her out before the next cycle.
+press E to close this file
+— A.V.
+
+================================================
+[FILE CORRUPTED — REMAINDER UNREADABLE]
+================================================"
+autowrap_mode = 1
+uppercase = true
+visible_characters = 700
+visible_ratio = 0.83

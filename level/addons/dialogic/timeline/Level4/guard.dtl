@@ -1,0 +1,7 @@
+guard: The guard steps into your path, hand on their weapon. "This area's restricted. State your business."
+- I'm trying to save someone. Please, let me through.
+	[signal arg="NPC3_talk"]
+	guard: ...Fine. Go quickly, before I think better of this.[aa = 0.5]
+- Move. Or I make you.
+	[signal arg="NPC3_attack"]
+	guard: *Their hand tightens on the weapon.* Wrong answer.[aa = 0.5]

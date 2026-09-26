@@ -1,0 +1,11 @@
+scientist: A scientist presses against the cell glass. "You're not one of them. Please — say something."
+scientist: We deserve whatever's coming — but not from those things out there. Please, just get us out.
+- I'm getting you out. Now.
+	[signal arg="NPC2_Empathy_choice1"]
+	scientist: Thank you — I'll tell you everything I know about Subject Zero, I swear it.
+	scientist: Sub-Level 4. That's where they're keeping... keeping the sibling. I never agreed with what they did down there.
+	scientist: Go. I'll wait here until you're ready to move — I'm not going anywhere without you now.
+- I need to think about this.
+	[signal arg="NPC2_Empathy_choice2"]
+	scientist: ...Please don't leave me here. Please.
+	scientist: *The scientist slumps against the glass, saying nothing more.*

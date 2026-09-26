@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://wtrba10k185p"]
+
+[ext_resource type="AudioStream" uid="uid://dsymigum0ba01" path="res://assets/miguel_o_hara_sound.mp3" id="1_4pfke"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" unique_id=652025047]
+stream = ExtResource("1_4pfke")

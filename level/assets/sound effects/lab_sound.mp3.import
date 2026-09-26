@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dam77omu1cv35"
+path="res://.godot/imported/lab_sound.mp3-d48e26397b36627ff16caf976d45aa9b.mp3str"
+
+[deps]
+
+source_file="res://assets/sound effects/lab_sound.mp3"
+dest_files=["res://.godot/imported/lab_sound.mp3-d48e26397b36627ff16caf976d45aa9b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

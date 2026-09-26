@@ -1,0 +1,18 @@
+Refugee: Please... you have to help me.
+Refugee: My child was taken by one of those creatures.\
+She's still alive. I know she is.
+Refugee: Please, bring my child back.
+- I'll save your child.
+	Refugee: Thank you! She is near the monster at the bottom right.
+	set {save_child} = true
+	set {compassion} += 20.0
+	set {greed} -= 10.0
+	set {violence} -= 15.0
+	set {courage} += 10.0
+	[end_timeline]
+- I can't help you.
+	Refugee: I... understand. I hope someone else can save them.
+	set {greed} += 15.0
+	set {courage} -= 10.0
+	set {compassion} -= 10.0
+	[end_timeline]

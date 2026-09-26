@@ -1,0 +1,24 @@
+SYSTEM: Calibrating...
+SYSTEM: Here are the results.
+Eva: ...
+Eva: "We have found a unique subject- Subject Zero"
+Eva: “Subject Zero possesses a rare genetic sequence that prevents the mutation from progressing.”
+Eva: “The cure cannot be completed without genetic material from Subject Zero. Keep the subject alive at all costs.”
+Eva: This means...
+Unit-07: The company has decided to sacrifice a person for the cure.
+- We need to find and save that person
+	set {compassion} += 20.0
+	set {greed} -= 15.0
+	set {courage} += 10.0
+	set {violence} -= 10.0
+	Unit-07: Interesting...
+- I don't care. I just want to find my sister.
+	set {greed} += 15.0
+	set {compassion} -= 5.0
+	set {courage} += 3.0
+	Unit-07: Makes sense. Why would you care about a stranger?
+- Doesn't it make sense to sacrifice one person to save the others?
+	set {violence} += 20.0
+	set {compassion} -= 5.0
+	Unit-07: That is a unique perspective.
+Unit-07: Then, I believe our next destination should be the Helix HeadQuarters.

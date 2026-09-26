@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://beytksuyc1ji0"]
+
+[ext_resource type="Texture2D" uid="uid://dtr2senm0y7r2" path="res://assets/computer.png" id="1_3bk3t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vorau"]
+size = Vector2(64, 67)
+
+[node name="Area2D" type="Area2D" unique_id=1873921087]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1222150454]
+position = Vector2(2, 1.5)
+shape = SubResource("RectangleShape2D_vorau")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1147986961]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_3bk3t")

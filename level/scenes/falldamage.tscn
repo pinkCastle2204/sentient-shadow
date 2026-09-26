@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://7jtwp3c74i2v"]
+
+[ext_resource type="AudioStream" uid="uid://dmnnf6kmxqa3l" path="res://assets/universfield-character-fall-impact-352287.mp3" id="1_qotm2"]
+
+[node name="falldamage" type="AudioStreamPlayer" unique_id=591961068]
+stream = ExtResource("1_qotm2")

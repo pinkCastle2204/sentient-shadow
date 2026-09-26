@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" format=3 uid="uid://dbef5fkkrmx75"]
+
+[ext_resource type="Script" uid="uid://b4ugtvtd8efk1" path="res://Inventory/inventory_item.gd" id="1_ghr8m"]
+[ext_resource type="Texture2D" uid="uid://v7o878pneerm" path="res://assets/environment/Icon Pack - Potion Red Bottle.png" id="2_v0iqw"]
+
+[resource]
+script = ExtResource("1_ghr8m")
+name = "potion"
+texture = ExtResource("2_v0iqw")
+metadata/_custom_type_script = "uid://b4ugtvtd8efk1"

@@ -1,0 +1,11 @@
+scientist: A scientist presses against the cell glass. "You're not one of them. Please — say something."
+scientist: *Scientist shrinks back, hands raised.* Don't! I'll talk, just — don't come any closer.
+- Talk. Now.
+	[signal arg="NPC2_Aggressive_choice1"]
+	scientist: Sub-Level 4! The files — Subject Zero's files are in Sub-Level 4! That's everything, I swear!
+	scientist: Please, that's all I know. I never even had clearance for the chamber itself.
+	scientist: *The scientist stays pressed against the far wall, not moving, as you leave.*
+- Get up. You're coming with me.
+	[signal arg="NPC2_Aggressive_choice2"]
+	scientist: The scientist stumbles up, too afraid to argue. "O-okay. Okay. Just don't hurt me."
+	scientist: I'll tell you whatever you need. Just — Sub-Level 4. That's where they took the last one like you're looking for.

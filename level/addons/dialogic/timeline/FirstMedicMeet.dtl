@@ -1,0 +1,13 @@
+medic: Helloooooo there !!!!!
+medic: Finally someone came !!!!
+medic: I am about to dieeeee!!!
+medic: Will you help me find 3 health potions hidden in this lab?
+- Find 3 potions and help him
+	[signal arg="talk"]
+	You\:  Wait here I will comeback and save you
+- Find 3 potions for your self and let him die
+	[signal arg="option2"]
+	You\: I don't care, I will find them for myself and watch you die HAHA
+- Forget him and move on
+	[signal arg="option3"]
+	Who cares
