@@ -1,7 +1,7 @@
 extends CanvasLayer
 @onready var door: StaticBody2D = $"../Door"
 @onready var player: CharacterBody2D = $"../Player"
-@onready var panel: Panel = $Panel
+@onready var panel: PanelContainer = $Panel
 
 
 func _ready() -> void:
