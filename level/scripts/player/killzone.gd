@@ -22,11 +22,12 @@ func killplayer() -> void:
 	is_killing = true
 	
 	player.dead = true
+	
 	player.animated_sprite_2d.play("death")
 	
 	await get_tree().create_timer(1.0).timeout
 	
 	player.global_position = checkpoint_manager.last_location
-	
+	player.health = 100
 	player.dead = false
 	is_killing = false

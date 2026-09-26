@@ -5157,25 +5157,31 @@ func run_dialogue(dia):
 func dialogic_signal(arg: String):
 	match arg:
 		\"NPC1_Empathy_choice1\":
-			personality.update_personality([40, -20, -30, -10])
-		\"NPC1_Empathy_choice2\":
-			personality.update_personality([-25, 10, 15, -15])
-		\"NPC1_Aggressive_choice1\":
-			personality.update_personality([25, -10, -30, -15])
-		\"NPC1_Aggressive_choice2\":
-			personality.update_personality([-35, 15, 45, 20])
-	# TODO: trigger combat here if this NPC turns hostile
-			animated_sprite_2d.play(\"death\")
-		\"NPC1_Selfish_choice1\":
-			personality.update_personality([-35, 45, 15, -10])
-		\"NPC1_Selfish_choice2\":
-			personality.update_personality([5, 15, -5, -10])
-		\"NPC1_Brave_choice1\":
-			personality.update_personality([15, -15, -10, 30])
-	# TODO: set subject_zero_hint flag
-		\"NPC1_Brave_choice2\":
-			personality.update_personality([5, -5, -5, 15])
+			personality.update_personality([40, 0, 30, 0])
 
+		\"NPC1_Empathy_choice2\":
+			personality.update_personality([0, 10, -20, 15])
+
+		\"NPC1_Aggressive_choice1\":
+			personality.update_personality([25, 0, -20, 0])
+
+		\"NPC1_Aggressive_choice2\":
+			personality.update_personality([-25, 0, 35, 20])
+			# TODO: trigger combat here if this NPC turns hostile
+			animated_sprite_2d.play(\"death\")
+
+		\"NPC1_Selfish_choice1\":
+			personality.update_personality([-20, 35, 10, 0])
+
+		\"NPC1_Selfish_choice2\":
+			personality.update_personality([5, 20, -5, 0])
+
+		\"NPC1_Brave_choice1\":
+			personality.update_personality([15, -10, 0, 30])
+			# TODO: set subject_zero_hint flag
+
+		\"NPC1_Brave_choice2\":
+			personality.update_personality([5, -5, 0, 20])
 func on_body_entered(body):
 	if body.name == \"Player\":
 		player_near = true

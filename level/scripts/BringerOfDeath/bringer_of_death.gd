@@ -88,6 +88,7 @@ func _physics_process(delta: float) -> void:
 	fsm.physics_update(delta)
 	move_and_slide()
 	progress_bar.value = health
+
 @onready var optionality: CanvasLayer = $"../Optionality"
 
 

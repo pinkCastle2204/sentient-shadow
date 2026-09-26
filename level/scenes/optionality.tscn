@@ -28,6 +28,17 @@ theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 40
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1694164260]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=511660450]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_rnt2v")
+theme_override_font_sizes/font_size = 50
+text = "CHOOSE ONE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Control" type="Control" parent="Panel/MarginContainer" unique_id=2141952458]
 layout_mode = 2
 
@@ -71,17 +82,6 @@ offset_bottom = 292.49994
 theme_override_fonts/font = ExtResource("6_a3gj2")
 theme_override_font_sizes/font_size = 100
 text = "Fight optional boss"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=1694164260]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=511660450]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("7_rnt2v")
-theme_override_font_sizes/font_size = 50
-text = "CHOOSE ONE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
