@@ -37,6 +37,7 @@ func _on_bypassbutton_pressed() -> void:
 		print("BYPASS SUCCESSFUL!")
 		lockstatus.text = "ACCESS GRANTED"
 		force_entry_success.emit()
+		personality.update_personality([-10,5,20,-10])
 	else:
 		print("BYPASS FAILED!")
 		lockstatus.text = "ACCESS DENIED-TRY AGAIN"
