@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://boqa4wuifevka" path="res://assets/New folder/3 Cyborg/Cyborg_idle.png" id="21_s4es8"]
 [ext_resource type="Script" uid="uid://ds453gir530ys" path="res://scripts/helper.gd" id="22_ikw2v"]
 [ext_resource type="Script" uid="uid://bltier8tuhrn8" path="res://scripts/level2/next_level_chalo.gd" id="24_ekhvm"]
+[ext_resource type="PackedScene" uid="uid://b6ijsqmv6yscu" path="res://summon_zone.tscn" id="27_cgqhq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bo4dx"]
 texture = ExtResource("4_alqfr")
@@ -1666,6 +1667,12 @@ script = ExtResource("24_ekhvm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="nextLevelChalo" unique_id=1631268701]
 position = Vector2(-3, 1)
 shape = SubResource("RectangleShape2D_mpwed")
+
+[node name="summonZone" parent="." unique_id=90388722 node_paths=PackedStringArray("targetMonster", "targetPlayer", "companion") instance=ExtResource("27_cgqhq")]
+position = Vector2(1185, 109)
+targetMonster = NodePath("../Level2boss")
+targetPlayer = NodePath("../Player")
+companion = NodePath("../Bcompamion")
 
 [connection signal="pressed" from="Player/Camera2D/Door_info/route_choice/restore" to="Door" method="_on_restore_pressed"]
 [connection signal="pressed" from="Player/Camera2D/Door_info/route_choice/force" to="Door" method="_on_force_pressed"]

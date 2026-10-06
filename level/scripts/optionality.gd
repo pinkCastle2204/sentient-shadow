@@ -15,6 +15,7 @@ func _on_next_level_pressed() -> void:
 	panel.visible = false
 	player.player_inte = false
 	print("working next")
+	personality.update_personality([0,0,-10,10])
 
 func _on_optional_boss_pressed() -> void:
 	door.visible = false
@@ -22,3 +23,4 @@ func _on_optional_boss_pressed() -> void:
 	panel.visible = false
 	player.player_inte = false
 	print("working next optional")
+	personality.update_personality([0,0,20,10])

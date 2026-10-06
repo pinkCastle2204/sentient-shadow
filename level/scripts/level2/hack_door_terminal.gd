@@ -41,6 +41,7 @@ func _on_node_d_pressed() -> void:
 		status.text = "NODE D CONNECTED\nACCESS GRANTED"
 		print("HACK SUCCESSFUL!")
 		hack_successful.emit()
+		personality.update_personality([-10,5,20,-10])
 	else:
 		wrong_node()
 
